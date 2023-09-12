@@ -53,13 +53,13 @@
                </font>
             </Label>
             <Button mnemonicParsing="false" onAction="#switchToStaticArray" text="Static Array" />
-            <Button mnemonicParsing="false" text="Dynamic Array" />
-            <Button mnemonicParsing="false" text="Singly-Linked List" />
-            <Button mnemonicParsing="false" text="Doubly-Linked List" />
-            <Button mnemonicParsing="false" text="Stack" />
-            <Button mnemonicParsing="false" text="Queue" />
-            <Button mnemonicParsing="false" text="Binary Search Tree" />
-            <Button mnemonicParsing="false" text="Hash Table" />
+            <Button mnemonicParsing="false" onAction="#switchToDynamicArray" text="Dynamic Array" />
+            <Button mnemonicParsing="false" onAction="#switchToSinglyLinkedList" text="Singly-Linked List" />
+            <Button mnemonicParsing="false" onAction="#switchToDoublyLinkedList" text="Doubly-Linked List" />
+            <Button mnemonicParsing="false" onAction="#switchToStack" text="Stack" />
+            <Button mnemonicParsing="false" onAction="#switchToQueue" text="Queue" />
+            <Button mnemonicParsing="false" onAction="#switchToBinarySearchTree" text="Binary Search Tree" />
+            <Button mnemonicParsing="false" onAction="#switchToHashTable" text="Hash Table" />
          </children>
          <padding>
             <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
