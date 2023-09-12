@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>lbycpa2.module1_q4/lbycpa2.module1_q4.HelloApplication</mainClass>
+                            <mainClass>lbycpa2.module1_q4/lbycpa2.module1_q4.MainApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
