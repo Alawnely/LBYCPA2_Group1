@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.MainApplication">
+<VBox prefHeight="450.0" prefWidth="250.0" style="-fx-background-color: f4dddd;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.MainApplication">
    <children>
       <AnchorPane>
          <children>
@@ -33,21 +33,21 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Label layoutX="16.0" layoutY="16.0" prefHeight="17.0" prefWidth="126.0" text="MODULE 1 LAB 4 (GROUPWORK)" textFill="#98a8cf" wrapText="true">
+            <Label layoutX="16.0" layoutY="16.0" prefHeight="26.0" prefWidth="238.0" text="MODULE 1 LAB 4 (GROUPWORK)" textFill="#6e1f9c" wrapText="true">
                <font>
-                  <Font size="8.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="32.0" prefHeight="17.0" prefWidth="126.0" text="DRAPIZA GUANZON LAT YU " textFill="#98a8cf" wrapText="true">
+            <Label layoutX="16.0" layoutY="32.0" prefHeight="17.0" prefWidth="126.0" text="DRAPIZA GUANZON LAT YU " textFill="#6e1f9c" wrapText="true">
                <font>
-                  <Font size="8.0" />
+                  <Font name="Arial Bold Italic" size="8.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
       <VBox spacing="8.0">
          <children>
-            <Label prefHeight="63.0" prefWidth="126.0" text="Data Structures" wrapText="true">
+            <Label prefHeight="63.0" prefWidth="126.0" text="Data Structures" textFill="#8c9abc" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

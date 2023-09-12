@@ -123,7 +123,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="If for example, a car leaves the parking slot, that specific slot becomes available for new cars to park. However, the amount of slots in the parking lot does not change. Similarly in the static array, even if elements are removed, the size of the array remains fixed." wrapText="true">
+                  <Label text="If a car leaves the parking slot, that specific slot becomes available for new cars to park. However, the amount of slots in the parking lot does not change. Similarly in the static array, even if elements are removed, the size of the array remains fixed." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
