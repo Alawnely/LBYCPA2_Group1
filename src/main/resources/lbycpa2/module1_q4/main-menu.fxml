@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="441.0" prefWidth="247.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.MainApplication">
+<VBox prefHeight="441.0" prefWidth="247.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.MainApplication">
    <children>
       <AnchorPane>
          <children>
@@ -54,7 +58,7 @@
             <Button mnemonicParsing="false" text="Doubly-Linked List" />
             <Button mnemonicParsing="false" text="Stack" />
             <Button mnemonicParsing="false" text="Queue" />
-            <Button mnemonicParsing="false" onAction="#switchToBinarySearchTree" text="Binary Search Tree" />
+            <Button mnemonicParsing="false" text="Binary Search Tree" />
             <Button mnemonicParsing="false" text="Hash Table" />
          </children>
          <padding>

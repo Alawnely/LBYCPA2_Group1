@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="700.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.ADataStructure">
+   <children>
+      <AnchorPane>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="65.0" stroke="TRANSPARENT" strokeType="INSIDE" width="262.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.23333333432674408" green="0.9744444489479065" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox>
+               <children>
+                  <Label text="Dynamic Array">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="258.0" prefHeight="32.0" text="Event Registration System">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Dynamic Arrays are comparable to real-life event registration systems as they are lists of objects that are flexible, that is, the size changes according to their contents." wrapText="true">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="200.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@event-registration.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="32.0" prefWidth="157.0" text="Access">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="In an event registration system, organizers can access a participant by knowing its index in the list. In layman's terms, it is the participants' identification numbers (ID)." wrapText="true">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="32.0" prefWidth="157.0" text="Search">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Searching for a participant (or an object in a dynamic array) involves looking for everyone in the list. In technical terms, a for-loop is used in this operation." wrapText="true">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="32.0" prefWidth="157.0" text="Insert">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="In this system, new participants are added at the end of the list, just like in dynamic arrays where new objects are added at the end as well." wrapText="true">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="32.0" prefWidth="157.0" text="Delete">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="274.0" text="To delete or remove a participant in the list, that person will no longer considered to be part of the list, and the indices of the participants afterwards are shifted one below." wrapText="true">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
