@@ -38,7 +38,7 @@
             <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
          </children>
       </AnchorPane>
-      <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToWidth="true" style="-fx-background: f4dddd;" layoutX="3.0" layoutY="62.0" VBox.vgrow="ALWAYS">
          <content>
             <VBox>
                <children>
