@@ -56,7 +56,7 @@
                      <children>
                         <ImageView fitHeight="192.0" fitWidth="253.0" layoutX="21.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@phone_book.png" />
+                              <Image url="@7-phone_book.png" />
                            </image>
                         </ImageView>
                      </children></AnchorPane>

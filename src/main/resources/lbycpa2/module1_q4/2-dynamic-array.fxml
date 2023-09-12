@@ -59,7 +59,7 @@
                   </Label>
                   <ImageView fitHeight="200.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@event-registration.png" />
+                        <Image url="@2-event registration.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Access">
