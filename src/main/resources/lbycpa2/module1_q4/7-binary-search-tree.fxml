@@ -13,31 +13,36 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1073.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.ADataStructure">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.ADataStructure">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="65.0" layoutX="-6.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="262.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.23333333432674408" green="0.9744444489479065" blue="1.0" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <ScrollPane layoutX="3.0" layoutY="62.0" prefHeight="1006.0" prefWidth="250.0">
+      <AnchorPane>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="65.0" stroke="TRANSPARENT" strokeType="INSIDE" width="262.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.23333333432674408" green="0.9744444489479065" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" prefHeight="1006.0" prefWidth="250.0">
          <content>
             <VBox>
                <children>
-                  <Label prefHeight="32.0" prefWidth="201.0" text="Binary Search Tree">
+                  <Label prefHeight="32.0" text="Binary Search Tree">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -47,27 +52,24 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="47.0" prefWidth="232.0" text="A phonebook is similar to the Binary Search Tree since it allows users to do search, insert, and delete operations efficiently" wrapText="true">
+                  <Label text="A phonebook is similar to the Binary Search Tree since it allows users to do search, insert, and delete operations efficiently" wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
-                  <AnchorPane prefHeight="203.0" prefWidth="179.0">
-                     <children>
-                        <ImageView fitHeight="192.0" fitWidth="253.0" layoutX="21.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@7-phone_book.png" />
-                           </image>
-                        </ImageView>
-                     </children></AnchorPane>
+                  <ImageView fitHeight="192.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@7-phone_book.png" />
+                     </image>
+                  </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Access">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="120.0" prefWidth="230.0" text="To access elements within the phonebook, one simply needed to know a portion of the name. Since a phone book is likely to be arranged alphabetically, you can start in the middle and continue searching left or right of the pages until you found the target name. Similarly, in a binary search tree, it finds the specific node through comparing the left and right values and proceeds accordingly. Its goal is to reach that specific node and access its information as efficiently as possible." wrapText="true">
+                  <Label text="To access elements within the phonebook, one simply needed to know a portion of the name. Since a phone book is likely to be arranged alphabetically, you can start in the middle and continue searching left or right of the pages until you found the target name. Similarly, in a binary search tree, it finds the specific node through comparing the left and right values and proceeds accordingly. Its goal is to reach that specific node and access its information as efficiently as possible." wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Search">
@@ -75,9 +77,9 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="52.0" prefWidth="230.0" text="Similar to the access operation, it also involves finding and retrieving a specific element but its mainly concerned with determining whether that element exists within the phonebook/tree. " wrapText="true">
+                  <Label text="Similar to the access operation, it also involves finding and retrieving a specific element but its mainly concerned with determining whether that element exists within the phonebook/tree. " wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Insert">
@@ -85,9 +87,9 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="82.0" prefWidth="226.0" text="When inserting a new element within the tree or phonebook. One has to compare the name values of the new contact to existing entries. This comparison determines the position of the new contact within existing entries whether it would be to the left or to the right of the node." wrapText="true">
+                  <Label text="When inserting a new element within the tree or phonebook. One has to compare the name values of the new contact to existing entries. This comparison determines the position of the new contact within existing entries whether it would be to the left or to the right of the node." wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Delete">
@@ -95,15 +97,14 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="310.0" prefWidth="231.0" text="The delete operation is a bit complex since there are three possible scenarios to consider. First, a search operation is performed to look for the element or contact that would be deleted. The first scenario to consider is the &quot;No Children&quot; (Leaf Node) wherein if the contact that must be deleted has no children or submembers, one can simply remove that node from the tree (Similar to crossing out the name of the contact). The next scenario to consider is One Child wherein if the node you want to delete has a left or a right child, it is possible to bypass the node (delete) through connecting its parent directly to its only child. This is similar to ripping a page out from the phone book and taping it to a different location. The last scenario to consider is &quot;Two Children&quot; wherein the node has both a left and right children. This last scenario is more complex since its either you have to find the smallest node in the right subtree and replace it with the in-order successor's data and delete its node (finding a replacement contact with the closest name alphabetically, copy its info to the contact to be deleted, and remove the replacement contact) or find the first in-order predecessor (largest node in left subtree) and use a similar process to replace and delete that node." wrapText="true">
+                  <Label text="The delete operation is a bit complex since there are three possible scenarios to consider. First, a search operation is performed to look for the element or contact that would be deleted. The first scenario to consider is the &quot;No Children&quot; (Leaf Node) wherein if the contact that must be deleted has no children or submembers, one can simply remove that node from the tree (Similar to crossing out the name of the contact). The next scenario to consider is One Child wherein if the node you want to delete has a left or a right child, it is possible to bypass the node (delete) through connecting its parent directly to its only child. This is similar to ripping a page out from the phone book and taping it to a different location. The last scenario to consider is &quot;Two Children&quot; wherein the node has both a left and right children. This last scenario is more complex since its either you have to find the smallest node in the right subtree and replace it with the in-order successor's data and delete its node (finding a replacement contact with the closest name alphabetically, copy its info to the contact to be deleted, and remove the replacement contact) or find the first in-order predecessor (largest node in left subtree) and use a similar process to replace and delete that node." wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
    </children>
-</AnchorPane>
+</VBox>

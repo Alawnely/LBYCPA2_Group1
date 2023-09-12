@@ -1,57 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="441.0" prefWidth="247.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.ADataStructure">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.ADataStructure">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="65.0" layoutX="-6.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="262.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.23333333432674408" green="0.9744444489479065" blue="1.0" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <ScrollPane layoutX="3.0" layoutY="62.0" prefHeight="598.0" prefWidth="250.0">
+      <AnchorPane>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="65.0" stroke="TRANSPARENT" strokeType="INSIDE" width="262.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.23333333432674408" green="0.9744444489479065" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" prefHeight="598.0" prefWidth="250.0">
          <content>
             <VBox prefWidth="245.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="157.0" text="Queue">
+                  <Label prefHeight="32.0" text="Queue">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="186.0" fitWidth="256.0" layoutX="-4.0" layoutY="-1.0">
-                           <image>
-                              <Image url="@6-ticket system.jpg" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
+                  <ImageView fitHeight="186.0" fitWidth="256.0">
+                     <image>
+                        <Image url="@6-ticket system.jpg" />
+                     </image>
+                  </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Access">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefWidth="242.0" text="Access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. To maintin the security and privacy of customers, authorities within the organization define who can view, update, and assign tickets. ">
+                  <Label text="Access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. To maintin the security and privacy of customers, authorities within the organization define who can view, update, and assign tickets. " wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -61,7 +67,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="To search in a queue data system, agents are have a wide variety of factors that they can use to filter out data. For example, a priority-based search is necessary to ensure that urgent concerns are addressed immediately. While interconnected ticket identification can use keyword searching. Similarly, when addressing a similar problem to before, customer support agents can search utilize historical search to reference past tickets or ticket history related to a particular customer or issue. ">
+                  <Label text="To search in a queue data system, agents are have a wide variety of factors that they can use to filter out data. For example, a priority-based search is necessary to ensure that urgent concerns are addressed immediately. While interconnected ticket identification can use keyword searching. Similarly, when addressing a similar problem to before, customer support agents can search utilize historical search to reference past tickets or ticket history related to a particular customer or issue. " wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -71,7 +77,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefWidth="157.0" text="Inserting in a queue data structure, in the context of a customer ticketing system, typically involves adding a new customer support ticket to the queue. When a customer submits a new support request or inquiry, the ticketing system inserts this ticket at the back of the queue. This ensures that tickets are processed in the order they are received, following a &quot;first-come, first-served&quot; approach, except for high-priority concerns. The insertion process ensures that all customer issues are systematically added to the queue, allowing customer support agents to address them in an organized and fair manner.">
+                  <Label text="Inserting in a queue data structure, in the context of a customer ticketing system, typically involves adding a new customer support ticket to the queue. When a customer submits a new support request or inquiry, the ticketing system inserts this ticket at the back of the queue. This ensures that tickets are processed in the order they are received, following a &quot;first-come, first-served&quot; approach, except for high-priority concerns. The insertion process ensures that all customer issues are systematically added to the queue, allowing customer support agents to address them in an organized and fair manner." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -81,7 +87,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="32.0" prefWidth="157.0" text="In a queue data structure within a customer ticketing system, removing a customer support ticket from the front of the queue once it has been successfully processed and resolved allows the remaining tickets to go their position in the system. Rarely when deleting a ticket in-between the queue happens, it's often due to exceptional circumstances such as a duplicate ticket, a request withdrawal, or a ticket that is no longer relevant. Deleting tickets in such cases follows the same principle of shifting the successive tickets.">
+                  <Label text="In a queue data structure within a customer ticketing system, removing a customer support ticket from the front of the queue once it has been successfully processed and resolved allows the remaining tickets to go their position in the system. Rarely when deleting a ticket in-between the queue happens, it's often due to exceptional circumstances such as a duplicate ticket, a request withdrawal, or a ticket that is no longer relevant. Deleting tickets in such cases follows the same principle of shifting the successive tickets." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -91,11 +97,13 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="In a customer support ticketing system, access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. Access permissions define who can view, update, and assign tickets in a particular queue, ensuring that customer inquiries are efficiently managed and only accessible to authorized individuals or teams. This access control mechanism helps maintain ticketing system security and operational orderliness." wrapText="true" />
+                  <Label text="In a customer support ticketing system, access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. Access permissions define who can view, update, and assign tickets in a particular queue, ensuring that customer inquiries are efficiently managed and only accessible to authorized individuals or teams. This access control mechanism helps maintain ticketing system security and operational orderliness." wrapText="true">
+                     <font>
+                        <Font size="11.0" />
+                     </font></Label>
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
    </children>
-</AnchorPane>
+</VBox>

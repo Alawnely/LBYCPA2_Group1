@@ -13,43 +13,48 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="441.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.ADataStructure">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.ADataStructure">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="65.0" layoutX="-6.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="262.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.23333333432674408" green="0.9744444489479065" blue="1.0" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <ScrollPane layoutX="3.0" layoutY="62.0" prefHeight="644.0" prefWidth="250.0">
+      <AnchorPane>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="65.0" stroke="TRANSPARENT" strokeType="INSIDE" width="262.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.23333333432674408" green="0.9744444489479065" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" VBox.vgrow="ALWAYS">
          <content>
             <VBox>
                <children>
-                  <Label prefHeight="32.0" prefWidth="157.0" text="Static Array">
+                  <Label prefHeight="32.0" text="Static Array">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="32.0" prefWidth="157.0" text="Parking Lot">
+                  <Label prefHeight="32.0" text="Parking Lot">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="47.0" prefWidth="232.0" text="A static array can be comparable to a parking lot since during its construction it is only limited to a fixed amount of parking spaces." wrapText="true">
+                  <Label text="A static array can be comparable to a parking lot since during its construction it is only limited to a fixed amount of parking spaces." wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
                   <AnchorPane prefHeight="203.0" prefWidth="179.0">
@@ -88,9 +93,9 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="52.0" prefWidth="230.0" text="To access a specific element or parking space,  it is needed to know the index.  For example, the 3rd element corresponds to the 3rd parking slot. Similar to referencing an element from a static array, you refer to its index." wrapText="true">
+                  <Label text="To access a specific element or parking space,  it is needed to know the index.  For example, the 3rd element corresponds to the 3rd parking slot. Similar to referencing an element from a static array, you refer to its index." wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Search">
@@ -98,9 +103,9 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="52.0" prefWidth="230.0" text="To search for an element in the static array, it is needed to iterate through each element through a for loop. Similarly, it is needed to visually inspect each parking slot until your car is found." wrapText="true">
+                  <Label text="To search for an element in the static array, it is needed to iterate through each element through a for loop. Similarly, it is needed to visually inspect each parking slot until your car is found." wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Insert">
@@ -108,9 +113,9 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="39.0" prefWidth="225.0" text="In a parking lot, if all the slots are full, you cannot park your car in there. Similarly, in a static array, you cannot add a new element to the array if it is already full." wrapText="true">
+                  <Label text="In a parking lot, if all the slots are full, you cannot park your car in there. Similarly, in a static array, you cannot add a new element to the array if it is already full." wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Delete">
@@ -118,15 +123,14 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="66.0" prefWidth="231.0" text="If for example, a car leaves the parking slot, that specific slot becomes available for new cars to park. However, the amount of slots in the parking lot does not change. Similarly in the static array, even if elements are removed, the size of the array remains fixed." wrapText="true">
+                  <Label text="If for example, a car leaves the parking slot, that specific slot becomes available for new cars to park. However, the amount of slots in the parking lot does not change. Similarly in the static array, even if elements are removed, the size of the array remains fixed." wrapText="true">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="11.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
    </children>
-</AnchorPane>
+</VBox>
