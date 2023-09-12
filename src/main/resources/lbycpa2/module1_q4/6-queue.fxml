@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
    <children>
       <AnchorPane>
          <children>
@@ -38,13 +38,23 @@
             <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
          </children>
       </AnchorPane>
-      <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" prefHeight="598.0" prefWidth="250.0">
+      <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" prefHeight="1216.0" prefWidth="262.0">
          <content>
             <VBox prefWidth="245.0">
                <children>
                   <Label prefHeight="32.0" text="Queue">
                      <font>
                         <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="24.0" prefWidth="242.0" text="Customer Support Ticketing System">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="In a customer support ticketing system, access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. Access permissions define who can view, update, and assign tickets in a particular queue, ensuring that customer inquiries are efficiently managed and only accessible to authorized individuals or teams. This access control mechanism helps maintain ticketing system security and operational orderliness." wrapText="true">
+                     <font>
+                        <Font size="11.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="186.0" fitWidth="256.0">
@@ -92,15 +102,6 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="24.0" prefWidth="242.0" text="Customer Support Ticketing System">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label text="In a customer support ticketing system, access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. Access permissions define who can view, update, and assign tickets in a particular queue, ensuring that customer inquiries are efficiently managed and only accessible to authorized individuals or teams. This access control mechanism helps maintain ticketing system security and operational orderliness." wrapText="true">
-                     <font>
-                        <Font size="11.0" />
-                     </font></Label>
                </children>
             </VBox>
          </content>
