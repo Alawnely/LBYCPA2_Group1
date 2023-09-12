@@ -53,7 +53,7 @@
                </font>
             </Label>
             <Button mnemonicParsing="false" onAction="#switchToStaticArray" text="Static Array" />
-            <Button mnemonicParsing="false" text="Dynamic Array" />
+            <Button mnemonicParsing="false" onAction="#switchToDynamicArray" text="Dynamic Array" />
             <Button mnemonicParsing="false" text="Singly-Linked List" />
             <Button mnemonicParsing="false" text="Doubly-Linked List" />
             <Button mnemonicParsing="false" text="Stack" />
