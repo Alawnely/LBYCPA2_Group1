@@ -67,7 +67,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Insert Text Explanation Here" wrapText="true">
+                  <Label text="In an event registration system, organizers can access a participant by knowing its index in the list. In layman's terms, it is the participants' identification numbers (ID)." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -77,7 +77,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Insert Text Explanation Here" wrapText="true">
+                  <Label text="Searching for a participant (or an object in a dynamic array) involves looking for everyone in the list. In technical terms, a for-loop is used in this operation." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -87,7 +87,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Insert Text Explanation Here" wrapText="true">
+                  <Label text="In this system, new participants are added at the end of the list, just like in dynamic arrays where new objects are added at the end as well." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="274.0" text="Insert Text Explanation Here" wrapText="true">
+                  <Label layoutX="10.0" layoutY="274.0" text="To delete or remove a participant in the list, that person will no longer considered to be part of the list, and the indices of the participants afterwards are shifted one below." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
