@@ -24,72 +24,63 @@ public class TruthTable {
         printCell(convertedToInfix, convertedToInfix.length());
         System.out.println();
 
-        evaluateExpression(inputExp, variables);
+        evaluateExpression(inputExp, convertedToInfix, variables);
     }
 
-    private static void evaluateExpression(String expression, List<Character> vars) {
+    private static void evaluateExpression(String expression, String infix, List<Character> vars) {
         boolean[] initialVal = new boolean[vars.size()];
-        evaluateExpression(expression, vars, initialVal, 0);
+        evaluateExpression(expression, infix, vars, initialVal, 0);
     }
 
     public static String convertToInfix(String inputExp) {
-        //pq¬∨pq∧→
-        //(p∨¬q) → (p ∧ q)
-        String outputExp = "";
-        String s1 = "";
-        // create operand stack
+        /* Converts pq¬∨pq∧→ to (p∨¬q) → (p ∧ q) */
+        String s1; // holds temp string
         MyStack<String> operandStack = new MyStack<>(inputExp.length()/2+1);
         for (char c : inputExp.toCharArray()) {
-            if (operators.contains(c)) { // if operator pop 2 values from the stack
+            if (operators.contains(c)) {
+                /* if c is an operator */
                 if(c == '¬'){
+                    /* handles negation expressions */
                     String c3 = operandStack.top();
                     operandStack.pop();
-                    System.out.println(c3 + " popped out of stack");
-                    System.out.println(c + "is used");
                     s1 = "";
-                    if (c3.length() > 2) {
+                    if (c3.length() > 2 && c3.charAt(0) != '(') {
                         c3 = "("+c3+")";
                     }
                     s1 = s1.concat(String.valueOf(c));
-                    s1 = s1.concat(String.valueOf(c3));
-                    System.out.println(s1 + "is pushed to stack.");
+                    s1 = s1.concat(c3);
                     operandStack.push(s1);
                 } else {
-                    System.out.println(c);
+                    /* handles normal operations */
                     String c1 = operandStack.top();
                     operandStack.pop();
                     String c2 = operandStack.top();
                     operandStack.pop();
                     s1 = "";
-                    if (c1.length() > 2) {
+                    if (c1.length() > 2 && c1.charAt(0) != '(') {
                         c1 = "("+c1+")";
                     }
-                    if (c2.length() > 2) {
-                        c1 = "("+c2+")";
+                    if (c2.length() > 2 && c2.charAt(0) != '(') {
+                        c2 = "("+c2+")";
                     }
-                    s1 = s1.concat(String.valueOf(c2));
+                    s1 = s1.concat(c2);
                     s1 = s1.concat(String.valueOf(c));
-                    s1 = s1.concat(String.valueOf(c1));
-                    System.out.println(c1 + "popped out of stack");
-                    System.out.println(c2 + "popped out of stack");
-                    System.out.println(s1 + "is pushed to stack");
+                    s1 = s1.concat(c1);
                     operandStack.push(s1);
-
                 }
             } else {
-                // if operand push to stack
-                System.out.println(c + " pushed to stack.");
+                /* if operand, push to stack */
                 operandStack.push(String.valueOf(c));
             }
         }
         return operandStack.top();
     }
 
-    private static void evaluateExpression(String expression, List<Character> vars, boolean[] initialVal, int assignedFor) {
+    private static void evaluateExpression(String expression, String infix, List<Character> vars, boolean[] initialVal, int assignedFor) {
         if (assignedFor < vars.size()) {
             for (int i = 0; i < 2; i++) {
                 initialVal[assignedFor] = i == 0;
-                evaluateExpression(expression, vars, initialVal, assignedFor+1);
+                evaluateExpression(expression, infix, vars, initialVal, assignedFor+1);
             }
             return;
         }
@@ -136,7 +127,7 @@ public class TruthTable {
                 stack.push(newVal);
             }
         }
-        printCell(booleanToTF(stack.top()), expression.length());
+        printCell(booleanToTF(stack.top()), infix.length());
         System.out.println();
     }
 
