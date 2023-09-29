@@ -13,8 +13,6 @@ public class TruthTable {
         System.out.print("Input expression: ");
         String inputExp = scanner.nextLine();
 
-        // TODO: convert postfix to infix
-        // String convertedToInfix = inputExp;
         String convertedToInfix = convertToInfix(inputExp);
 
         List<Character> variables = listVariables(inputExp);
