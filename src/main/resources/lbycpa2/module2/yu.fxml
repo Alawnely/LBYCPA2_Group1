@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="1019.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
+<VBox prefHeight="1019.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module2.PortfolioController">
    <children>
       <AnchorPane>
          <children>

@@ -38,42 +38,42 @@ public class MainApplication extends Application {
     }
 
     @FXML
-    private void switchToStaticArray() {
+    private void switchToSocialNet() {
         switchScene("1-static-array");
     }
 
     @FXML
-    private void switchToDynamicArray() {
-        switchScene("2-dynamic-array");
+    private void switchToDrapiza() {
+        switchScene("drapiza");
     }
 
     @FXML
-    private void switchToSinglyLinkedList() {
-        switchScene("3-singly-linked-list");
+    private void switchToGuanzon() {
+        switchScene("guanzon");
     }
 
     @FXML
-    private void switchToDoublyLinkedList() {
-        switchScene("4-doubly-linked-list");
+    private void switchToLat() {
+        switchScene("lat");
     }
 
     @FXML
-    private void switchToStack() {
-        switchScene("5-stack");
+    private void switchToYu() {
+        switchScene("yu");
     }
 
     @FXML
-    private void switchToQueue() {
+    private void switchToDigitalArtistry() {
         switchScene("6-queue");
     }
 
     @FXML
-    private void switchToBinarySearchTree() {
+    private void switchToPokemon() {
         switchScene("7-binary-search-tree");
     }
 
     @FXML
-    private void switchToHashTable() {
+    private void switchToHangman() {
         switchScene("8-hash-table");
     }
 }

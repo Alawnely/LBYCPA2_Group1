@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="1019.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
+<VBox prefHeight="1019.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module2.PortfolioController">
    <children>
       <AnchorPane>
          <children>
