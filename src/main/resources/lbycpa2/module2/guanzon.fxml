@@ -49,7 +49,7 @@
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/Guanzon%20-%20digital%20artistry.png" />
+                        <Image url="@outputs/Guanzon - digital artistry.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Hangman">
@@ -59,7 +59,7 @@
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/Guanzon%20-%20hangman.png" />
+                        <Image url="@outputs/Guanzon - hangman.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="SocialNet">
@@ -69,7 +69,7 @@
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/Guanzon%20-%20socialnet.png" />
+                        <Image url="@outputs/Guanzon - socialnet.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="186.0" text="Pokemon Card Collection">
@@ -79,12 +79,12 @@
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/Guanzon%20-%20pokemon%201.png" />
+                        <Image url="@outputs/Guanzon - pokemon 1.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/Guanzon%20-%20pokemon%202.png" />
+                        <Image url="@outputs/Guanzon - pokemon 2.png" />
                      </image>
                   </ImageView>
                </children>
