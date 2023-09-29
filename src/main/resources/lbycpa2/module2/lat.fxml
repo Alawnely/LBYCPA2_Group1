@@ -29,7 +29,8 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
+            <Button fx:id="nextButton" layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Main Menu" />
+            <Button layoutX="205.0" layoutY="16.0" mnemonicParsing="false" onAction="#goNext" text="Next" />
          </children>
       </AnchorPane>
       <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" style="-fx-background: f4dddd;" VBox.vgrow="ALWAYS">
@@ -41,14 +42,14 @@
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="32.0" text="Digital Artistry">
+                  <Label prefHeight="32.0" text="Chess">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/yu%20-%20digital%20artistry.png" />
+                        <Image url="@outputs/Lat - Chess.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Hangman">
@@ -58,32 +59,32 @@
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/yu%20-%20hangman.png" />
+                        <Image url="@outputs/Lat - Hangman.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="32.0" prefWidth="157.0" text="SocialNet">
+                  <Label prefHeight="32.0" prefWidth="181.0" text="Pokemon Card Collection">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/yu%20-%20socialnet.png" />
+                        <Image url="@outputs/Lat -Pokemon 1.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="32.0" prefWidth="186.0" text="Pokemon Card Collection">
+                  <Label prefHeight="32.0" prefWidth="186.0" text="Modeling">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/yu%20-%20pokemon1.png" />
+                        <Image url="@outputs/Lat - Modeling1.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@outputs/yu%20-%20pokemon%202.png" />
+                        <Image url="@outputs/Lat - Modeling2.png" />
                      </image>
                   </ImageView>
                </children>
