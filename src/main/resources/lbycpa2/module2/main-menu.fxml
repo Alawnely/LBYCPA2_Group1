@@ -76,10 +76,10 @@
                         <Font size="8.0" />
                      </font>
                   </Label>
+                  <Button mnemonicParsing="false" onAction="#switchToQueue" text="Digital Artistry" />
                   <Button mnemonicParsing="false" onAction="#switchToHashTable" text="Hangman" />
-                  <Button layoutX="26.0" layoutY="62.0" mnemonicParsing="false" onAction="#switchToStaticArray" text="Custom Calculator" />
+                  <Button layoutX="26.0" layoutY="62.0" mnemonicParsing="false" onAction="#switchToStaticArray" text="SocialNet" />
                   <Button mnemonicParsing="false" onAction="#switchToBinarySearchTree" text="Pokemon Card Collection" />
-                  <Button mnemonicParsing="false" onAction="#switchToQueue" text="Hangman" />
                </children>
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
@@ -90,9 +90,10 @@
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="8.0">
          <children>
             <Label text="Starstruckers" />
-            <Button mnemonicParsing="false" onAction="#switchToStaticArray" text="TerraTales" />
             <Button mnemonicParsing="false" onAction="#switchToBinarySearchTree" text="Chess" />
+            <Button mnemonicParsing="false" onAction="#switchToStaticArray" text="TerraTales" />
             <Button mnemonicParsing="false" onAction="#switchToHashTable" text="3D Modelling Designs" />
+            <Button mnemonicParsing="false" onAction="#switchToHashTable" text="Temperature and Humidity Sensor" />
          </children>
       </VBox>
    </children>
