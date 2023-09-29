@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="1019.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module2.PortfolioController">
+<VBox prefHeight="1019.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module2.PortfolioController">
    <children>
       <AnchorPane>
          <children>
@@ -35,7 +29,8 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
+            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Main Menu" />
+            <Button fx:id="nextButton" layoutX="205.0" layoutY="16.0" mnemonicParsing="false" onAction="#goNext" text="Next" />
          </children>
       </AnchorPane>
       <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" style="-fx-background: f4dddd;" VBox.vgrow="ALWAYS">

@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class MainApplication extends Application {
     private static Stage window;
@@ -26,15 +27,26 @@ public class MainApplication extends Application {
 
     public FXMLLoader switchScene(String fxml) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml + ".fxml"));
+            URL location = getClass().getResource(fxml + ".fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(location);
             Scene scene = new Scene(fxmlLoader.load());
             window.setScene(scene);
             scene.getRoot().requestFocus();
+
+            Object controller = fxmlLoader.getController();
+            if (controller instanceof PortfolioController) {
+                ((PortfolioController) controller).setCurrentPortfolio(location);
+            }
             return fxmlLoader;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @FXML
+    private void switchToStudentWorks() {
+        switchScene("drapiza");
     }
 
     @FXML

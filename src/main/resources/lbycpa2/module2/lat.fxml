@@ -29,7 +29,8 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
+            <Button fx:id="nextButton" layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Main Menu" />
+            <Button layoutX="205.0" layoutY="16.0" mnemonicParsing="false" onAction="#goNext" text="Next" />
          </children>
       </AnchorPane>
       <ScrollPane fitToWidth="true" layoutX="3.0" layoutY="62.0" style="-fx-background: f4dddd;" VBox.vgrow="ALWAYS">
