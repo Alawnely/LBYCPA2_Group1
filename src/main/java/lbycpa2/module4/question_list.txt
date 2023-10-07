@@ -1,0 +1,69 @@
+What data structure is typically used to implement a LIFO (Last In, First Out) behavior?
+a) Queue
+b) Stack
+c) Linked List
+d) Tree
+Correct Answer: Stack
+
+Which sorting algorithm has the worst-case time complexity of O(n^2) for the average and worst cases?
+a) Merge Sort
+b) Quick Sort
+c) Bubble Sort
+d) Radix Sort
+Correct Answer: Bubble Sort
+
+In a binary search tree (BST), what is the property that ensures all nodes in the left subtree have values less than the current node, and all nodes in the right subtree have values greater than the current node?
+a) Height-Balanced
+b) Red-Black
+c) AVL Balanced
+d) Binary Heap
+Correct Answer: AVL Balanced
+
+Which data structure is used to implement breadth-first search (BFS) in a graph traversal?
+a) Stack
+b) Queue
+c) Hash Table
+d) Binary Tree
+Correct Answer: Queue
+
+What is the primary purpose of hash functions in hash tables?
+a) To eliminate collisions
+b) To ensure data is sorted
+c) To improve space efficiency
+d) To map keys to array indices
+Correct Answer: To map keys to array indices
+
+Which algorithm is used to find the shortest path between nodes in a weighted graph with non-negative edge weights?
+a) Dijkstra's Algorithm
+b) Breadth-First Search (BFS)
+c) Depth-First Search (DFS)
+d) Bellman-Ford Algorithm
+Correct Answer: Dijkstra's Algorithm
+
+Which data structure is used to implement a dynamic set that supports operations like insert, delete, and search in O(log n) time complexity?
+a) Array
+b) Linked List
+c) Hash Table
+d) Binary Search Tree (BST)
+Correct Answer: Binary Search Tree (BST)
+
+In which data structure does the first element added become the first element to be removed?
+a) Stack
+b) Queue
+c) Heap
+d) Priority Queue
+Correct Answer: Queue
+
+Which sorting algorithm is known for its best-case time complexity of O(n) when the input is nearly sorted?
+a) Quick Sort
+b) Merge Sort
+c) Insertion Sort
+d) Selection Sort
+Correct Answer: Insertion Sort
+
+What is the time complexity of finding an element in a balanced binary search tree (BST) with n nodes?
+a) O(1)
+b) O(log n)
+c) O(n)
+d) O(n log n)
+Correct Answer: O(log n)
