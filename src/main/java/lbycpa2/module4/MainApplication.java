@@ -102,10 +102,5 @@ public class MainApplication extends Application {
     private void startGame() {
         FXMLLoader loader = switchScene("question-main");
         Object controller = loader.getController();
-        if (controller instanceof QuestionController) {
-            //TODO: how do you load this scene without nesting the setQuestion line
-            // I intend to put the setQuestion in the initialize part
-            ((QuestionController) controller).setQuestion(questionList.pop());
-        }
     }
 }

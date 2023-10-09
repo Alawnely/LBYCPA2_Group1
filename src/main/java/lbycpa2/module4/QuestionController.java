@@ -29,7 +29,7 @@ public class QuestionController {
 
     public void initialize() {
         quesCount = 0;
-
+        setQuestion(quesQueue.front());
     }
 
     protected void setQuestion(Question question) {
