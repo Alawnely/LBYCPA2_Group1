@@ -11,14 +11,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class MainApplication extends Application {
 
     public static LinkedList<Question> questionList = loadQuestions("question_list.txt");
     private static Stage window;
+    private static String stylesheet;
     @Override
     public void start(Stage stage) {
         window = stage;
+        stylesheet = Objects.requireNonNull(getClass().getResource("temporarycss.css")).toExternalForm();
 
         switchScene("start");
         stage.setTitle("Who Wants to be a Kahoot-ionare?!");
@@ -30,6 +33,7 @@ public class MainApplication extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml + ".fxml"));
             Scene scene = new Scene(fxmlLoader.load());
+            scene.getStylesheets().add(stylesheet);
             window.setScene(scene);
             scene.getRoot().requestFocus();
             return fxmlLoader;

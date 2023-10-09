@@ -1,0 +1,11 @@
+.root {
+    -fx-base: #191851;
+}
+.button {
+    -fx-border-color: white;
+    -fx-border-width: 2;
+}
+.button:hover {
+    -fx-border-color: yellow;
+    -fx-text-fill: yellow;
+}
