@@ -1,11 +1,19 @@
 package lbycpa2.module4;
 
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
-import java.util.LinkedList;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 
 public class QuestionController {
 
@@ -60,6 +68,9 @@ public class QuestionController {
     }
 
     protected void setQuestion(Question question) {
+        Scene mainScene = MainApplication.getWindow().getScene();
+        WritableImage snapshot = mainScene.snapshot(null);
+
         quesCount++;
         currQuestion = question;
         quesNum.setText("Question "+quesCount);
@@ -76,6 +87,34 @@ public class QuestionController {
         next.setVisible(false);
         totalQues--;
         updateStats();
+
+        transitionAway(snapshot);
+    }
+
+    private void transitionAway(WritableImage snapshot) {
+        Scene mainScene = MainApplication.getWindow().getScene();
+        Parent root = mainScene.getRoot();
+        System.out.println(root);
+
+        if (root instanceof StackPane) {
+            return;
+        }
+
+        StackPane transitionPane = new StackPane();
+        transitionPane.setMinWidth(mainScene.getWidth());
+        transitionPane.setMinHeight(mainScene.getHeight());
+
+        ImageView snapshotImage = new ImageView(snapshot);
+        transitionPane.getChildren().addAll(root, snapshotImage);
+        mainScene.setRoot(transitionPane);
+
+        snapshotImage.translateXProperty().set(0);
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(300), new KeyValue(snapshotImage.translateXProperty(), -transitionPane.getWidth(), Interpolator.EASE_IN)));
+        timeline.setOnFinished(e -> {
+            transitionPane.getChildren().remove(root);
+            mainScene.setRoot(root);
+        });
+        timeline.play();
     }
 
     @FXML
