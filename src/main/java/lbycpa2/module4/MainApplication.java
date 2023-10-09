@@ -80,6 +80,7 @@ public class MainApplication extends Application {
                     questionList.add(new Question(question, choices, correctAns));
                     /* Reset variables for the next question */
                     question = "";
+                    choices = new String[4];
                     choiceIndex = 0;
                 } else if (line.startsWith("a) ") || line.startsWith("b) ") || line.startsWith("c) ") || line.startsWith("d) ")) {
                     choices[choiceIndex++] = line.substring(3);
