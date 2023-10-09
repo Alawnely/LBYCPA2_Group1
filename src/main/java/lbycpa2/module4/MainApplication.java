@@ -94,7 +94,7 @@ public class MainApplication extends Application {
         FXMLLoader loader = switchScene("question-main");
         Object controller = loader.getController();
         if (controller instanceof QuestionController) {
-            ((QuestionController) controller).setQuestion(2);
+            ((QuestionController) controller).setQuestion(0);
         }
     }
 }
