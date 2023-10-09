@@ -22,26 +22,25 @@ public class QuestionController {
     private Button choice4;
 
 
+    public static MyQueue<Question> quesQueue = MainApplication.questionList;
+    private int quesCount;
 
+    private Question currQuestion;
 
-    private static LinkedList<Question> quesList;
-    private static MyQueue<Question> quesQueue;
     public void initialize() {
-        quesList = MainApplication.questionList;
-        quesQueue = new MyQueue<>(quesList.size());
+        quesCount = 0;
 
     }
 
-    protected void setQuestion(int questionIndex) {
-
-        quesNum.setText("Question "+questionIndex);
-        quesDetails.setText(quesList.get(questionIndex).getQuestionDetails());
-        String[] choices = quesList.get(questionIndex).getChoices();
+    protected void setQuestion(Question question) {
+        quesCount++;
+        quesNum.setText("Question "+quesCount);
+        quesDetails.setText(question.getQuestionDetails());
+        String[] choices = question.getChoices();
         choice1.setText(choices[0]);
         choice2.setText(choices[1]);
         choice3.setText(choices[2]);
         choice4.setText(choices[3]);
-
     }
 
 }

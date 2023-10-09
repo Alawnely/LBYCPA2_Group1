@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class MainApplication extends Application {
 
-    public static LinkedList<Question> questionList = loadQuestions("question_list.txt");
+    public static MyQueue<Question> questionList;
     private static Stage window;
     private static String stylesheet;
     @Override
@@ -44,27 +44,31 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) {
+        questionList = loadQuestions("question_list.txt");
         // I think the queue will be used to store questions that one got right and questions that one got wrong
-        //TODO: Implement QUEUE
+        /* Debugging */
+         int i = 0;
+           while(!questionList.empty()){
 
-        // Print the questions from Linked List
-        for (int i = 0; i < questionList.size(); i++) {
-            System.out.println("Question " + (i + 1) + ":");
-            System.out.println(questionList.get(i).getQuestionDetails());
-            String[] choices = questionList.get(i).getChoices();
-            for (int j = 0; j < choices.length; j++) {
-                System.out.println((j+1)+": "+choices[j]);
+                Question currQuestion = questionList.pop();
 
+                System.out.println("Question " + (i + 1) + ":");
+                System.out.println(currQuestion.getQuestionDetails());
+                String[] choices =currQuestion.getChoices();
+                for (int j = 0; j < choices.length; j++) {
+                    System.out.println((j+1)+": "+choices[j]);
+
+                }
+                System.out.println("Correct Answer: "+currQuestion.getCorrectAns());
+                System.out.println();
+                i++;
             }
-            System.out.println("Correct Answer: "+questionList.get(i).getCorrectAns());
-            System.out.println();
-        }
 
         launch(args);
     }
 
-    public static LinkedList<Question> loadQuestions (String fileName) {
-        LinkedList<Question> questionList = new LinkedList<>();
+    public static MyQueue<Question> loadQuestions (String fileName) {
+        MyQueue<Question> questionList = new MyQueue<>(15);
 
         String fileLoc = "src/main/java/lbycpa2/module4/";
         try (BufferedReader br = new BufferedReader(new FileReader(fileLoc+fileName))) {
@@ -77,7 +81,7 @@ public class MainApplication extends Application {
                 if (line.startsWith("Correct Answer: ")) {
                     /* Create a Question object and add it to the list */
                     String correctAns = line.substring(16);
-                    questionList.add(new Question(question, choices, correctAns));
+                    questionList.push(new Question(question, choices, correctAns));
                     /* Reset variables for the next question */
                     question = "";
                     choices = new String[4];
@@ -99,7 +103,9 @@ public class MainApplication extends Application {
         FXMLLoader loader = switchScene("question-main");
         Object controller = loader.getController();
         if (controller instanceof QuestionController) {
-            ((QuestionController) controller).setQuestion(0);
+            //TODO: how do you load this scene without nesting the setQuestion line
+            // I intend to put the setQuestion in the initialize part
+            ((QuestionController) controller).setQuestion(questionList.pop());
         }
     }
 }

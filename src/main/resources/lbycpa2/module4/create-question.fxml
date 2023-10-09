@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module4.QuestionController">
+   <children>
+      <Label fx:id="quesNum" text="Question 1">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="quesDetails" text="What data structure is typically used to implement a LIFO (Last In, First Out) behavior?" wrapText="true">
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </Label>
+      <Button fx:id="choice1" mnemonicParsing="false" prefHeight="26.0" prefWidth="223.0" text="Queue">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="choice2" mnemonicParsing="false" prefHeight="26.0" prefWidth="223.0" text="Stack">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="choice3" mnemonicParsing="false" prefHeight="26.0" prefWidth="223.0" text="Linked List">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="choice4" mnemonicParsing="false" prefHeight="26.0" prefWidth="223.0" text="Tree">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Button>
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="180.0">
+         <children>
+            <Label fx:id="totalQues" text="10">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="quesRight" text="0" textFill="#1de441">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="quesWrong" text="0" textFill="#e74f4f">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goNext" text="Next" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="40.0" right="40.0" top="40.0" />
+   </padding>
+</VBox>
