@@ -45,6 +45,10 @@ public class MainApplication extends Application {
         }
     }
 
+    public static Stage getWindow() {
+        return window;
+    }
+
     public static void main(String[] args) {
         questionList = loadQuestions("question_list.txt");
         // I think the queue will be used to store questions that one got right and questions that one got wrong
