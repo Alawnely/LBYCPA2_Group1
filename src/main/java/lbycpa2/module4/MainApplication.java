@@ -91,6 +91,10 @@ public class MainApplication extends Application {
 
     @FXML
     private void startGame() {
-        switchScene("question-main");
+        FXMLLoader loader = switchScene("question-main");
+        Object controller = loader.getController();
+        if (controller instanceof QuestionController) {
+            ((QuestionController) controller).setQuestion(2);
+        }
     }
 }

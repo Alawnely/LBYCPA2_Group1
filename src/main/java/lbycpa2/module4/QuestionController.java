@@ -25,10 +25,13 @@ public class QuestionController {
 
     private static LinkedList<Question> quesList;
     public void initialize() {
+    }
+
+    protected void setQuestion(int questionIndex) {
         quesList = MainApplication.questionList;
-        quesNum.setText("Question 2");
-        quesDetails.setText(quesList.get(2).getQuestionDetails());
-        String[] choices = quesList.get(2).getChoices();
+        quesNum.setText("Question "+questionIndex);
+        quesDetails.setText(quesList.get(questionIndex).getQuestionDetails());
+        String[] choices = quesList.get(questionIndex).getChoices();
         choice1.setText(choices[0]);
         choice2.setText(choices[1]);
         choice3.setText(choices[2]);
