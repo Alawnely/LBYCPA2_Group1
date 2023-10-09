@@ -23,16 +23,18 @@ public class QuestionController {
 
 
 
-    private LinkedList<Question> quesList;
-    private int questionIndex;
+
+    private static LinkedList<Question> quesList;
+    private static MyQueue<Question> quesQueue;
     public void initialize() {
+        quesList = MainApplication.questionList;
+        quesQueue = new MyQueue<>(quesList.size());
+
     }
 
     protected void setQuestion(int questionIndex) {
-        this.questionIndex = questionIndex;
 
-        quesList = MainApplication.questionList;
-        quesNum.setText("Question "+(questionIndex+1));
+        quesNum.setText("Question "+questionIndex);
         quesDetails.setText(quesList.get(questionIndex).getQuestionDetails());
         String[] choices = quesList.get(questionIndex).getChoices();
         choice1.setText(choices[0]);
@@ -40,13 +42,6 @@ public class QuestionController {
         choice3.setText(choices[2]);
         choice4.setText(choices[3]);
 
-    }
-
-    @FXML
-    private void goNext() {
-        if (questionIndex > -1 && questionIndex < MainApplication.questionList.size()-1) {
-            setQuestion(questionIndex + 1);
-        }
     }
 
 }
