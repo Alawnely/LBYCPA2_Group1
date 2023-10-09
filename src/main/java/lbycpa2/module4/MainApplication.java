@@ -1,6 +1,7 @@
 package lbycpa2.module4;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,6 +21,7 @@ public class MainApplication extends Application {
     private static String stylesheet;
     @Override
     public void start(Stage stage) {
+        questionList = loadQuestions("question_list.txt");
         window = stage;
         stylesheet = Objects.requireNonNull(getClass().getResource("temporarycss.css")).toExternalForm();
 
@@ -99,8 +101,7 @@ public class MainApplication extends Application {
     }
 
     @FXML
-    private void startGame() {
-        FXMLLoader loader = switchScene("question-main");
-        Object controller = loader.getController();
+    private void startGame(ActionEvent event) {
+        switchScene("question-main");
     }
 }

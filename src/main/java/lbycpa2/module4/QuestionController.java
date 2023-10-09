@@ -22,18 +22,20 @@ public class QuestionController {
     private Button choice4;
 
 
-    public static MyQueue<Question> quesQueue = MainApplication.questionList;
+    public static MyQueue<Question> quesQueue;
     private int quesCount;
 
     private Question currQuestion;
 
     public void initialize() {
+        quesQueue = MainApplication.questionList;
         quesCount = 0;
-        setQuestion(quesQueue.front());
+        setQuestion(quesQueue.pop());
     }
 
     protected void setQuestion(Question question) {
         quesCount++;
+        currQuestion = question;
         quesNum.setText("Question "+quesCount);
         quesDetails.setText(question.getQuestionDetails());
         String[] choices = question.getChoices();
@@ -43,4 +45,10 @@ public class QuestionController {
         choice4.setText(choices[3]);
     }
 
+    @FXML
+    private void goNext() {
+        if (!quesQueue.empty()) {
+            setQuestion(quesQueue.pop());
+        }
+    }
 }

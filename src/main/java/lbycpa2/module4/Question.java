@@ -1,5 +1,7 @@
 package lbycpa2.module4;
 
+import java.util.Arrays;
+
 public class Question {
 
     private String questionDetails;
@@ -35,5 +37,14 @@ public class Question {
 
     public void setCorrectAns(String correctAns) {
         this.correctAns = correctAns;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "questionDetails='" + questionDetails + '\'' +
+                ", choices=" + Arrays.toString(choices) +
+                ", correctAns='" + correctAns + '\'' +
+                '}';
     }
 }
