@@ -1,14 +1,44 @@
 package lbycpa2.module4;
 
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class MainApplication {
+public class MainApplication extends Application {
 
     public static LinkedList<Question> questionList = loadQuestions("question_list.txt");
+    private static Stage window;
+    @Override
+    public void start(Stage stage) {
+        window = stage;
+
+        switchScene("start");
+        stage.setTitle("Who Wants to be a Kahoot-ionare?!");
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    public FXMLLoader switchScene(String fxml) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml + ".fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            window.setScene(scene);
+            scene.getRoot().requestFocus();
+            return fxmlLoader;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static void main(String[] args) {
         // I think the queue will be used to store questions that one got right and questions that one got wrong
         //TODO: Implement QUEUE
@@ -25,6 +55,8 @@ public class MainApplication {
             System.out.println("Correct Answer: "+questionList.get(i).getCorrectAns());
             System.out.println();
         }
+
+        launch(args);
     }
 
     public static LinkedList<Question> loadQuestions (String fileName) {
@@ -55,5 +87,10 @@ public class MainApplication {
             e.printStackTrace();
         }
         return questionList;
+    }
+
+    @FXML
+    private void startGame() {
+        switchScene("question-main");
     }
 }
