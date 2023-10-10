@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URLDecoder;
@@ -83,12 +82,13 @@ public class MainApplication extends Application {
             StringBuilder question = new StringBuilder();
             String[] choices = new String[4];
             int choiceIndex = 0;
+            int questionIndex = 0;
 
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("Correct Answer: ")) {
                     /* Create a Question object and add it to the list */
                     String correctAns = line.substring(16);
-                    questionList.push(new Question(question.toString(), choices, correctAns));
+                    questionList.push(new Question(questionIndex++, question.toString(), choices, correctAns));
                     /* Reset variables for the next question */
                     question = new StringBuilder();
                     choices = new String[4];
