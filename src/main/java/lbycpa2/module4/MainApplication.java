@@ -108,4 +108,9 @@ public class MainApplication extends Application {
     private void startGame(ActionEvent event) {
         switchScene("question-main");
     }
+
+    @FXML
+    private void addQuestions(ActionEvent event) {
+        switchScene("create-question");
+    }
 }

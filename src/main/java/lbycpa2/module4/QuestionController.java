@@ -15,6 +15,11 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
+
 public class QuestionController {
 
     @FXML
@@ -76,10 +81,27 @@ public class QuestionController {
         quesNum.setText("Question "+quesCount);
         quesDetails.setText(question.getQuestionDetails());
         String[] choices = question.getChoices();
-        choice1.setText(choices[0]);
-        choice2.setText(choices[1]);
-        choice3.setText(choices[2]);
-        choice4.setText(choices[3]);
+
+        Random random = new Random();
+        int choiceIndex;
+        ArrayList<String> listOfChoices = new ArrayList<>(Arrays.asList(choices));
+
+        choiceIndex = random.nextInt(listOfChoices.size());
+        choice1.setText(listOfChoices.get(choiceIndex));
+        listOfChoices.remove(choiceIndex);
+
+        choiceIndex = random.nextInt(listOfChoices.size());
+        choice2.setText(listOfChoices.get(choiceIndex));
+        listOfChoices.remove(choiceIndex);
+
+        choiceIndex = random.nextInt(listOfChoices.size());
+        choice3.setText(listOfChoices.get(choiceIndex));
+        listOfChoices.remove(choiceIndex);
+
+        choiceIndex = random.nextInt(listOfChoices.size());
+        choice4.setText(listOfChoices.get(choiceIndex));
+        listOfChoices.remove(choiceIndex);
+
         resetStyle(choice1);
         resetStyle(choice2);
         resetStyle(choice3);
@@ -94,7 +116,7 @@ public class QuestionController {
     private void transitionAway(WritableImage snapshot) {
         Scene mainScene = MainApplication.getWindow().getScene();
         Parent root = mainScene.getRoot();
-        System.out.println(root);
+//        System.out.println(root);
 
         if (root instanceof StackPane) {
             return;
@@ -112,6 +134,7 @@ public class QuestionController {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(300), new KeyValue(snapshotImage.translateXProperty(), -transitionPane.getWidth(), Interpolator.EASE_IN)));
         timeline.setOnFinished(e -> {
             transitionPane.getChildren().remove(root);
+            root.getStyleClass().remove("root");
             mainScene.setRoot(root);
         });
         timeline.play();
@@ -157,4 +180,15 @@ public class QuestionController {
         totalCorrectLabel.setText(String.valueOf(totalCorrect));
         totalWrongLabel.setText(String.valueOf(totalWrong));
     }
+
+    private boolean checkIndex(int[] index, int number) {
+        for (int i = 0; i < index.length; i++) {
+            if (index[i] == number) {
+                index[i] = Integer.parseInt(null);
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
