@@ -37,6 +37,8 @@ public class QuestionController {
     @FXML
     private Button next;
     @FXML
+    private Button exit;
+    @FXML
     private Label totalLabel;
     @FXML
     Label totalCorrectLabel;
