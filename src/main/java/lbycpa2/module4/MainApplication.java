@@ -7,8 +7,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 public class MainApplication extends Application {
@@ -16,6 +19,7 @@ public class MainApplication extends Application {
     public static MyQueue<Question> questionList;
     private static Stage window;
     private static String stylesheet;
+
     @Override
     public void start(Stage stage) {
         questionList = loadQuestions("question_list.txt");
@@ -73,7 +77,7 @@ public class MainApplication extends Application {
     public static MyQueue<Question> loadQuestions (String fileName) {
         MyQueue<Question> questionList = new MyQueue<>(15);
 
-        String fileLoc = Objects.requireNonNull(Objects.requireNonNull(MainApplication.class.getResource(fileName)).toExternalForm());
+        String fileLoc = URLDecoder.decode(Objects.requireNonNull(MainApplication.class.getResource(fileName)).getPath(), StandardCharsets.UTF_8);
         try (BufferedReader br = new BufferedReader(new FileReader(fileLoc))) {
             String line;
             StringBuilder question = new StringBuilder();
