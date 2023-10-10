@@ -17,7 +17,6 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 public class QuestionController {
@@ -42,15 +41,15 @@ public class QuestionController {
     Label totalCorrectLabel;
     @FXML
     Label totalWrongLabel;
+    private Button[] choices;
     public static MyQueue<Question> quesQueue;
-    private int quesCount;
     private int totalQues, totalCorrect, totalWrong;
 
     private Question currQuestion;
 
     public void initialize() {
+        choices = new Button[]{choice1, choice2, choice3, choice4};
         quesQueue = MainApplication.questionList;
-        quesCount = 0;
         setQuestion(quesQueue.pop());
         next.setVisible(false);
         totalQues = quesQueue.size()+1;
@@ -58,6 +57,7 @@ public class QuestionController {
         totalWrong = 0;
         updateStats();
     }
+
     @FXML
     protected void onChoiceClick(ActionEvent event) {
         Button currButton = (Button) event.getSource();
@@ -70,10 +70,9 @@ public class QuestionController {
             totalWrong++;
             quesQueue.push(currQuestion);
         }
-        choice1.setDisable(true);
-        choice2.setDisable(true);
-        choice3.setDisable(true);
-        choice4.setDisable(true);
+        for (Button choice : choices) {
+            choice.setDisable(true);
+        }
         next.setVisible(true);
     }
 
@@ -81,36 +80,22 @@ public class QuestionController {
         Scene mainScene = MainApplication.getWindow().getScene();
         WritableImage snapshot = mainScene.snapshot(null);
 
-        quesCount++;
         currQuestion = question;
         quesNum.setText("Question "+ (question.getMyIndex()+1));
         quesDetails.setText(question.getQuestionDetails());
-        String[] choices = question.getChoices();
+        String[] choicesText = question.getChoices();
 
         Random random = new Random();
         int choiceIndex;
-        ArrayList<String> listOfChoices = new ArrayList<>(Arrays.asList(choices));
+        ArrayList<String> listOfChoices = new ArrayList<>(Arrays.asList(choicesText));
 
-        choiceIndex = random.nextInt(listOfChoices.size());
-        choice1.setText(listOfChoices.get(choiceIndex));
-        listOfChoices.remove(choiceIndex);
+        for (Button choice : choices) {
+            choiceIndex = random.nextInt(listOfChoices.size());
+            choice.setText(listOfChoices.get(choiceIndex));
+            listOfChoices.remove(choiceIndex);
+            resetStyle(choice);
+        }
 
-        choiceIndex = random.nextInt(listOfChoices.size());
-        choice2.setText(listOfChoices.get(choiceIndex));
-        listOfChoices.remove(choiceIndex);
-
-        choiceIndex = random.nextInt(listOfChoices.size());
-        choice3.setText(listOfChoices.get(choiceIndex));
-        listOfChoices.remove(choiceIndex);
-
-        choiceIndex = random.nextInt(listOfChoices.size());
-        choice4.setText(listOfChoices.get(choiceIndex));
-        listOfChoices.remove(choiceIndex);
-
-        resetStyle(choice1);
-        resetStyle(choice2);
-        resetStyle(choice3);
-        resetStyle(choice4);
         next.setVisible(false);
         totalQues--;
         updateStats();
@@ -166,14 +151,10 @@ public class QuestionController {
 
     private void findCorrectAnswer() {
         String correct = currQuestion.getCorrectAns();
-        if (choice1.getText().equalsIgnoreCase(correct)){
-            setStyleCorrect(choice1);
-        } else if (choice2.getText().equalsIgnoreCase(correct)) {
-            setStyleCorrect(choice2);
-        } else if (choice3.getText().equalsIgnoreCase(correct)) {
-            setStyleCorrect(choice3);
-        } else if (choice4.getText().equalsIgnoreCase(correct)) {
-            setStyleCorrect(choice4);
+        for (Button choice : choices) {
+            if (choice.getText().equalsIgnoreCase(correct)) {
+                setStyleCorrect(choice);
+            }
         }
     }
 
