@@ -5,6 +5,14 @@
     -fx-base: white;
     -fx-alignment: center;
 }
+
+.labelSuccess {
+    -fx-text-fill: green;
+}
+
+.labelError {
+    -fx-text-fill: red;
+}
 .button:hover {
     -fx-base: lightgray;
     -fx-text-fill: black;
