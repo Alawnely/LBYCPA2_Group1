@@ -95,8 +95,8 @@ public class MainApplication extends Application {
                     choiceIndex = 0;
                 } else if (line.startsWith("a) ") || line.startsWith("b) ") || line.startsWith("c) ") || line.startsWith("d) ")) {
                     choices[choiceIndex++] = line.substring(3);
-                } else {
-                    question.append(line).append("\n");
+                } else if (!line.isBlank()) {
+                    question.append(line);
                 }
             }
         } catch (IOException e) {
