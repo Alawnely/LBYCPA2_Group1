@@ -42,21 +42,23 @@ public class CreatingController {
 
     @FXML
     protected void addQuestion (ActionEvent event) {
-        if(!checkTextboxes()==true){ // A function that is created to make sure all textfield are filled out.
-            status.setText("Error: Fill out all textfield.");
-            status.setTextFill(Color.RED);
-            throw new RuntimeException("Question not added. Incomplete details.");
-        }
         if (MainApplication.questionList.empty()){
             status.setText("Error: Question list is full.");
             status.setTextFill(Color.RED);
             throw new RuntimeException("Question not added. Full queue.");
+        } else if(!checkTextboxes()){ // A function that is created to make sure all textfield are filled out.
+            status.setText("Error: Fill out all textfield.");
+            status.setTextFill(Color.RED);
+            throw new RuntimeException("Question not added. Incomplete details.");
+        } else {
+            String[] choices= {choice1.getText(),choice2.getText(),choice3.getText(),choice4.getText()};
+            Question newQuestion = new Question(MainApplication.questionList.size(),question.getText(),choices,choice1.getText());
+            MainApplication.questionList.push(newQuestion);
+            status.setText("Succesfully added the question.");
+            status.setTextFill(Color.GREEN);
         }
-        String[] choices= {choice1.getText(),choice2.getText(),choice3.getText(),choice4.getText()};
-        Question newQuestion = new Question(MainApplication.questionList.size(),question.getText(),choices,choice1.getText());
-        MainApplication.questionList.push(newQuestion);
-        status.setText("Succesfully added the question.");
-        status.setTextFill(Color.GREEN);
+
+
     }
 
     public boolean checkTextboxes(){

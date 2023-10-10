@@ -54,4 +54,16 @@ public class MyQueue<T> implements QueueInterface<T> {
     public boolean empty() {
         return front==back;
     }
+
+    public int getFront() {
+        return front;
+    }
+
+    public int getBack() {
+        return back;
+    }
+
+    public T[] getArr() {
+        return arr;
+    }
 }
