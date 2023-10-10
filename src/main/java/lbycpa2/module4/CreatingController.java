@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -28,6 +30,7 @@ public class CreatingController {
     private Button back;
     @FXML
     Label status;
+    private Paint red;
 
 
     @FXML
@@ -39,18 +42,21 @@ public class CreatingController {
 
     @FXML
     protected void addQuestion (ActionEvent event) {
-        if(!checkTextboxes()==true){
-            status.setText("Error adding question. Fill out all textfield.");
+        if(!checkTextboxes()==true){ // A function that is created to make sure all textfield are filled out.
+            status.setText("Error: Fill out all textfield.");
+            status.setTextFill(Color.RED);
             throw new RuntimeException("Question not added. Incomplete details.");
         }
         if (MainApplication.questionList.empty()){
-            status.setText("Error adding question. Question list is full.");
+            status.setText("Error: Question list is full.");
+            status.setTextFill(Color.RED);
             throw new RuntimeException("Question not added. Full queue.");
         }
         String[] choices= {choice1.getText(),choice2.getText(),choice3.getText(),choice4.getText()};
         Question newQuestion = new Question(MainApplication.questionList.size(),question.getText(),choices,choice1.getText());
         MainApplication.questionList.push(newQuestion);
-        status.setText("Succesfully added the question. Thank you.");
+        status.setText("Succesfully added the question.");
+        status.setTextFill(Color.GREEN);
     }
 
     public boolean checkTextboxes(){
