@@ -6,6 +6,7 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -133,6 +134,13 @@ public class QuestionController {
     private void goNext() {
         if (!quesQueue.empty()) {
             setQuestion(quesQueue.pop());
+        } else {
+            MainApplication main = new MainApplication();
+            FXMLLoader endLoader = main.switchScene("end");
+            Object controller = endLoader.getController();
+            if (controller instanceof EndController) {
+                ((EndController) controller).setStats(totalCorrect, totalWrong);
+            }
         }
     }
 
@@ -162,6 +170,12 @@ public class QuestionController {
         totalLabel.setText(String.valueOf(totalQues));
         totalCorrectLabel.setText(String.valueOf(totalCorrect));
         totalWrongLabel.setText(String.valueOf(totalWrong));
+    }
+
+    @FXML
+    private void goHome() {
+        MainApplication main = new MainApplication();
+        main.switchScene("start");
     }
 
 }
