@@ -97,7 +97,7 @@ public class QuestionController {
         }
 
         next.setVisible(false);
-        totalQues--;
+        totalQues = quesQueue.size()+1;
         updateStats();
 
         transitionAway(snapshot);
