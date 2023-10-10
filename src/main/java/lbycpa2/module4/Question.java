@@ -6,7 +6,7 @@ public class Question {
 
     private String questionDetails;
     private String[] choices;
-    private int myIndex;
+    private final int myIndex;
 
     private String correctAns;
 
