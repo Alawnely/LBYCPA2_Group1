@@ -82,16 +82,18 @@ public class MainApplication extends Application {
             String question = "";
             String[] choices = new String[4];
             int choiceIndex = 0;
+            int questionIndex = 0;
 
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("Correct Answer: ")) {
                     /* Create a Question object and add it to the list */
                     String correctAns = line.substring(16);
-                    questionList.push(new Question(question, choices, correctAns));
+                    questionList.push(new Question(questionIndex,question, choices, correctAns));
                     /* Reset variables for the next question */
                     question = "";
                     choices = new String[4];
                     choiceIndex = 0;
+                    questionIndex++;
                 } else if (line.startsWith("a) ") || line.startsWith("b) ") || line.startsWith("c) ") || line.startsWith("d) ")) {
                     choices[choiceIndex++] = line.substring(3);
                 } else {

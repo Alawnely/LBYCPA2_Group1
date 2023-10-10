@@ -61,13 +61,14 @@ public class QuestionController {
     @FXML
     protected void onChoiceClick(ActionEvent event) {
         Button currButton = (Button) event.getSource();
-        if (currButton.getText().equalsIgnoreCase(currQuestion.getCorrectAns())) {
+        if (currButton.getText().equalsIgnoreCase(currQuestion.getCorrectAns())) { //If correct answer
             setStyleCorrect(currButton);
             totalCorrect++;
         } else {
             findCorrectAnswer();
             setStyleWrong(currButton);
             totalWrong++;
+            quesQueue.push(currQuestion);
         }
         next.setVisible(true);
     }
@@ -78,7 +79,7 @@ public class QuestionController {
 
         quesCount++;
         currQuestion = question;
-        quesNum.setText("Question "+quesCount);
+        quesNum.setText("Question "+ (question.getMyIndex()+1));
         quesDetails.setText(question.getQuestionDetails());
         String[] choices = question.getChoices();
 

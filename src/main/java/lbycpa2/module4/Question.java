@@ -6,13 +6,19 @@ public class Question {
 
     private String questionDetails;
     private String[] choices;
+    private int myIndex;
 
     private String correctAns;
 
-    public Question(String questionDetails, String[] choices, String correctAns) {
+    public Question(int myIndex, String questionDetails, String[] choices, String correctAns) {
+        this.myIndex = myIndex;
         this.questionDetails = questionDetails;
         this.choices = choices;
         this.correctAns = correctAns;
+    }
+
+    public int getMyIndex() {
+        return myIndex;
     }
 
     public String getQuestionDetails() {
