@@ -43,8 +43,12 @@ public class CreatingController {
             status.setText("Error adding question. Fill out all textfield.");
             throw new RuntimeException("Question not added. Incomplete details.");
         }
+        if (MainApplication.questionList.empty()){
+            status.setText("Error adding question. Question list is full.");
+            throw new RuntimeException("Question not added. Full queue.");
+        }
         String[] choices= {choice1.getText(),choice2.getText(),choice3.getText(),choice4.getText()};
-        Question newQuestion = new Question(question.getText(),choices,choice1.getText());
+        Question newQuestion = new Question(MainApplication.questionList.size(),question.getText(),choices,choice1.getText());
         MainApplication.questionList.push(newQuestion);
         status.setText("Succesfully added the question. Thank you.");
     }

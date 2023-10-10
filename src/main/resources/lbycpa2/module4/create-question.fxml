@@ -20,7 +20,7 @@
             <Insets bottom="10.0" />
          </padding>
       </Label>
-      <TextArea fx:id="question" prefHeight="135.0" prefWidth="183.0">
+      <TextArea fx:id="question" prefHeight="135.0" prefWidth="183.0" promptText="Input question here.">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
@@ -30,22 +30,22 @@
             <Insets bottom="10.0" />
          </padding>
       </Label>
-      <TextField fx:id="choice1" promptText="Write here the correct answer.">
+      <TextField fx:id="choice1" promptText="Write the correct answer here.">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
-      <TextField fx:id="choice2">
+      <TextField fx:id="choice2" promptText="Write 1st incorrect option.">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
-      <TextField fx:id="choice3">
+      <TextField fx:id="choice3" promptText="Write 2nd incorrect option.">
          <VBox.margin>
             <Insets bottom="10.0" />
          </VBox.margin>
       </TextField>
-      <TextField fx:id="choice4">
+      <TextField fx:id="choice4" promptText="Write 3rd incorrect option.">
          <VBox.margin>
             <Insets />
          </VBox.margin>
@@ -55,7 +55,7 @@
             <Insets />
          </VBox.margin>
          <children>
-            <Label fx:id="status" alignment="CENTER" text="Error Message" wrapText="true">
+            <Label fx:id="status" alignment="CENTER" prefHeight="38.0" prefWidth="185.0" text="Error Message" wrapText="true">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
