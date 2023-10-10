@@ -13,9 +13,11 @@
 #buttonCorrect {
     -fx-base: green;
     -fx-alignment: center;
+    -fx-opacity: 1;
 }
 
 #buttonWrong {
     -fx-base: red;
     -fx-alignment: center;
+    -fx-opacity: 1;
 }

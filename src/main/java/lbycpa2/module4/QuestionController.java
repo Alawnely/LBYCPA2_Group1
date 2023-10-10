@@ -70,6 +70,10 @@ public class QuestionController {
             totalWrong++;
             quesQueue.push(currQuestion);
         }
+        choice1.setDisable(true);
+        choice2.setDisable(true);
+        choice3.setDisable(true);
+        choice4.setDisable(true);
         next.setVisible(true);
     }
 
@@ -117,7 +121,6 @@ public class QuestionController {
     private void transitionAway(WritableImage snapshot) {
         Scene mainScene = MainApplication.getWindow().getScene();
         Parent root = mainScene.getRoot();
-//        System.out.println(root);
 
         if (root instanceof StackPane) {
             return;
@@ -158,6 +161,7 @@ public class QuestionController {
 
     private void resetStyle(Button button){
         button.setId(null);
+        button.setDisable(false);
     }
 
     private void findCorrectAnswer() {
@@ -177,16 +181,6 @@ public class QuestionController {
         totalLabel.setText(String.valueOf(totalQues));
         totalCorrectLabel.setText(String.valueOf(totalCorrect));
         totalWrongLabel.setText(String.valueOf(totalWrong));
-    }
-
-    private boolean checkIndex(int[] index, int number) {
-        for (int i = 0; i < index.length; i++) {
-            if (index[i] == number) {
-                index[i] = Integer.parseInt(null);
-                return false;
-            }
-        }
-        return true;
     }
 
 }
