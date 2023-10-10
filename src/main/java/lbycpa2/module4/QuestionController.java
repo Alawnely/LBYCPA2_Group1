@@ -149,18 +149,15 @@ public class QuestionController {
     }
 
     private void setStyleCorrect(Button button) {
-        button.getStyleClass().clear();
-        button.getStyleClass().add("buttonCorrect");
+        button.setId("buttonCorrect");
     }
 
     private void setStyleWrong(Button button) {
-        button.getStyleClass().clear();
-        button.getStyleClass().add("buttonWrong");
+        button.setId("buttonWrong");
     }
 
     private void resetStyle(Button button){
-        button.getStyleClass().clear();
-        button.getStyleClass().add("button");
+        button.setId(null);
     }
 
     private void findCorrectAnswer() {

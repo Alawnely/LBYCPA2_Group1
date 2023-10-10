@@ -2,25 +2,20 @@
     -fx-base: white;
 }
 .button {
-    -fx-border-color: white;
-    -fx-border-width: 2;
+    -fx-base: white;
     -fx-alignment: center;
 }
 .button:hover {
-    -fx-border-color: gray;
+    -fx-base: lightgray;
     -fx-text-fill: black;
 }
 
-.buttonCorrect {
-    -fx-border-color: green;
-    -fx-text-fill:green;
-    -fx-border-width: 2;
+#buttonCorrect {
+    -fx-base: green;
     -fx-alignment: center;
 }
 
-.buttonWrong {
-    -fx-border-color: red;
-    -fx-text-fill: red;
-    -fx-border-width: 2;
+#buttonWrong {
+    -fx-base: red;
     -fx-alignment: center;
 }
