@@ -1,7 +1,6 @@
 package lbycpa2.module4;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,8 +9,6 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Objects;
 
 public class MainApplication extends Application {
@@ -76,10 +73,10 @@ public class MainApplication extends Application {
     public static MyQueue<Question> loadQuestions (String fileName) {
         MyQueue<Question> questionList = new MyQueue<>(15);
 
-        String fileLoc = "src/main/java/lbycpa2/module4/";
-        try (BufferedReader br = new BufferedReader(new FileReader(fileLoc+fileName))) {
+        String fileLoc = Objects.requireNonNull(Objects.requireNonNull(MainApplication.class.getResource(fileName)).toExternalForm());
+        try (BufferedReader br = new BufferedReader(new FileReader(fileLoc))) {
             String line;
-            String question = "";
+            StringBuilder question = new StringBuilder();
             String[] choices = new String[4];
             int choiceIndex = 0;
 
@@ -87,15 +84,15 @@ public class MainApplication extends Application {
                 if (line.startsWith("Correct Answer: ")) {
                     /* Create a Question object and add it to the list */
                     String correctAns = line.substring(16);
-                    questionList.push(new Question(question, choices, correctAns));
+                    questionList.push(new Question(question.toString(), choices, correctAns));
                     /* Reset variables for the next question */
-                    question = "";
+                    question = new StringBuilder();
                     choices = new String[4];
                     choiceIndex = 0;
                 } else if (line.startsWith("a) ") || line.startsWith("b) ") || line.startsWith("c) ") || line.startsWith("d) ")) {
                     choices[choiceIndex++] = line.substring(3);
                 } else {
-                    question += line + "\n";
+                    question.append(line).append("\n");
                 }
             }
         } catch (IOException e) {
@@ -105,12 +102,12 @@ public class MainApplication extends Application {
     }
 
     @FXML
-    private void startGame(ActionEvent event) {
+    private void startGame() {
         switchScene("question-main");
     }
 
     @FXML
-    private void addQuestions(ActionEvent event) {
+    private void addQuestions() {
         switchScene("create-question");
     }
 }
