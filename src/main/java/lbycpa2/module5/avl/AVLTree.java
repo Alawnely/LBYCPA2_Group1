@@ -2,8 +2,7 @@ package lbycpa2.module5.avl;
 
 public class AVLTree {
     public static class Node {
-        private final int item;
-        private int height;
+        private int item, height;
         private Node left, right;
 
         public Node(int d) {
@@ -95,15 +94,57 @@ public class AVLTree {
     }
 
     public void deleteNode(int item) {
-        if (root == null) {
-            root = new Node(item);
-        }
-        deleteNodeRec(root, item);
+        root = deleteNodeRec(root, item);
     }
 
     private Node deleteNodeRec(Node node, int item) {
-        // TODO
-        return null;
+        // There's nothing to delete
+        if (root == null) {
+            return null;
+        }
+
+        // Find the item to be deleted
+        if (item < node.item) {
+            node.left = deleteNodeRec(node.left, item);
+        } else if (item > node.item) {
+            node.right = deleteNodeRec(node.right, item);
+        } else {
+            // Perform deletion
+            if (node.left == null && node.right == null) {
+                return null;
+            } else if (node.left == null) {
+                node = node.right;
+            } else if (node.right == null) {
+                node = node.left;
+            } else {
+                Node temp = node.right;
+                while (temp != null) {
+                    node.item = temp.item;
+                    temp = temp.left;
+                }
+                node.right = deleteNodeRec(node.right, node.item);
+            }
+        }
+
+        // Update the balance factor
+        node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+        int balanceFactor = getBalanceFactor(node);
+
+        // Perform balancing
+        if (balanceFactor > 1) {
+            // Tree is skewed to the left
+            if (getBalanceFactor(node.left) < 0) {
+                node.left = leftRotate(node.left);
+            }
+            return rightRotate(node);
+        } else if (balanceFactor < -1) {
+            // Tree is skewed to the right
+            if (getBalanceFactor(node.right) > 0) {
+                node.right = rightRotate(node.right);
+            }
+            return leftRotate(node);
+        }
+        return node;
     }
 
     // TODO: insert more necessary methods
