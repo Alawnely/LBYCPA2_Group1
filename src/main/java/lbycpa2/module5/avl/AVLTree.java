@@ -149,10 +149,11 @@ public class AVLTree {
 
     public void preorderTraversal() {
         preorderTraversal(root);
+        System.out.println();
     }
 
     private void preorderTraversal(Node node) {
-        System.out.print(node.item);
+        System.out.print(node.item+" ");
         if (node.left != null) {
             preorderTraversal(node.left);
         }
@@ -163,6 +164,7 @@ public class AVLTree {
 
     public void postorderTraversal() {
         postorderTraversal(root);
+        System.out.println();
     }
 
     private void postorderTraversal(Node node) {
@@ -172,18 +174,19 @@ public class AVLTree {
         if (node.right != null) {
             postorderTraversal(node.right);
         }
-        System.out.print(node.item);
+        System.out.print(node.item+" ");
     }
 
     public void inorderTraversal() {
         inorderTraversal(root);
+        System.out.println();
     }
 
     private void inorderTraversal(Node node) {
         if (node.left != null) {
             inorderTraversal(node.left);
         }
-        System.out.print(node.item);
+        System.out.print(node.item+" ");
         if (node.right != null) {
             inorderTraversal(node.right);
         }
@@ -213,6 +216,33 @@ public class AVLTree {
 
     public static void main(String[] args) {
         AVLTree tree = new AVLTree();
-        // TODO
+
+        // Insert numbers
+        tree.insertNode(33);
+        tree.insertNode(13);
+        tree.insertNode(53);
+        tree.insertNode(9);
+        tree.insertNode(21);
+        tree.insertNode(61);
+        tree.insertNode(8);
+        tree.insertNode(11);
+        tree.print();
+
+        // Delete a number
+        System.out.println("\nAfter Deletion: ");
+        tree.deleteNode(13);
+        tree.print();
+
+        // Print infix
+        System.out.print("\nIn-order: ");
+        tree.inorderTraversal();
+
+        // Print postfix
+        System.out.print("Post-order: ");
+        tree.postorderTraversal();
+
+        // Print prefix
+        System.out.print("Pre-order: ");
+        tree.preorderTraversal();
     }
 }
