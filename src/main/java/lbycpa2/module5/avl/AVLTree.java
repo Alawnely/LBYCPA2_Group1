@@ -49,7 +49,7 @@ public class AVLTree {
         root = leftRotate(root);
     }
 
-    public Node leftRotate(Node leftNode) {
+    private Node leftRotate(Node leftNode) {
         // Perform rotation
         Node rightNode = leftNode.right;
         Node temp = rightNode.left;
