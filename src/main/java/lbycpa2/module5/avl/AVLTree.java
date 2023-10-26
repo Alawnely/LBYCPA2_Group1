@@ -54,10 +54,10 @@ public class AVLTree {
     }
 
     public void insertNode(int item) {
-        root = insertNodeRec(root, item);
+        root = insertNode(root, item);
     }
 
-    private Node insertNodeRec(Node node, int item) {
+    private Node insertNode(Node node, int item) {
         // Create a new node if it doesn't exist
         if (node == null) {
             return new Node(item);
@@ -65,9 +65,9 @@ public class AVLTree {
 
         // Find where the node will be inserted
         if (item < node.item) {
-            node.left = insertNodeRec(node.left, item);
+            node.left = insertNode(node.left, item);
         } else if (item > node.item) {
-            node.right = insertNodeRec(node.right, item);
+            node.right = insertNode(node.right, item);
         } else {
             return node;
         }
@@ -94,10 +94,10 @@ public class AVLTree {
     }
 
     public void deleteNode(int item) {
-        root = deleteNodeRec(root, item);
+        root = deleteNode(root, item);
     }
 
-    private Node deleteNodeRec(Node node, int item) {
+    private Node deleteNode(Node node, int item) {
         // There's nothing to delete
         if (root == null) {
             return null;
@@ -105,9 +105,9 @@ public class AVLTree {
 
         // Find the item to be deleted
         if (item < node.item) {
-            node.left = deleteNodeRec(node.left, item);
+            node.left = deleteNode(node.left, item);
         } else if (item > node.item) {
-            node.right = deleteNodeRec(node.right, item);
+            node.right = deleteNode(node.right, item);
         } else {
             // Perform deletion
             if (node.left == null && node.right == null) {
@@ -122,7 +122,7 @@ public class AVLTree {
                     node.item = temp.item;
                     temp = temp.left;
                 }
-                node.right = deleteNodeRec(node.right, node.item);
+                node.right = deleteNode(node.right, node.item);
             }
         }
 
@@ -145,6 +145,68 @@ public class AVLTree {
             return leftRotate(node);
         }
         return node;
+    }
+
+    public void preorderTraversal() {
+        preorderTraversal(root);
+    }
+
+    private void preorderTraversal(Node node) {
+        System.out.print(node.item);
+        if (node.left != null) {
+            preorderTraversal(node.left);
+        }
+        if (node.right != null) {
+            preorderTraversal(node.right);
+        }
+    }
+
+    public void postorderTraversal() {
+        postorderTraversal(root);
+    }
+
+    private void postorderTraversal(Node node) {
+        if (node.left != null) {
+            postorderTraversal(node.left);
+        }
+        if (node.right != null) {
+            postorderTraversal(node.right);
+        }
+        System.out.print(node.item);
+    }
+
+    public void inorderTraversal() {
+        inorderTraversal(root);
+    }
+
+    private void inorderTraversal(Node node) {
+        if (node.left != null) {
+            inorderTraversal(node.left);
+        }
+        System.out.print(node.item);
+        if (node.right != null) {
+            inorderTraversal(node.right);
+        }
+    }
+
+    public void print() {
+        print(root, "", true);
+    }
+
+    private void print(Node node, String indent, boolean last) {
+        if (node != null) {
+            System.out.print(indent);
+            if (last) {
+                System.out.print("R----");
+                indent += "   ";
+            } else {
+                System.out.print("L----");
+                indent += "|  ";
+            }
+            System.out.println(node.item);
+            print(node.left, indent, false);
+            print(node.right, indent, true);
+        }
     }
 
     // TODO: insert more necessary methods
