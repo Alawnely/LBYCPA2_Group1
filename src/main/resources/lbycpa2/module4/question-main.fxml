@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="263.0" spacing="5.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module4.QuestionController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="263.0" spacing="5.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module4.QuestionController">
    <children>
       <VBox prefHeight="200.0" spacing="5.0">
          <children>
@@ -64,7 +64,12 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <Button fx:id="next" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goNext" text="Next" />
+      <HBox spacing="120.0">
+         <children>
+            <Button fx:id="exit" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goHome" text="Exit" />
+            <Button fx:id="next" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goNext" text="Next" />
+         </children>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

@@ -23,7 +23,7 @@ public class MainApplication extends Application {
     public void start(Stage stage) {
         questionList = loadQuestions("question_list.txt");
         window = stage;
-        stylesheet = Objects.requireNonNull(getClass().getResource("temporarycss.css")).toExternalForm();
+        stylesheet = Objects.requireNonNull(getClass().getResource("ourstyle.css")).toExternalForm();
 
         switchScene("start");
         stage.setTitle("Who Wants to be a Kahoot-ionare?!");
