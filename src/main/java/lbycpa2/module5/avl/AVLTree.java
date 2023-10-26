@@ -2,8 +2,8 @@ package lbycpa2.module5.avl;
 
 public class AVLTree {
     public static class Node {
-        public int item, height;
-        public Node left, right;
+        private int item, height;
+        private Node left, right;
 
         public Node(int d) {
             item = d;
@@ -28,13 +28,29 @@ public class AVLTree {
     }
 
     public Node rightRotate(Node rightNode) {
-        // TODO
-        return null;
+        // Perform rotation
+        Node leftNode = rightNode.left;
+        Node temp = leftNode.right;
+        leftNode.right = rightNode;
+        rightNode.left = temp;
+
+        // Update height value
+        leftNode.height = Math.max(getHeight(leftNode.left), getHeight(leftNode.right)) + 1;
+        rightNode.height = Math.max(getHeight(rightNode.left), getHeight(rightNode.right)) + 1;
+        return leftNode;
     }
 
     public Node leftRotate(Node leftNode) {
-        // TODO
-        return null;
+        // Perform rotation
+        Node rightNode = leftNode.right;
+        Node temp = rightNode.left;
+        rightNode.left = leftNode;
+        leftNode.right = temp;
+
+        // Update height value
+        leftNode.height = Math.max(getHeight(leftNode.left), getHeight(leftNode.right)) + 1;
+        rightNode.height = Math.max(getHeight(rightNode.left), getHeight(rightNode.right)) + 1;
+        return rightNode;
     }
 
     public void insertNode(int item) {
