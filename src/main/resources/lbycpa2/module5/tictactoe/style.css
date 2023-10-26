@@ -1,0 +1,36 @@
+.root {
+    -fx-base: white;
+}
+.button {
+    -fx-base: blue;
+    -fx-background-color: #4692F9;
+    -fx-alignment: center;
+    -fx-border-radius: 50px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+
+}
+
+.transbutton {
+    -fx-base: none;
+    -fx-background-color: none;
+    -fx-cursor: hand;
+}
+
+.buttonChoose {
+    -fx-background-color: white;
+    -fx-border-color: gray;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-cursor: hand;
+    -fx-min-width: 15px;
+    -fx-min-height: 15px;
+    -fx-max-width: 15px;
+    -fx-max-height: 15px;
+    -fx-transition-duration: 1s;
+}
+
+.buttonChoose:hover{
+    -fx-background-color: #4692F9;
+}

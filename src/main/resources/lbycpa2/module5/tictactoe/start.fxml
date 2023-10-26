@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module5.tictactoe.MainApplication">
+   <children>
+      <ImageView fitHeight="83.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@titleicon.png" />
+         </image>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </ImageView>
+      <Label text="tic tac toe" textFill="#6e6e6e">
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font></Label>
+      <Button mnemonicParsing="false" onAction="#startGame" stylesheets="@style.css" text="Play Vs AI">
+         <effect>
+            <DropShadow offsetY="2.0">
+               <color>
+                  <Color red="0.6315789222717285" green="0.6315789222717285" blue="0.6315789222717285" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="40.0" right="40.0" top="40.0" />
+   </padding>
+</VBox>
