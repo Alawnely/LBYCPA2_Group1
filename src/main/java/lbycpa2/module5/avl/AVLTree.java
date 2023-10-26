@@ -2,11 +2,12 @@ package lbycpa2.module5.avl;
 
 public class AVLTree {
     public static class Node {
-        private int item, height;
+        private String item;
+        private int height;
         private Node left, right;
 
-        public Node(int d) {
-            item = d;
+        public Node(String word) {
+            item = word;
             height = 1;
         }
     }
@@ -35,8 +36,8 @@ public class AVLTree {
         rightNode.left = temp;
 
         // Update height value
-        leftNode.height = Math.max(getHeight(leftNode.left), getHeight(leftNode.right)) + 1;
         rightNode.height = Math.max(getHeight(rightNode.left), getHeight(rightNode.right)) + 1;
+        leftNode.height = Math.max(getHeight(leftNode.left), getHeight(leftNode.right)) + 1;
         return leftNode;
     }
 
@@ -53,20 +54,21 @@ public class AVLTree {
         return rightNode;
     }
 
-    public void insertNode(int item) {
+    public void insertNode(String item) {
         root = insertNode(root, item);
     }
 
-    private Node insertNode(Node node, int item) {
+    private Node insertNode(Node node, String item) {
         // Create a new node if it doesn't exist
         if (node == null) {
             return new Node(item);
         }
 
         // Find where the node will be inserted
-        if (item < node.item) {
+        int compareResult = item.compareTo(node.item);
+        if (compareResult < 0) {
             node.left = insertNode(node.left, item);
-        } else if (item > node.item) {
+        } else if (compareResult > 0) {
             node.right = insertNode(node.right, item);
         } else {
             return node;
@@ -79,13 +81,13 @@ public class AVLTree {
         // Perform balancing
         if (balanceFactor > 1) {
             // Tree is skewed to the left
-            if (item > node.left.item) {
+            if (item.compareTo(node.left.item) > 0) {
                 node.left = leftRotate(node.left);
             }
             return rightRotate(node);
         } else if (balanceFactor < -1) {
             // Tree is skewed to the right
-            if (item < node.right.item) {
+            if (item.compareTo(node.right.item) < 0) {
                 node.right = rightRotate(node.right);
             }
             return leftRotate(node);
@@ -93,20 +95,21 @@ public class AVLTree {
         return node;
     }
 
-    public void deleteNode(int item) {
+    public void deleteNode(String item) {
         root = deleteNode(root, item);
     }
 
-    private Node deleteNode(Node node, int item) {
+    private Node deleteNode(Node node, String item) {
         // There's nothing to delete
         if (root == null) {
             return null;
         }
 
         // Find the item to be deleted
-        if (item < node.item) {
+        int compareResult = item.compareTo(node.item);
+        if (compareResult < 0) {
             node.left = deleteNode(node.left, item);
-        } else if (item > node.item) {
+        } else if (compareResult > 0) {
             node.right = deleteNode(node.right, item);
         } else {
             // Perform deletion
@@ -200,37 +203,40 @@ public class AVLTree {
         if (node != null) {
             System.out.print(indent);
             if (last) {
-                System.out.print("R----");
+                System.out.print("R");
                 indent += "   ";
             } else {
-                System.out.print("L----");
-                indent += "|  ";
+                System.out.print("L");
+                indent += "\u2502  ";
             }
+            System.out.print((node.left != null || node.right != null) ? "\u2500\u2500\u252c\u2500" : "\u2500\u2500\u2500\u2500");
             System.out.println(node.item);
+
             print(node.left, indent, false);
             print(node.right, indent, true);
         }
     }
 
-    // TODO: insert more necessary methods
+    private static final String sentence = "The quick brown fox jumps over the lazy dog.";
 
     public static void main(String[] args) {
+        String[] words = sentence.split("\\s+");
         AVLTree tree = new AVLTree();
 
-        // Insert numbers
-        tree.insertNode(33);
-        tree.insertNode(13);
-        tree.insertNode(53);
-        tree.insertNode(9);
-        tree.insertNode(21);
-        tree.insertNode(61);
-        tree.insertNode(8);
-        tree.insertNode(11);
+        // Insert words
+        for (String word : words) {
+            // Remove punctuation
+            word = word.replaceAll("[^a-zA-Z]", "").toLowerCase();
+            if (!word.isEmpty()) {
+                tree.insertNode(word);
+            }
+        }
         tree.print();
 
-        // Delete a number
+        // Delete words
         System.out.println("\nAfter Deletion: ");
-        tree.deleteNode(13);
+        tree.deleteNode("brown");
+        tree.deleteNode("quick");
         tree.print();
 
         // Print infix
