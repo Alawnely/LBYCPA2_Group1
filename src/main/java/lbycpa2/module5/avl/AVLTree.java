@@ -14,13 +14,17 @@ public class AVLTree {
     private Node root;
 
     public int getHeight(Node node) {
-        // TODO
-        return 0;
+        if (node == null) {
+            return 0;
+        }
+        return node.height;
     }
 
     public int getBalanceFactor(Node node) {
-        // TODO
-        return 0;
+        if (node == null) {
+            return 0;
+        }
+        return getHeight(node.left) - getHeight(node.right);
     }
 
     public Node rightRotate(Node rightNode) {
