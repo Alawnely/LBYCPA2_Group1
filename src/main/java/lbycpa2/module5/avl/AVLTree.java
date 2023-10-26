@@ -28,7 +28,11 @@ public class AVLTree {
         return getHeight(node.left) - getHeight(node.right);
     }
 
-    public Node rightRotate(Node rightNode) {
+    public void rightRotate() {
+        root = rightRotate(root);
+    }
+
+    private Node rightRotate(Node rightNode) {
         // Perform rotation
         Node leftNode = rightNode.left;
         Node temp = leftNode.right;
@@ -39,6 +43,10 @@ public class AVLTree {
         rightNode.height = Math.max(getHeight(rightNode.left), getHeight(rightNode.right)) + 1;
         leftNode.height = Math.max(getHeight(leftNode.left), getHeight(leftNode.right)) + 1;
         return leftNode;
+    }
+
+    public void leftRotate() {
+        root = leftRotate(root);
     }
 
     public Node leftRotate(Node leftNode) {
@@ -150,49 +158,55 @@ public class AVLTree {
         return node;
     }
 
-    public void preorderTraversal() {
-        preorderTraversal(root);
-        System.out.println();
+    public void clear() {
+        root = null;
     }
 
-    private void preorderTraversal(Node node) {
-        System.out.print(node.item+" ");
+    public String preorderTraversal() {
+        return preorderTraversal(root);
+    }
+
+    private String preorderTraversal(Node node) {
+        String out = node.item+" ";
         if (node.left != null) {
-            preorderTraversal(node.left);
+            out += preorderTraversal(node.left);
         }
         if (node.right != null) {
-            preorderTraversal(node.right);
+            out += preorderTraversal(node.right);
         }
+        return out;
     }
 
-    public void postorderTraversal() {
-        postorderTraversal(root);
-        System.out.println();
+    public String postorderTraversal() {
+        return postorderTraversal(root);
     }
 
-    private void postorderTraversal(Node node) {
+    private String postorderTraversal(Node node) {
+        String out = "";
         if (node.left != null) {
-            postorderTraversal(node.left);
+            out += postorderTraversal(node.left);
         }
         if (node.right != null) {
-            postorderTraversal(node.right);
+            out += postorderTraversal(node.right);
         }
-        System.out.print(node.item+" ");
+        out += node.item+" ";
+        return out;
     }
 
-    public void inorderTraversal() {
-        inorderTraversal(root);
-        System.out.println();
+    public String inorderTraversal() {
+        return inorderTraversal(root);
     }
 
-    private void inorderTraversal(Node node) {
+    private String inorderTraversal(Node node) {
+        String out = "";
         if (node.left != null) {
-            inorderTraversal(node.left);
+            out += inorderTraversal(node.left);
         }
-        System.out.print(node.item+" ");
+        out += node.item+" ";
         if (node.right != null) {
-            inorderTraversal(node.right);
+            out += inorderTraversal(node.right);
         }
+        return out;
     }
 
     public void print() {
@@ -241,14 +255,14 @@ public class AVLTree {
 
         // Print infix
         System.out.print("\nIn-order: ");
-        tree.inorderTraversal();
+        System.out.println(tree.inorderTraversal());
 
         // Print postfix
         System.out.print("Post-order: ");
-        tree.postorderTraversal();
+        System.out.println(tree.postorderTraversal());
 
         // Print prefix
         System.out.print("Pre-order: ");
-        tree.preorderTraversal();
+        System.out.println(tree.preorderTraversal());
     }
 }
