@@ -2,7 +2,8 @@ package lbycpa2.module5.avl;
 
 public class AVLTree {
     public static class Node {
-        private int item, height;
+        private final int item;
+        private int height;
         private Node left, right;
 
         public Node(int d) {
@@ -54,15 +55,43 @@ public class AVLTree {
     }
 
     public void insertNode(int item) {
-        if (root == null) {
-            root = new Node(item);
-        }
-        insertNodeRec(root, item);
+        root = insertNodeRec(root, item);
     }
 
     private Node insertNodeRec(Node node, int item) {
-        // TODO
-        return null;
+        // Create a new node if it doesn't exist
+        if (node == null) {
+            return new Node(item);
+        }
+
+        // Find where the node will be inserted
+        if (item < node.item) {
+            node.left = insertNodeRec(node.left, item);
+        } else if (item > node.item) {
+            node.right = insertNodeRec(node.right, item);
+        } else {
+            return node;
+        }
+
+        // Update the balance factor
+        node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+        int balanceFactor = getBalanceFactor(node);
+
+        // Perform balancing
+        if (balanceFactor > 1) {
+            // Tree is skewed to the left
+            if (item > node.left.item) {
+                node.left = leftRotate(node.left);
+            }
+            return rightRotate(node);
+        } else if (balanceFactor < -1) {
+            // Tree is skewed to the right
+            if (item < node.right.item) {
+                node.right = rightRotate(node.right);
+            }
+            return leftRotate(node);
+        }
+        return node;
     }
 
     public void deleteNode(int item) {
