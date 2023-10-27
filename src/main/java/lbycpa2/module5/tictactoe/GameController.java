@@ -40,13 +40,13 @@ public class GameController {
     private Button replayButton;
     private Image userImage;
     private Image aiImage;
-    private Image blankImage;
+    private final Image blankImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("blankcircle.png")));
     private ImageView[] cells;
 
     private MinimaxTree tree;
     private State state;
 
-    private boolean isUserTurn;
+    private boolean isUserTurn, isSecondRound;
     private int aiScore = 0, uScore = 0;
 
     public void initialize(){
@@ -54,12 +54,15 @@ public class GameController {
         String[] board = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8"};
         state = new State(0, board);
 
-        blankImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("blankcircle.png")));
         cells = new ImageView[]{cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9};
         resetAllCells();
         replayButton.setVisible(false);
 
         isUserTurn = false;
+        if (isSecondRound) {
+            makeAMove(new Random().nextInt(9));
+        }
+        isSecondRound = true;
     }
 
     public void setUserX(boolean isUserX) {
