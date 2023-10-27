@@ -118,6 +118,12 @@ public class GameController {
                     uScore++;
                 }
                 scoresLabel.setText(uScore + " - " + aiScore);
+                for (ImageView cell : cells) {
+                    Parent parent2 = cell.getParent();
+                    if (parent2 != null) {
+                        parent2.setDisable(true);
+                    }
+                }
                 replayButton.setVisible(true);
             }
         }));
