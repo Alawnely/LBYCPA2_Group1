@@ -2,7 +2,6 @@ package lbycpa2.module5.tictactoe;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Random;
 
 public class MinimaxTree {
 
@@ -136,8 +135,6 @@ public class MinimaxTree {
         int move = possibleMoves.get(best).getPosition();
         System.out.println("Action: " + move);
         return move;
-    }
-    public static void main(String[] args) {
     }
 }
 
