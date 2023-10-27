@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 public class GameController {
@@ -132,17 +133,17 @@ public class GameController {
     }
 
     private void setUserImg(String fileName){
-        userImage = new Image(getClass().getResourceAsStream(fileName));
+        userImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(fileName)));
     }
 
     private void setAiImage(String fileName) {
-        aiImage = new Image(getClass().getResourceAsStream(fileName));
+        aiImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(fileName)));
     }
 
     private void resetAllCells() {
         String fileName = "blankcircle.png";
         for (ImageView cell : cells) {
-            cell.setImage(new Image(getClass().getResourceAsStream(fileName)));
+            cell.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(fileName))));
             Parent parent = cell.getParent();
             if (parent != null) {
                 parent.setDisable(false);
