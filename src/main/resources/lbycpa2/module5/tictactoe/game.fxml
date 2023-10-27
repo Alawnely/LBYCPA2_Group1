@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module5.tictactoe.GameController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module5.tictactoe.GameController">
    <padding>
       <Insets bottom="20.0" left="40.0" right="40.0" top="40.0" />
    </padding>
@@ -24,7 +24,7 @@
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Label>
-            <Label text="0 - 0" textFill="#7e7e7e">
+            <Label fx:id="scoresLabel" text="0 - 0" textFill="#7e7e7e">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
@@ -138,5 +138,6 @@
             </Button>
          </children>
       </HBox>
+      <Button fx:id="replayButton" mnemonicParsing="false" onAction="#initialize" text="Play Again" />
    </children>
 </VBox>

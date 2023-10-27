@@ -27,7 +27,7 @@ public class MainApplication extends Application {
         stylesheet = Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm();
 
         switchScene("start");
-        stage.setTitle("Who Wants to be a Kahoot-ionare?!");
+        stage.setTitle("ttt");
         stage.setResizable(false);
         stage.show();
     }
