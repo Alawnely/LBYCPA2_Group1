@@ -11,11 +11,9 @@
     -fx-font-family: "Arial";
 
 }
-/*
 .button:disabled {
     -fx-opacity: 1;
 }
-*/
 
 .transbutton {
     -fx-base: none;
