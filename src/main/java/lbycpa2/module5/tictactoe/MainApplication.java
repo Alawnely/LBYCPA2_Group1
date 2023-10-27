@@ -1,23 +1,15 @@
 package lbycpa2.module5.tictactoe;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import lbycpa2.module4.MyQueue;
-import lbycpa2.module4.Question;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 public class MainApplication extends Application {
-
     private static Stage window;
     private static String stylesheet;
 
@@ -61,13 +53,19 @@ public class MainApplication extends Application {
 
     @FXML
     private void startX() {
-        GameController.isUserX = true;
-        switchScene("game");
+        FXMLLoader gameLoader = switchScene("game");
+        Object controller = gameLoader.getController();
+        if (controller instanceof GameController) {
+            ((GameController) controller).setUserX(true);
+        }
     }
 
     @FXML
     private void startO() {
-        GameController.isUserX = false;
-        switchScene("game");
+        FXMLLoader gameLoader = switchScene("game");
+        Object controller = gameLoader.getController();
+        if (controller instanceof GameController) {
+            ((GameController) controller).setUserX(false);
+        }
     }
 }

@@ -16,60 +16,53 @@ import java.util.Objects;
 import java.util.Random;
 
 public class GameController {
-    boolean isUserTurn;
-    public static boolean isUserX;
-
-    Image userImage;
-
-    Image aiImage;
-
     @FXML
-    ImageView cell1;
-
+    private ImageView cell1;
     @FXML
-    ImageView cell2;
-
+    private ImageView cell2;
     @FXML
-    ImageView cell3;
-
+    private ImageView cell3;
     @FXML
-    ImageView cell4;
-
+    private ImageView cell4;
     @FXML
-    ImageView cell5;
-
+    private ImageView cell5;
     @FXML
-    ImageView cell6;
-
+    private ImageView cell6;
     @FXML
-    ImageView cell7;
-
+    private ImageView cell7;
     @FXML
-    ImageView cell8;
-
+    private ImageView cell8;
     @FXML
-    ImageView cell9;
-
+    private ImageView cell9;
     @FXML
-    Label scoresLabel;
-
+    private Label scoresLabel;
     @FXML
-    Button replayButton;
-
-    private int aiScore = 0, uScore = 0;
-    private MinimaxTree tree;
-    private State state;
+    private Button replayButton;
+    private Image userImage;
+    private Image aiImage;
+    private Image blankImage;
     private ImageView[] cells;
 
+    private MinimaxTree tree;
+    private State state;
+
+    private boolean isUserTurn;
+    private int aiScore = 0, uScore = 0;
+
     public void initialize(){
-        replayButton.setVisible(false);
         tree = new MinimaxTree();
         String[] board = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8"};
         state = new State(0, board);
 
+        blankImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("blankcircle.png")));
         cells = new ImageView[]{cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9};
-
         resetAllCells();
+        replayButton.setVisible(false);
+
+        isUserTurn = false;
+    }
+
+    public void setUserX(boolean isUserX) {
         if (isUserX){
             setUserImg("xcircle.png");
             setAiImage("ocircle.png");
@@ -77,7 +70,6 @@ public class GameController {
             setUserImg("ocircle.png");
             setAiImage("xcircle.png");
         }
-        isUserTurn = false;
 
         makeAMove(new Random().nextInt(9));
     }
@@ -141,9 +133,8 @@ public class GameController {
     }
 
     private void resetAllCells() {
-        String fileName = "blankcircle.png";
         for (ImageView cell : cells) {
-            cell.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(fileName))));
+            cell.setImage(blankImage);
             Parent parent = cell.getParent();
             if (parent != null) {
                 parent.setDisable(false);
