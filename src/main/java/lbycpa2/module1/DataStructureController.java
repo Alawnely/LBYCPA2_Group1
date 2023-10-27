@@ -1,4 +1,4 @@
-package lbycpa2.module1_q4;
+package lbycpa2.module1;
 
 import javafx.fxml.FXML;
 

@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1.DataStructureController">
    <children>
       <AnchorPane>
          <children>
@@ -38,28 +38,28 @@
             <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
          </children>
       </AnchorPane>
-      <ScrollPane fitToWidth="true" style="-fx-background: f4dddd;" layoutX="3.0" layoutY="62.0" prefHeight="1006.0" prefWidth="250.0">
+      <ScrollPane fitToWidth="true" style="-fx-background: f4dddd;" layoutX="3.0" layoutY="62.0" VBox.vgrow="ALWAYS">
          <content>
             <VBox>
                <children>
-                  <Label prefHeight="32.0" text="Binary Search Tree">
+                  <Label text="Doubly Linked List">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="32.0" prefWidth="157.0" text="Phone Book">
+                  <Label layoutX="10.0" layoutY="258.0" prefHeight="32.0" text="Web Browser History">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="A phonebook is similar to the Binary Search Tree since it allows users to do search, insert, and delete operations efficiently" wrapText="true">
+                  <Label text="Doubly Linked Lists are comparable to web browser history. Every page visited using a web browser is linked to previous pages visited by the user as well as the next ones, allowing them to access the history more quickly." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="192.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="200.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@7-phone_book.png" />
+                        <Image url="@4-browser.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Access">
@@ -67,7 +67,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="To access elements within the phonebook, one simply needed to know a portion of the name. Since a phone book is likely to be arranged alphabetically, you can start in the middle and continue searching left or right of the pages until you found the target name. Similarly, in a binary search tree, it finds the specific node through comparing the left and right values and proceeds accordingly. Its goal is to reach that specific node and access its information as efficiently as possible." wrapText="true">
+                  <Label text="Accessing the previous and next pages are as easy as navigating to the page linked by the pointers." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -77,7 +77,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Similar to the access operation, it also involves finding and retrieving a specific element but its mainly concerned with determining whether that element exists within the phonebook/tree. " wrapText="true">
+                  <Label text="However, if the user needs to access the previous page more than 1 layer deep, an interation needs to be performed to jump to a series of pointers between the nodes." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -87,7 +87,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="When inserting a new element within the tree or phonebook. One has to compare the name values of the new contact to existing entries. This comparison determines the position of the new contact within existing entries whether it would be to the left or to the right of the node." wrapText="true">
+                  <Label text="As new pages are visited, they are added to the browser history by creating a link between them and the previous page." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="The delete operation is a bit complex since there are three possible scenarios to consider. First, a search operation is performed to look for the element or contact that would be deleted. The first scenario to consider is the &quot;No Children&quot; (Leaf Node) wherein if the contact that must be deleted has no children or submembers, one can simply remove that node from the tree (Similar to crossing out the name of the contact). The next scenario to consider is One Child wherein if the node you want to delete has a left or a right child, it is possible to bypass the node (delete) through connecting its parent directly to its only child. This is similar to ripping a page out from the phone book and taping it to a different location. The last scenario to consider is &quot;Two Children&quot; wherein the node has both a left and right children. This last scenario is more complex since its either you have to find the smallest node in the right subtree and replace it with the in-order successor's data and delete its node (finding a replacement contact with the closest name alphabetically, copy its info to the contact to be deleted, and remove the replacement contact) or find the first in-order predecessor (largest node in left subtree) and use a similar process to replace and delete that node." wrapText="true">
+                  <Label layoutX="10.0" layoutY="274.0" text="To delete or remove pages in this manner, the node that points to the page to be deleted is removed, hence making that particular page inaccessible." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>

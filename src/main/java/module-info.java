@@ -8,8 +8,8 @@ module lbycpa2 {
     requires org.junit.vintage.engine;
 
 
-    opens lbycpa2.module1_q4 to javafx.fxml;
-    exports lbycpa2.module1_q4;
+    opens lbycpa2.module1 to javafx.fxml;
+    exports lbycpa2.module1;
 
     opens lbycpa2.module2 to javafx.fxml;
     exports lbycpa2.module2;

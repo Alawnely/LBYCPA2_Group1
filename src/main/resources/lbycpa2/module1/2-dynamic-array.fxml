@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1.DataStructureController">
    <children>
       <AnchorPane>
          <children>
@@ -42,24 +42,24 @@
          <content>
             <VBox>
                <children>
-                  <Label text="Singly Linked List">
+                  <Label text="Dynamic Array">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="258.0" prefHeight="32.0" text="Audio CDs">
+                  <Label layoutX="10.0" layoutY="258.0" prefHeight="32.0" text="Event Registration System">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Singly Linked Lists are comparable to audio compact discs (CDs) in the real world as each song is played sequentially." wrapText="true">
+                  <Label text="Dynamic Arrays are comparable to real-life event registration systems as they are lists of objects that are flexible, that is, the size changes according to their contents." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="200.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@3-cd.png" />
+                        <Image url="@2-event registration.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Access">
@@ -67,7 +67,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Playing (accessing) songs in a CD requires the drive head to start reading from the beginning, which plays songs in a continuous and sequential manner." wrapText="true">
+                  <Label text="In an event registration system, organizers can access a participant by knowing its index in the list. In layman's terms, it is the participants' identification numbers (ID)." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -77,7 +77,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="In order to search for a song in a CD, the player seeks the CD in a sequential manner until the selected song is found." wrapText="true">
+                  <Label text="Searching for a participant (or an object in a dynamic array) involves looking for everyone in the list. In technical terms, a for-loop is used in this operation." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -87,7 +87,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="As new songs are added to a CD, the last song in the list adds a pointer to the next one in the playlist. It allows the player to play the CD in a continuous manner." wrapText="true">
+                  <Label text="In this system, new participants are added at the end of the list, just like in dynamic arrays where new objects are added at the end as well." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="274.0" text="To delete or remove songs in this manner, the song (node) that points to the song to be deleted is removed, hence making that particular song inaccessible." wrapText="true">
+                  <Label layoutX="10.0" layoutY="274.0" text="To delete or remove a participant in the list, that person will no longer considered to be part of the list, and the indices of the participants afterwards are shifted one below." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>

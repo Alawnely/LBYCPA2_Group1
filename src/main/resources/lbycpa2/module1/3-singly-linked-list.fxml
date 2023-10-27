@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1.DataStructureController">
    <children>
       <AnchorPane>
          <children>
@@ -38,28 +38,28 @@
             <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
          </children>
       </AnchorPane>
-      <ScrollPane fitToWidth="true" style="-fx-background: f4dddd;" layoutX="3.0" layoutY="62.0" prefHeight="1216.0" prefWidth="262.0">
+      <ScrollPane fitToWidth="true" style="-fx-background: f4dddd;" layoutX="3.0" layoutY="62.0" VBox.vgrow="ALWAYS">
          <content>
-            <VBox prefWidth="245.0">
+            <VBox>
                <children>
-                  <Label prefHeight="32.0" text="Queue">
+                  <Label text="Singly Linked List">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="24.0" prefWidth="242.0" text="Customer Support Ticketing System">
+                  <Label layoutX="10.0" layoutY="258.0" prefHeight="32.0" text="Audio CDs">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="In a customer support ticketing system, access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. Access permissions define who can view, update, and assign tickets in a particular queue, ensuring that customer inquiries are efficiently managed and only accessible to authorized individuals or teams. This access control mechanism helps maintain ticketing system security and operational orderliness." wrapText="true">
+                  <Label text="Singly Linked Lists are comparable to audio compact discs (CDs) in the real world as each song is played sequentially." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="186.0" fitWidth="240.0">
+                  <ImageView fitHeight="200.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@6-ticket system.jpg" />
+                        <Image url="@3-cd.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Access">
@@ -67,7 +67,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. To maintin the security and privacy of customers, authorities within the organization define who can view, update, and assign tickets. " wrapText="true">
+                  <Label text="Playing (accessing) songs in a CD requires the drive head to start reading from the beginning, which plays songs in a continuous and sequential manner." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -77,7 +77,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="To search in a queue data system, agents are have a wide variety of factors that they can use to filter out data. For example, a priority-based search is necessary to ensure that urgent concerns are addressed immediately. While interconnected ticket identification can use keyword searching. Similarly, when addressing a similar problem to before, customer support agents can search utilize historical search to reference past tickets or ticket history related to a particular customer or issue. " wrapText="true">
+                  <Label text="In order to search for a song in a CD, the player seeks the CD in a sequential manner until the selected song is found." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -87,7 +87,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Inserting in a queue data structure, in the context of a customer ticketing system, typically involves adding a new customer support ticket to the queue. When a customer submits a new support request or inquiry, the ticketing system inserts this ticket at the back of the queue. This ensures that tickets are processed in the order they are received, following a &quot;first-come, first-served&quot; approach, except for high-priority concerns. The insertion process ensures that all customer issues are systematically added to the queue, allowing customer support agents to address them in an organized and fair manner." wrapText="true">
+                  <Label text="As new songs are added to a CD, the last song in the list adds a pointer to the next one in the playlist. It allows the player to play the CD in a continuous manner." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="In a queue data structure within a customer ticketing system, removing a customer support ticket from the front of the queue once it has been successfully processed and resolved allows the remaining tickets to go their position in the system. Rarely when deleting a ticket in-between the queue happens, it's often due to exceptional circumstances such as a duplicate ticket, a request withdrawal, or a ticket that is no longer relevant. Deleting tickets in such cases follows the same principle of shifting the successive tickets." wrapText="true">
+                  <Label layoutX="10.0" layoutY="274.0" text="To delete or remove songs in this manner, the song (node) that points to the song to be deleted is removed, hence making that particular song inaccessible." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>

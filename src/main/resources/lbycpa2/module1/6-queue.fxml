@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1.DataStructureController">
    <children>
       <AnchorPane>
          <children>
@@ -38,28 +38,28 @@
             <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
          </children>
       </AnchorPane>
-      <ScrollPane fitToWidth="true" style="-fx-background: f4dddd;" layoutX="3.0" layoutY="62.0" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToWidth="true" style="-fx-background: f4dddd;" layoutX="3.0" layoutY="62.0" prefHeight="1216.0" prefWidth="262.0">
          <content>
-            <VBox>
+            <VBox prefWidth="245.0">
                <children>
-                  <Label text="Dynamic Array">
+                  <Label prefHeight="32.0" text="Queue">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="258.0" prefHeight="32.0" text="Event Registration System">
+                  <Label prefHeight="24.0" prefWidth="242.0" text="Customer Support Ticketing System">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Dynamic Arrays are comparable to real-life event registration systems as they are lists of objects that are flexible, that is, the size changes according to their contents." wrapText="true">
+                  <Label text="In a customer support ticketing system, access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. Access permissions define who can view, update, and assign tickets in a particular queue, ensuring that customer inquiries are efficiently managed and only accessible to authorized individuals or teams. This access control mechanism helps maintain ticketing system security and operational orderliness." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="200.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="186.0" fitWidth="240.0">
                      <image>
-                        <Image url="@2-event registration.png" />
+                        <Image url="@6-ticket system.jpg" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Access">
@@ -67,7 +67,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="In an event registration system, organizers can access a participant by knowing its index in the list. In layman's terms, it is the participants' identification numbers (ID)." wrapText="true">
+                  <Label text="Access control using the queue data structure determines which agents or roles have permission to access and process tickets within specific queues. To maintin the security and privacy of customers, authorities within the organization define who can view, update, and assign tickets. " wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -77,7 +77,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Searching for a participant (or an object in a dynamic array) involves looking for everyone in the list. In technical terms, a for-loop is used in this operation." wrapText="true">
+                  <Label text="To search in a queue data system, agents are have a wide variety of factors that they can use to filter out data. For example, a priority-based search is necessary to ensure that urgent concerns are addressed immediately. While interconnected ticket identification can use keyword searching. Similarly, when addressing a similar problem to before, customer support agents can search utilize historical search to reference past tickets or ticket history related to a particular customer or issue. " wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -87,7 +87,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="In this system, new participants are added at the end of the list, just like in dynamic arrays where new objects are added at the end as well." wrapText="true">
+                  <Label text="Inserting in a queue data structure, in the context of a customer ticketing system, typically involves adding a new customer support ticket to the queue. When a customer submits a new support request or inquiry, the ticketing system inserts this ticket at the back of the queue. This ensures that tickets are processed in the order they are received, following a &quot;first-come, first-served&quot; approach, except for high-priority concerns. The insertion process ensures that all customer issues are systematically added to the queue, allowing customer support agents to address them in an organized and fair manner." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="274.0" text="To delete or remove a participant in the list, that person will no longer considered to be part of the list, and the indices of the participants afterwards are shifted one below." wrapText="true">
+                  <Label text="In a queue data structure within a customer ticketing system, removing a customer support ticket from the front of the queue once it has been successfully processed and resolved allows the remaining tickets to go their position in the system. Rarely when deleting a ticket in-between the queue happens, it's often due to exceptional circumstances such as a duplicate ticket, a request withdrawal, or a ticket that is no longer relevant. Deleting tickets in such cases follows the same principle of shifting the successive tickets." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>

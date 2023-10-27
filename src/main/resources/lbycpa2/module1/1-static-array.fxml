@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1.DataStructureController">
    <children>
       <AnchorPane>
          <children>
@@ -42,12 +42,12 @@
          <content>
             <VBox>
                <children>
-                  <Label prefHeight="32.0" text="Hash Table">
+                  <Label prefHeight="32.0" text="Static Array">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="32.0" text="Student Record System">
+                  <Label prefHeight="32.0" text="Parking Lot">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -59,9 +59,32 @@
                   </Label>
                   <AnchorPane prefHeight="203.0" prefWidth="179.0">
                      <children>
-                        <ImageView fitHeight="155.0" fitWidth="240.0" layoutX="-1.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="187.0" layoutX="77.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="187.0" layoutX="160.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
+                        <ImageView fitHeight="78.0" fitWidth="44.0" layoutX="98.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@8-student-card.jpg" />
+                              <Image url="@1-car_transparent.png" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="7.0" layoutX="12.0" layoutY="101.0" stroke="BLACK" strokeType="INSIDE" width="223.0" />
+                        <ImageView fitHeight="78.0" fitWidth="44.0" layoutX="20.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1-car_transparent.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="78.0" fitWidth="44.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1-car_transparent.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="78.0" fitWidth="44.0" layoutX="178.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1-car_transparent.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="78.0" fitWidth="44.0" layoutX="98.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1-car_transparent.png" />
                            </image>
                         </ImageView>
                      </children></AnchorPane>
@@ -70,7 +93,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="To access a specific record of a student such as grades or contact information, a student ID must be first given to the ststem. The system then clauclates the location (bucket) where the information you want to access is stored using the provided ID which is similar to hash tables wherein a key is provided and hashed to determine the location of a specific value." wrapText="true">
+                  <Label text="To access a specific element or parking space,  it is needed to know the index.  For example, the 3rd element corresponds to the 3rd parking slot. Similar to referencing an element from a static array, you refer to its index." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -80,7 +103,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="It is also possible to serach based on other criterias other than ID such as names or grades which is similar to how a has table can search for values based on keys." wrapText="true">
+                  <Label text="To search for an element in the static array, it is needed to iterate through each element through a for loop. Similarly, it is needed to visually inspect each parking slot until your car is found." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -90,7 +113,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="In adding a new student, information such as name, student ID, and contact details is collected and stored in the system. The ID serves as a unique identifier that is used to determine which location (bucket) that information would go into. Similarly, in a hash table, the insertion of data involves both hashing and adding the data in that specific location." wrapText="true">
+                  <Label text="In a parking lot, if all the slots are full, you cannot park your car in there. Similarly, in a static array, you cannot add a new element to the array if it is already full." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -100,7 +123,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="When removing student records from the system, a search operation is conducted using their ID, the data is then located and deleted from the system to give space for other records. This is similar to hash tables in which you search, locate, and remove a key-value pair." wrapText="true">
+                  <Label text="If a car leaves the parking slot, that specific slot becomes available for new cars to park. However, the amount of slots in the parking lot does not change. Similarly in the static array, even if elements are removed, the size of the array remains fixed." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>

@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1_q4.DataStructureController">
+<VBox prefHeight="450.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module1.DataStructureController">
    <children>
       <AnchorPane>
          <children>
@@ -38,28 +38,27 @@
             <Button layoutX="16.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Back" />
          </children>
       </AnchorPane>
-      <ScrollPane fitToWidth="true" style="-fx-background: f4dddd;" layoutX="3.0" layoutY="62.0" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToWidth="true" style="-fx-background: f4dddd;" layoutX="3.0" layoutY="62.0" prefHeight="1256.0" prefWidth="262.0">
          <content>
-            <VBox>
+            <VBox prefWidth="245.0">
                <children>
-                  <Label text="Doubly Linked List">
+                  <Label prefHeight="32.0" text="Stack">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="258.0" prefHeight="32.0" text="Web Browser History">
+                  <Label prefHeight="24.0" prefWidth="242.0" text="Undo and Redo Mechanism">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Doubly Linked Lists are comparable to web browser history. Every page visited using a web browser is linked to previous pages visited by the user as well as the next ones, allowing them to access the history more quickly." wrapText="true">
+                  <Label text="In undo and redo mechanisms, the stack data structure is used to track user actions in chronological order, following the LI-FO (Last In - First Out) princile. When a user performs an action, it is recorded as a command object and pushed onto the undo stack. When the user initiates an undo operation, the most recent action is popped from the undo stack and reversed. The redo stack stores undone actions, allowing users to redo actions if needed. This stack-based approach ensures that actions are executed in the correct order, chronologically." wrapText="true">
                      <font>
                         <Font size="11.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="200.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                     </font></Label>
+                  <ImageView fitHeight="186.0" fitWidth="240.0">
                      <image>
-                        <Image url="@4-browser.png" />
+                        <Image url="@5-undo and redo.jpg" />
                      </image>
                   </ImageView>
                   <Label prefHeight="32.0" prefWidth="157.0" text="Access">
@@ -67,7 +66,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="Accessing the previous and next pages are as easy as navigating to the page linked by the pointers." wrapText="true">
+                  <Label text="Access in a stack data structure is limited to the topmost item, following the LIFO principle. In the context of undo and redo mechanisms, this means that users can only access and manipulate the most recent actions performed. When performing an undo, the top item (latest action) is accessed and reversed, effectively &quot;undoing&quot; the most recent user action. Similarly, during a redo, the top item from the redo stack (an undone action) is accessed and executed, allowing users to &quot;redo&quot; previously undone actions in the order they were originally performed." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -77,7 +76,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="However, if the user needs to access the previous page more than 1 layer deep, an interation needs to be performed to jump to a series of pointers between the nodes." wrapText="true">
+                  <Label text="In a stack data structure, searching involves iterating through the elements sequentially from the top (most recent) to the bottom (oldest) until a specific item or condition is found. However, searching is not a primary operation in undo and redo systems. Still, the undo and redo stacks can be searched for specific actions or command objects if the application requires a specific type of action to be identified or inspected, an advanced debugging or audit trail purposes rather than as a core part of the undo and redo functionality." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -87,7 +86,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label text="As new pages are visited, they are added to the browser history by creating a link between them and the previous page." wrapText="true">
+                  <Label text="In a stack data structure, inserting corresponds to pushing a new item only onto the top of the stack. In the context of undo and redo mechanisms, inserting is a fundamental operation when recording user actions. Each user action or command is inserted onto the undo stack as a new command object. " wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -97,7 +96,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="274.0" text="To delete or remove pages in this manner, the node that points to the page to be deleted is removed, hence making that particular page inaccessible." wrapText="true">
+                  <Label text="Deleting in a stack data structure means removing the topmost item, which corresponds to the most recent action or command. For undo and redo mechanisms, though deleting is not a common operation, memory constraints can result in either automatic or manual implementation of a delete operation to clear the stacks, effectively removing all actions, saving storage, and starting anew." wrapText="true">
                      <font>
                         <Font size="11.0" />
                      </font>
