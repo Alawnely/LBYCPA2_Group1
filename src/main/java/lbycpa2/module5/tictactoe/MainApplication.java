@@ -1,6 +1,7 @@
 package lbycpa2.module5.tictactoe;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,7 +18,6 @@ import java.util.Objects;
 
 public class MainApplication extends Application {
 
-    public static MyQueue<Question> questionList;
     private static Stage window;
     private static String stylesheet;
 
@@ -57,11 +57,6 @@ public class MainApplication extends Application {
     @FXML
     private void startGame() {
         switchScene("choose");
-    }
-
-    @FXML
-    private void addQuestions() {
-        switchScene("create-question");
     }
 
     @FXML
