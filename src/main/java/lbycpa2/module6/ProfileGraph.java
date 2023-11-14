@@ -113,4 +113,34 @@ public class ProfileGraph {
             }
         }
     }
+
+    public void displayAdjacencyMatrix() {
+        System.out.println("Adjacency Matrix: ");
+        /* Print Column Header */
+        System.out.print("  ");
+        if (numProfiles > 9) {
+            System.out.print(" ");
+        }
+
+        for (int i = 0; i < numProfiles; i++) {
+
+            System.out.print((i+1) + " ");
+        }
+        System.out.println();
+
+        /* Print Table Elements */
+        for (int i = 0; i < numProfiles; i++) {
+            /* Print Row Header */
+            System.out.print((i+1) + " ");
+            if (numProfiles > 9) {
+                if (i <= 8) {
+                    System.out.print(" ");
+                }
+            }
+            for (int j = 0; j < numProfiles; j++) {
+                System.out.print(adjacencyMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 }
