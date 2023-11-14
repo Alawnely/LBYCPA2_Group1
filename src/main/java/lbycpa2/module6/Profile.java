@@ -11,10 +11,18 @@ public class Profile {
     private String status;
     private String quote;
     private Image image;
+
+    private int index;
     private List<Profile> friends = new ArrayList<>();
 
     public Profile(String name) {
         this.name = name;
+    }
+
+    public Profile(String name, int index) {
+
+        this.name = name;
+        this.index = index;
     }
 
     public String getName() {
@@ -59,5 +67,13 @@ public class Profile {
 
     public void removeFriend(Profile profile) {
         friends.remove(profile);
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 }
