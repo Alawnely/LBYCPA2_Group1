@@ -139,7 +139,9 @@ public class SocialApplication extends Application {
 
         System.out.println("New profile created: "+name);
 
-        profiles.add(new Profile(name));
+        Profile newP = new Profile(name);
+        profiles.add(newP);
+        graph.addUser(newP);
         newProfileField.clear();
         listProfiles();
     }
