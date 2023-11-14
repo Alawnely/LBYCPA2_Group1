@@ -1,5 +1,8 @@
 package lbycpa2.module6;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProfileGraph {
     private Profile[] profiles;
     private int[][] adjacencyMatrix;
@@ -11,10 +14,7 @@ public class ProfileGraph {
         numProfiles = 0;
     }
 
-    public void addFriend(String user1, String user2) {
-        Profile p1 = searchProfile(user1);
-        Profile p2 = searchProfile(user2);
-
+    public void addFriend(Profile p1, Profile p2) {
         if (p1 != null && p2 != null) {
             int index1 = p1.getIndex();
             int index2 = p2.getIndex();
@@ -23,10 +23,7 @@ public class ProfileGraph {
         }
     }
 
-    public void removeFriend(String user1, String user2) {
-        Profile p1 = searchProfile(user1);
-        Profile p2 = searchProfile(user2);
-
+    public void removeFriend(Profile p1, Profile p2) {
         if (p1 != null && p2 != null) {
             int index1 = p1.getIndex();
             int index2 = p2.getIndex();
@@ -35,8 +32,25 @@ public class ProfileGraph {
         }
     }
 
+    public List<Profile> getFriends(Profile profile) {
+        if (profile == null) {
+            return null;
+        }
+
+        List<Profile> friendsList = new ArrayList<>();
+        int index = profile.getIndex();
+        for (int i = 0; i < adjacencyMatrix[index].length; i++) {
+            if (adjacencyMatrix[index][i] == 1) {
+                // If friends sila
+                friendsList.add(searchProfile(i));
+            }
+        }
+
+        return friendsList;
+    }
+
     //TODO: MODIFY THIS
-    public void addUser(String name) {
+    public void addUser(Profile newProfile) {
         if (numProfiles >= profiles.length) {
             // Expand the adjacency matrix and profiles array if necessary
             int newSize = profiles.length * 2;
@@ -56,14 +70,11 @@ public class ProfileGraph {
             adjacencyMatrix = newAdjacencyMatrix;
         }
 
-        Profile newProfile = new Profile(name, numProfiles);
         profiles[numProfiles] = newProfile;
         numProfiles++;
     }
 
-    public void removeUser(String name) {
-        Profile userToRemove = searchProfile(name);
-
+    public void removeUser(Profile userToRemove) {
         if (userToRemove != null) {
             int indexToRemove = userToRemove.getIndex();
             profiles[indexToRemove] = null;
@@ -77,9 +88,9 @@ public class ProfileGraph {
         }
     }
 
-    public Profile searchProfile(String name) {
+    public Profile searchProfile(int index) {
         for (int i = 0; i < numProfiles; i++) {
-            if (profiles[i] != null && profiles[i].getName().equals(name)) {
+            if (profiles[i] != null && profiles[i].getIndex() == index) {
                 return profiles[i];
             }
         }

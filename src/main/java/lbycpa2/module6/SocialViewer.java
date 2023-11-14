@@ -72,10 +72,11 @@ public class SocialViewer {
         displayImage.setImage(Objects.requireNonNullElse(image, defaultImage));
 
         friendsPane.getChildren().clear();
-        for (Profile p : profile.getFriends()) {
+        for (Profile p : SocialApplication.getGraph().getFriends(profile)) {
             Button button = createProfileButton(p);
             friendsPane.getChildren().add(button);
         }
+
         int friendCount = friendsPane.getChildren().size();
         numfriendLabel.setText(friendCount+" Friend"+(friendCount == 1 ? "" : "s"));
 
@@ -140,8 +141,13 @@ public class SocialViewer {
     private void addFriend() {
         System.out.println("Profile "+profile.getName()+" added as friend: "+stalkingWho.getName());
 
-        profile.addFriend(stalkingWho);
-        stalkingWho.addFriend(profile);
+        ProfileGraph graph = SocialApplication.getGraph();
+        graph.addFriend(profile, stalkingWho);
+
+//        profile.addFriend(stalkingWho);
+//        stalkingWho.addFriend(profile);
+
+        graph.displaySocialNetwork();
 
         peekProfile(stalkingWho);
     }
@@ -150,8 +156,13 @@ public class SocialViewer {
     private void removeFriend() {
         System.out.println("Profile "+profile.getName()+" removed as friend: "+stalkingWho.getName());
 
-        profile.removeFriend(stalkingWho);
-        stalkingWho.removeFriend(profile);
+        ProfileGraph graph = SocialApplication.getGraph();
+        graph.removeFriend(profile, stalkingWho);
+
+//        profile.removeFriend(stalkingWho);
+//        stalkingWho.removeFriend(profile);
+
+        graph.displaySocialNetwork();
 
         peekProfile(stalkingWho);
     }
@@ -195,6 +206,7 @@ public class SocialViewer {
                 p.removeFriend(profile);
                 profile.removeFriend(p);
             }
+            SocialApplication.getGraph().removeUser(profile);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Profile deleted successfully");

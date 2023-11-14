@@ -27,6 +27,7 @@ public class SocialApplication extends Application {
     private static Stage window;
     private static String stylesheet;
     private static List<Profile> profiles;
+    private static ProfileGraph graph;
 
     public static void main(String[] args) {
         launch(args);
@@ -37,11 +38,13 @@ public class SocialApplication extends Application {
         window = stage;
         stylesheet = Objects.requireNonNull(getClass().getResource("social.css")).toExternalForm();
         profiles = new ArrayList<>();
+        graph = new ProfileGraph(1);
 
         Profile profile = new Profile("Bill Gates");
         profile.setStatus("Bill Gates is speaking...");
         profile.setQuote("\"Success is a lousy teacher. It seduces smart people into thinking they can't lose\"");
         profiles.add(profile);
+        graph.addUser(profile);
 
         switchScene("main");
         stage.setTitle("SocialNet");
@@ -72,6 +75,10 @@ public class SocialApplication extends Application {
 
     public static List<Profile> getProfiles() {
         return profiles;
+    }
+
+    public static ProfileGraph getGraph() {
+        return graph;
     }
 
     public static String getStylesheet() {
