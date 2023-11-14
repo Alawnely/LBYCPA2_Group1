@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" prefHeight="600.0" prefWidth="960.0" spacing="50.0" stylesheets="@social.css"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="lbycpa2.module6.SocialApplication">
+   <ImageView fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@img/fb-map.png"/>
+   </ImageView>
+   <VBox alignment="CENTER" spacing="30.0">
+      <Label fx:id="titleLabel" text="Sign in to SocialNet">
+         <font>
+            <Font size="24.0"/>
+         </font>
+      </Label>
+      <VBox alignment="CENTER" spacing="15.0">
+         <TextField fx:id="nameField" onAction="#signIn" prefWidth="250.0" promptText="Name">
+            <font>
+               <Font size="14.0"/>
+            </font>
+         </TextField>
+         <Button fx:id="signinButton" mnemonicParsing="false" onAction="#signIn" text="Sign in">
+            <font>
+               <Font size="14.0"/>
+            </font>
+         </Button>
+      </VBox>
+      <Label text="... or create some profiles">
+         <font>
+            <Font size="16.0"/>
+         </font>
+         <VBox.margin>
+            <Insets top="20.0"/>
+         </VBox.margin>
+      </Label>
+      <VBox alignment="CENTER" prefHeight="200.0" spacing="5.0">
+         <ListView fx:id="profilesList"/>
+         <TextField fx:id="newProfileField" onAction="#createProfile" promptText="New Name"/>
+         <Button fx:id="newProfileButton" mnemonicParsing="false" onAction="#createProfile"
+                 text="Create Profile"/>
+      </VBox>
+   </VBox>
+</HBox>

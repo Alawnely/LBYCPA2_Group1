@@ -22,4 +22,7 @@ module lbycpa2 {
 
     opens lbycpa2.module5.tictactoe to javafx.fxml;
     exports lbycpa2.module5.tictactoe;
+
+    opens lbycpa2.module6 to javafx.fxml;
+    exports lbycpa2.module6;
 }
