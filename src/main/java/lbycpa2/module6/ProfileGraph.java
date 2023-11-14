@@ -98,23 +98,6 @@ public class ProfileGraph {
     }
 
     public void displaySocialNetwork() {
-        System.out.println("Social Network:");
-
-        for (int i = 0; i < numProfiles; i++) {
-            Profile user = profiles[i];
-            if (user != null) {
-                System.out.print(user.getName() + " -> ");
-                for (int j = 0; j < numProfiles; j++) {
-                    if (adjacencyMatrix[i][j] == 1 && profiles[j] != null) {
-                        System.out.print(profiles[j].getName() + " ");
-                    }
-                }
-                System.out.println();
-            }
-        }
-    }
-
-    public void displayAdjacencyMatrix() {
         System.out.println("Adjacency Matrix: ");
         /* Print Column Header */
         System.out.print("  ");
