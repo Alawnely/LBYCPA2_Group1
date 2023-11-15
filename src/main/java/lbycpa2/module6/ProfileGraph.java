@@ -51,7 +51,6 @@ public class ProfileGraph {
         return friendsList;
     }
 
-    //TODO: MODIFY THIS
     public void addUser(Profile newProfile) {
         if (numProfiles >= profiles.length) {
             // Expand the adjacency matrix and profiles array if necessary
@@ -62,9 +61,7 @@ public class ProfileGraph {
             // Copy existing data to the new arrays
             for (int i = 0; i < numProfiles; i++) {
                 newUsers[i] = profiles[i];
-                for (int j = 0; j < numProfiles; j++) {
-                    newAdjacencyMatrix[i][j] = adjacencyMatrix[i][j];
-                }
+                System.arraycopy(adjacencyMatrix[i], 0, newAdjacencyMatrix[i], 0, numProfiles);
             }
 
             // Update the references to the new arrays

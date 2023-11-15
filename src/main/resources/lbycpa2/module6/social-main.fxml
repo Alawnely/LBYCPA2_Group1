@@ -17,7 +17,7 @@
       <Image url="@img/fb-map.png"/>
    </ImageView>
    <VBox alignment="CENTER" spacing="30.0">
-      <Label fx:id="titleLabel" text="Sign in to SocialNet">
+      <Label text="Sign in to SocialNet">
          <font>
             <Font size="24.0"/>
          </font>
@@ -28,7 +28,7 @@
                <Font size="14.0"/>
             </font>
          </TextField>
-         <Button fx:id="signinButton" mnemonicParsing="false" onAction="#signIn" text="Sign in">
+         <Button mnemonicParsing="false" onAction="#signIn" text="Sign in">
             <font>
                <Font size="14.0"/>
             </font>
@@ -45,8 +45,7 @@
       <VBox alignment="CENTER" prefHeight="200.0" spacing="5.0">
          <ListView fx:id="profilesList"/>
          <TextField fx:id="newProfileField" onAction="#createProfile" promptText="New Name"/>
-         <Button fx:id="newProfileButton" mnemonicParsing="false" onAction="#createProfile"
-                 text="Create Profile"/>
+         <Button mnemonicParsing="false" onAction="#createProfile" text="Create Profile"/>
       </VBox>
    </VBox>
 </HBox>

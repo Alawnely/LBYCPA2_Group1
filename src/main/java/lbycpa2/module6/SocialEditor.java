@@ -29,7 +29,7 @@ public class SocialEditor {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.bmp", "*.gif", "*.jpeg", "*.jpg", "*.png")
         );
-        fileChooser.setInitialDirectory(new File(getClass().getResource("img").getPath()));
+        fileChooser.setInitialDirectory(new File(Objects.requireNonNull(getClass().getResource("img")).getPath()));
         File file = fileChooser.showOpenDialog(displayImage.getScene().getWindow());
         if (file != null) {
             displayImage.setImage(new Image(file.getCanonicalPath()));

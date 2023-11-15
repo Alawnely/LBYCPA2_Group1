@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,6 +23,7 @@ public class SocialApplication extends Application {
     private TextField newProfileField;
     @FXML
     private ListView<String> profilesList;
+
     private static Stage window;
     private static String stylesheet;
     private static List<Profile> profiles;

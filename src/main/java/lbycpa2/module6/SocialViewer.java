@@ -42,7 +42,8 @@ public class SocialViewer {
     private Button viewAdjacencyButton;
     private Profile profile;
     private Profile stalkingWho;
-    public static final Image defaultImage = new Image(SocialViewer.class.getResource("img/unknown.png").toExternalForm());
+
+    public static final Image defaultImage = new Image(Objects.requireNonNull(SocialViewer.class.getResource("img/unknown.png")).toExternalForm());
 
     @FXML
     private void signOut() {
