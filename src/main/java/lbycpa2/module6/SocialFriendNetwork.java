@@ -73,7 +73,7 @@ public class SocialFriendNetwork {
             List<String> rowData = new ArrayList<>();
             rowData.add(name);
             for (int j = 0; j < adjacencyMatrix.length; j++) {
-                rowData.add(adjacencyMatrix[i][j] > 0 ? "YES" : "NO");
+                rowData.add(i == j ? "" : adjacencyMatrix[i][j] > 0 ? "YES" : "NO");
             }
             table.getItems().add(rowData);
         }
