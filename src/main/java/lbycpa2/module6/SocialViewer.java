@@ -38,6 +38,8 @@ public class SocialViewer {
     private VBox searchPane;
     @FXML
     private VBox friendsPane;
+    @FXML
+    private Button viewAdjacencyButton;
     private Profile profile;
     private Profile stalkingWho;
     public static final Image defaultImage = new Image(SocialViewer.class.getResource("img/unknown.png").toExternalForm());
@@ -218,5 +220,20 @@ public class SocialViewer {
 
             signOut();
         }
+    }
+
+    @FXML
+    private void viewAdjacency() throws IOException {
+        System.out.println("Viewed adjacency matrix");
+
+        // https://stackoverflow.com/a/36024666
+        Dialog<ButtonType> dialog = new Dialog<>();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("social-adjacency.fxml"));
+        DialogPane dialogPane = fxmlLoader.load();
+        dialog.setDialogPane(dialogPane);
+        dialog.setTitle("Friend Network");
+        dialog.setResizable(false);
+        dialog.initOwner(viewAdjacencyButton.getScene().getWindow());
+        dialog.showAndWait();
     }
 }

@@ -1,6 +1,7 @@
 module lbycpa2 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.controlsfx.controls;
     requires org.junit.jupiter.api;
     requires org.junit.jupiter.engine;
     requires org.junit.platform.commons;
@@ -23,6 +24,6 @@ module lbycpa2 {
     opens lbycpa2.module5.tictactoe to javafx.fxml;
     exports lbycpa2.module5.tictactoe;
 
-    opens lbycpa2.module6 to javafx.fxml;
+    opens lbycpa2.module6 to javafx.fxml, org.controlsfx.controls;
     exports lbycpa2.module6;
 }

@@ -100,6 +100,14 @@ public class ProfileGraph {
         return null;
     }
 
+    public int[][] getAdjacencyMatrix() {
+        return adjacencyMatrix;
+    }
+
+    public int getNumProfiles() {
+        return numProfiles;
+    }
+
     public void displaySocialNetwork() {
         System.out.println("Adjacency Matrix: ");
         /* Print Column Header */
