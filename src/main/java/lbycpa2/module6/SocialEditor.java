@@ -10,6 +10,8 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 public class SocialEditor {
@@ -26,10 +28,11 @@ public class SocialEditor {
     @FXML
     private void changeImage() throws IOException {
         FileChooser fileChooser = new FileChooser();
+        File initialDir = new File(URLDecoder.decode(getClass().getResource("img/").getPath(), StandardCharsets.UTF_8));
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.bmp", "*.gif", "*.jpeg", "*.jpg", "*.png")
         );
-        fileChooser.setInitialDirectory(new File(Objects.requireNonNull(getClass().getResource("img")).getPath()));
+        fileChooser.setInitialDirectory(initialDir);
         File file = fileChooser.showOpenDialog(displayImage.getScene().getWindow());
         if (file != null) {
             displayImage.setImage(new Image(file.getCanonicalPath()));
