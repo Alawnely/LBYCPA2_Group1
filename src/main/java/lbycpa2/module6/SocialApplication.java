@@ -38,12 +38,11 @@ public class SocialApplication extends Application {
         window = stage;
         stylesheet = Objects.requireNonNull(getClass().getResource("social.css")).toExternalForm();
         profiles = new ArrayList<>();
-        graph = new ProfileGraph(1);
+        graph = new ProfileGraph();
 
         Profile profile = new Profile("Bill Gates");
         profile.setStatus("Bill Gates is speaking...");
         profile.setQuote("\"Success is a lousy teacher. It seduces smart people into thinking they can't lose\"");
-        profiles.add(profile);
         graph.addUser(profile);
 
         switchScene("main");
@@ -140,7 +139,6 @@ public class SocialApplication extends Application {
         System.out.println("New profile created: "+name);
 
         Profile newP = new Profile(name);
-        profiles.add(newP);
         graph.addUser(newP);
         newProfileField.clear();
         listProfiles();

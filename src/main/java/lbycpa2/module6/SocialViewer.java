@@ -9,7 +9,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Window;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -86,7 +85,7 @@ public class SocialViewer {
         editButton.setManaged(stalkingWho == this.profile);
         editButton.setVisible(editButton.isManaged());
 
-        addfButton.setManaged(!editButton.isManaged() && !stalkingWho.getFriends().contains(this.profile));
+        addfButton.setManaged(!editButton.isManaged() && !SocialApplication.getGraph().getFriends(stalkingWho).contains(this.profile));
         addfButton.setVisible(addfButton.isManaged());
 
         removefButton.setManaged(!editButton.isManaged() && !addfButton.isManaged());
@@ -147,9 +146,6 @@ public class SocialViewer {
         ProfileGraph graph = SocialApplication.getGraph();
         graph.addFriend(profile, stalkingWho);
 
-//        profile.addFriend(stalkingWho);
-//        stalkingWho.addFriend(profile);
-
         graph.displaySocialNetwork();
 
         peekProfile(stalkingWho);
@@ -161,9 +157,6 @@ public class SocialViewer {
 
         ProfileGraph graph = SocialApplication.getGraph();
         graph.removeFriend(profile, stalkingWho);
-
-//        profile.removeFriend(stalkingWho);
-//        stalkingWho.removeFriend(profile);
 
         graph.displaySocialNetwork();
 
@@ -203,12 +196,6 @@ public class SocialViewer {
         if (result.isPresent() && result.get() == ButtonType.YES) {
             System.out.println("Profile deleted: "+profile.getName());
 
-            List<Profile> profiles = SocialApplication.getProfiles();
-            profiles.remove(profile);
-            for (Profile p : profiles) {
-                p.removeFriend(profile);
-                profile.removeFriend(p);
-            }
             SocialApplication.getGraph().removeUser(profile);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

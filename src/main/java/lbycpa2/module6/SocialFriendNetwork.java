@@ -16,7 +16,7 @@ public class SocialFriendNetwork {
     private void initialize() {
         // Initialize variables
         ProfileGraph graph = SocialApplication.getGraph();
-        int[][] adjacencyMatrix = graph.getAdjacencyMatrix();
+        byte[][] adjacencyMatrix = graph.getAdjacencyMatrix();
         int numProfiles = graph.getNumProfiles();
 
         graph.displaySocialNetwork();
@@ -28,9 +28,7 @@ public class SocialFriendNetwork {
         // Prepare row header
         TableColumn<List<String>, String> rowHeader = new TableColumn<>();
         rowHeader.setResizable(true);
-        for (int i = 0; i < numProfiles; i++) {
-            rowHeader.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().get(0)));
-        }
+        rowHeader.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().get(0)));
         table.setRowHeader(rowHeader);
 
         // Some workaround to resize row header properly
@@ -40,9 +38,13 @@ public class SocialFriendNetwork {
         // Iterate through the first layer of matrix.
         // This actually prepares the columns and the per-row data in a single for-loop,
         //    saving computing time :)
-        for (int i = 0; i < numProfiles; i++) {
+        for (int i = 0; i < adjacencyMatrix.length; i++) {
             // Initialize variables
-            String name = graph.searchProfile(i).getName();
+            Profile profile = graph.searchProfile(i);
+            if (profile == null)
+                continue;
+
+            String name = profile.getName();
             TableColumn<List<String>, String> column = new TableColumn<>(name);
 
             // Set column properties
@@ -70,7 +72,7 @@ public class SocialFriendNetwork {
             // Row Data
             List<String> rowData = new ArrayList<>();
             rowData.add(name);
-            for (int j = 0; j < numProfiles; j++) {
+            for (int j = 0; j < adjacencyMatrix.length; j++) {
                 rowData.add(adjacencyMatrix[i][j] > 0 ? "YES" : "NO");
             }
             table.getItems().add(rowData);

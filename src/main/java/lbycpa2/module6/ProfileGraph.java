@@ -4,45 +4,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileGraph {
-    private Profile[] profiles;
-    private int[][] adjacencyMatrix;
+    private static final List<Profile> profilesList = SocialApplication.getProfiles();
+    private byte[][] adjacencyMatrix;
     private int numProfiles;
 
-    public ProfileGraph(int maxSize) {
-        profiles = new Profile[maxSize];
-        adjacencyMatrix = new int[maxSize][maxSize];
+    public ProfileGraph() {
         numProfiles = 0;
+        adjacencyMatrix = new byte[numProfiles][numProfiles];
     }
 
     public void addFriend(Profile p1, Profile p2) {
-        if (p1 != null && p2 != null) {
-            int index1 = p1.getIndex();
-            int index2 = p2.getIndex();
-            System.out.println(p1.getName() + " index: "+index1);
-            System.out.println(p2.getName() + " index: "+index2);
-            adjacencyMatrix[index1][index2] = 1;
-            adjacencyMatrix[index2][index1] = 1;
+        if (p1 == null || p2 == null) {
+            throw new NullPointerException("Profile is null");
         }
+
+        int i1 = profilesList.indexOf(p1);
+        int i2 = profilesList.indexOf(p2);
+        if (i1 < 0 || i2 < 0) {
+            throw new ArrayIndexOutOfBoundsException("Profile not found");
+        }
+
+        adjacencyMatrix[i1][i2] = 1;
+        adjacencyMatrix[i2][i1] = 1;
     }
 
     public void removeFriend(Profile p1, Profile p2) {
-        if (p1 != null && p2 != null) {
-            int index1 = p1.getIndex();
-            int index2 = p2.getIndex();
-            adjacencyMatrix[index1][index2] = 0;
-            adjacencyMatrix[index2][index1] = 0;
+        if (p1 == null || p2 == null) {
+            throw new NullPointerException("Profile is null");
         }
+
+        int i1 = profilesList.indexOf(p1);
+        int i2 = profilesList.indexOf(p2);
+        if (i1 < 0 || i2 < 0) {
+            throw new ArrayIndexOutOfBoundsException("Profile not found");
+        }
+
+        adjacencyMatrix[i1][i2] = 0;
+        adjacencyMatrix[i2][i1] = 0;
     }
 
     public List<Profile> getFriends(Profile profile) {
         if (profile == null) {
-            return null;
+            throw new NullPointerException("Profile is null");
+        }
+
+        int profileIdx = profilesList.indexOf(profile);
+        if (profileIdx < 0) {
+            throw new ArrayIndexOutOfBoundsException("Profile \""+profile.getName()+"\" not found");
         }
 
         List<Profile> friendsList = new ArrayList<>();
-        int index = profile.getIndex();
-        for (int i = 0; i < adjacencyMatrix[index].length; i++) {
-            if (adjacencyMatrix[index][i] == 1) {
+        for (int i = 0; i < numProfiles; i++) {
+            if (adjacencyMatrix[profileIdx][i] == 1) {
                 // If friends sila
                 friendsList.add(searchProfile(i));
             }
@@ -51,53 +64,65 @@ public class ProfileGraph {
         return friendsList;
     }
 
-    public void addUser(Profile newProfile) {
-        if (numProfiles >= profiles.length) {
-            // Expand the adjacency matrix and profiles array if necessary
-            int newSize = profiles.length * 2;
-            Profile[] newUsers = new Profile[newSize];
-            int[][] newAdjacencyMatrix = new int[newSize][newSize];
+    public void addUser(Profile profile) {
+        // Expand the adjacency matrix
+        int newNum = numProfiles + 1;
+        byte[][] newMatrix = new byte[newNum][newNum];
 
-            // Copy existing data to the new arrays
-            for (int i = 0; i < numProfiles; i++) {
-                newUsers[i] = profiles[i];
-                System.arraycopy(adjacencyMatrix[i], 0, newAdjacencyMatrix[i], 0, numProfiles);
-            }
-
-            // Update the references to the new arrays
-            profiles = newUsers;
-            adjacencyMatrix = newAdjacencyMatrix;
+        // Copy existing data to the new array
+        for (int i = 0; i < numProfiles; i++) {
+            System.arraycopy(adjacencyMatrix[i], 0, newMatrix[i], 0, numProfiles);
         }
 
-        profiles[numProfiles] = newProfile;
-        numProfiles++;
-        newProfile.setIndex(numProfiles-1);
+        // Add to profiles list
+        profilesList.add(profile);
+
+        // Update the references to the new array
+        adjacencyMatrix = newMatrix;
+        numProfiles = newNum;
     }
 
-    public void removeUser(Profile userToRemove) {
-        if (userToRemove != null) {
-            int indexToRemove = userToRemove.getIndex();
-            profiles[indexToRemove] = null;
-            numProfiles--;
-
-            // Remove user's row and column from the adjacency matrix
-            for (int i = 0; i < numProfiles + 1; i++) {
-                adjacencyMatrix[indexToRemove][i] = 0;
-                adjacencyMatrix[i][indexToRemove] = 0;
-            }
+    public void removeUser(Profile profile) {
+        if (profile == null) {
+            throw new NullPointerException("Profile is null");
         }
+
+        int profileIdx = profilesList.indexOf(profile);
+        if (profileIdx < 0) {
+            throw new ArrayIndexOutOfBoundsException("Profile \""+profile.getName()+"\" not found");
+        }
+
+        // Shrink the adjacency matrix
+        int newNum = numProfiles - 1;
+        byte[][] newMatrix = new byte[newNum][newNum];
+
+        // Copy existing data to the new array, excluding the deleted one
+        for (int i = 0, j = 0; i < numProfiles; i++) {
+            if (i == profileIdx) {
+                continue;
+            }
+            System.arraycopy(adjacencyMatrix[i], 0, newMatrix[j], 0, profileIdx);
+            System.arraycopy(adjacencyMatrix[i], profileIdx + 1, newMatrix[j], profileIdx, numProfiles - profileIdx - 1);
+            j++;
+        }
+
+        // Remove from profiles list
+        profilesList.remove(profile);
+
+        // Update the references to the new array
+        adjacencyMatrix = newMatrix;
+        numProfiles = newNum;
     }
 
     public Profile searchProfile(int index) {
-        for (int i = 0; i < numProfiles; i++) {
-            if (profiles[i] != null && profiles[i].getIndex() == index) {
-                return profiles[i];
-            }
+        if (index < 0 || index >= numProfiles) {
+            throw new ArrayIndexOutOfBoundsException("Index "+index+" is outside of graph");
         }
-        return null;
+
+        return profilesList.get(index);
     }
 
-    public int[][] getAdjacencyMatrix() {
+    public byte[][] getAdjacencyMatrix() {
         return adjacencyMatrix;
     }
 
