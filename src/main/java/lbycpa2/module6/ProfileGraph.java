@@ -18,6 +18,8 @@ public class ProfileGraph {
         if (p1 != null && p2 != null) {
             int index1 = p1.getIndex();
             int index2 = p2.getIndex();
+            System.out.println(p1.getName() + " index: "+index1);
+            System.out.println(p2.getName() + " index: "+index2);
             adjacencyMatrix[index1][index2] = 1;
             adjacencyMatrix[index2][index1] = 1;
         }
@@ -72,6 +74,7 @@ public class ProfileGraph {
 
         profiles[numProfiles] = newProfile;
         numProfiles++;
+        newProfile.setIndex(numProfiles-1);
     }
 
     public void removeUser(Profile userToRemove) {
