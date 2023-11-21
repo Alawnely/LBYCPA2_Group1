@@ -1,0 +1,56 @@
+/*
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package lbycpa2.sortingalgoritms.sorts;
+
+import lbycpa2.sortingalgoritms.util.IComparable;
+import lbycpa2.sortingalgoritms.util.Logger;
+
+/**
+ * An abstract base for the concrete sorting classes
+ *
+ * @author Eric Canull
+ */
+public abstract class AbstractSort {
+    
+    /**
+     * Sets up the sorting data and then invokes the abstract method to start
+     * sorting.
+     *
+     * @param numbers the array of numbers to be sorted.
+     * @param lowIndex the low index of the array.
+     * @param highIndex the high index of array.
+     */
+    public void sort(IComparable[] numbers, int lowIndex, int highIndex) {
+        Logger.initiateLog();
+        startSort(numbers, lowIndex, highIndex);
+        Logger.terminateLog();
+    }
+
+    /**
+     * The abstract method used by all of the concrete sorting classes
+     *
+     * @param numbers the array of numbers to be sorted.
+     * @param lowIndex the low index of the array.
+     * @param highIndex the high index of array.
+     */
+    protected abstract void startSort(IComparable[] numbers, int lowIndex, int highIndex);
+    
+     /**
+     * Increments iteration count.
+     */
+    protected void count() {
+        Logger.count();
+    }
+ }

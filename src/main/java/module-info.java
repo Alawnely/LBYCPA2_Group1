@@ -26,4 +26,9 @@ module lbycpa2 {
 
     opens lbycpa2.module6 to javafx.fxml, org.controlsfx.controls;
     exports lbycpa2.module6;
+
+    opens lbycpa2.sortingalgoritms to javafx.fxml;
+    opens lbycpa2.sortingalgoritms.ui to javafx.fxml;
+    exports lbycpa2.sortingalgoritms;
+    exports lbycpa2.sortingalgoritms.ui;
 }
