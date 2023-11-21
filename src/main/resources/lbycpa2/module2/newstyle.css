@@ -1,0 +1,28 @@
+.root {
+    -fx-background-color: black;
+}
+
+.scroll-pane, .scroll-pane > * {
+    -fx-base: gray;
+    -fx-background-color: null;
+}
+
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-content-display: top;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+}
+#header {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+ImageView {
+    -fx-fit-width: 450px;
+}
