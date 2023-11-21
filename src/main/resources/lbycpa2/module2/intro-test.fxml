@@ -41,7 +41,7 @@
                   </VBox>
                   <VBox alignment="CENTER" GridPane.columnIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToGuanzon" text="Lawr">
+                        <Button mnemonicParsing="false" onAction="#switchToGuanzon" text="Lawrence">
                            <graphic>
                               <ImageView fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
