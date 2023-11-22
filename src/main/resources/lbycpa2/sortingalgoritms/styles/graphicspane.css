@@ -1,5 +1,5 @@
 .root {
-    -fx-base: #31363b;
+    -fx-base: #E47C38;
     -fx-accent: #3073b4;
     -fx-background: #31363b;
     -fx-focus-color: #3073b4;
@@ -60,7 +60,7 @@
     -fx-border-color: #686971;
 }
 .rect {
-    -fx-background-color: #3073b4;
+    -fx-background-color: #E47C38;
     -fx-border-radius: 3 3 1 1;
     -fx-background-radius: 3 3 1 1;
 }
@@ -72,7 +72,7 @@
 }
 
 .number-field {
-    -fx-border-color: #3073b4; 
+    -fx-border-color: #E47C38;
     -fx-background-color: #3073b433;
 }
 
