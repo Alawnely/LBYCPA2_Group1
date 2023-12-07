@@ -19,7 +19,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox spacing="3.0" stylesheets="@../styles/graphicspane.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.sortingalgoritms.MainController">
+<VBox spacing="3.0" stylesheets="@../styles/graphicspane.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module7.MainController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="10.0" styleClass="title-bar">
          <children>

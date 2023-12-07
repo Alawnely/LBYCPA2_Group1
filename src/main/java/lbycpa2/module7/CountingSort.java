@@ -1,4 +1,4 @@
-package lbycpa2.sortingalgoritms;
+package lbycpa2.module7;
 
 public class CountingSort {
     //TODO: Convert to CCountingSort

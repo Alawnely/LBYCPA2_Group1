@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lbycpa2.sortingalgoritms;
+package lbycpa2.module7;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

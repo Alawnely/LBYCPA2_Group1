@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lbycpa2.sortingalgoritms.ui;
+package lbycpa2.module7.ui;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -20,21 +20,17 @@ import javafx.animation.Timeline;
 import javafx.beans.Observable;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import lbycpa2.sortingalgoritms.MainController;
-import lbycpa2.sortingalgoritms.util.CompareValue;
-import lbycpa2.sortingalgoritms.util.ISortOperator;
-import lbycpa2.sortingalgoritms.util.RandomValues;
+import lbycpa2.module7.MainController;
+import lbycpa2.module7.util.CompareValue;
+import lbycpa2.module7.util.ISortOperator;
+import lbycpa2.module7.util.RandomValues;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.IntStream;
 
 /**
