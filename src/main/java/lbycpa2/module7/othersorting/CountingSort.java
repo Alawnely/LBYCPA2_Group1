@@ -1,8 +1,6 @@
 package lbycpa2.module7.othersorting;
 
 public class CountingSort {
-    //TODO: Convert to CCountingSort
-
     public static void countingSort(int[] arr) {
         if (arr == null || arr.length == 0) {
             return;
@@ -36,7 +34,6 @@ public class CountingSort {
             arr[countArray[arrCopy[i]] - 1] = arrCopy[i];
             countArray[arrCopy[i]]--;
         }
-        System.arraycopy(arr, 0, arrCopy, 0, arr.length);
     }
 
     public static void main(String[] args) {
