@@ -53,10 +53,9 @@ public class MainApplication extends Application {
         FXMLLoader loader = switchScene("showcase-test");
         Object controller = loader.getController();
         if (controller instanceof PortfolioController) {
-            ((PortfolioController) controller).addWorks("Digital Artistry", "yu - digital artistry.png");
-            ((PortfolioController) controller).addWorks("Hangman", "yu - hangman.png");
-            ((PortfolioController) controller).addWorks("SocialNet", "yu - socialnet.png");
-            ((PortfolioController) controller).addWorks("Pokemon Card Collection", "yu - pokemon1.png", 200);
+            ((PortfolioController) controller).addWorks("Digital Artistry", "Drapiza_Artistry.png");
+            ((PortfolioController) controller).addWorks("Pokemon", "Drapiza_Pokemon.jpg");
+            ((PortfolioController) controller).addWorks("SocialNet", "Drapiza_SocialNet.png");
         }
     }
 
