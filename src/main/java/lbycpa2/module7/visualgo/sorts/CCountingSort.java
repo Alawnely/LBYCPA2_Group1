@@ -14,6 +14,7 @@
  */
 package lbycpa2.module7.visualgo.sorts;
 
+import lbycpa2.module7.visualgo.util.CompareValue;
 import lbycpa2.module7.visualgo.util.IComparable;
 
 /**
@@ -28,7 +29,7 @@ public final class CCountingSort extends AbstractSort {
     private CCountingSort() { }
 
     /**
-     * Starts of the selection sort algorithm.
+     * Starts of the counting sort algorithm.
      *
      * @param numbers an array of numbers used for the sorting
      * @param lowIndex the lowest index position in the array
@@ -36,29 +37,41 @@ public final class CCountingSort extends AbstractSort {
      */
     @Override
     public void startSort(IComparable[] numbers, int lowIndex, int highIndex) {
-        IComparable minValue;
-
-        int index, minIndex;
-        for (lowIndex = 0; lowIndex < numbers.length; lowIndex++) {
-            minValue = numbers[lowIndex];
-            minIndex = lowIndex;
+        // Find the maximum value in the array to determine the range of values
+        CompareValue max = (CompareValue) numbers[0];
+        for (IComparable num : numbers) {
+            if (num.compare(max) == IComparable.GREATER) {
+                max = (CompareValue) num;
+            }
             count();
-            for (index = lowIndex; index < numbers.length; index++) {
-                if (numbers[index].compare(minValue) == IComparable.LESS) {
-                    minValue = numbers[index];
-                    minIndex = index;
-                    count();
+        }
 
-                }
-                count();
-            }
+        // Create a counting array to store the count of each element
+        int[] countArray = new int[max.getValue() + 1];
 
-            if (minValue.compare(numbers[lowIndex]) == IComparable.LESS) {
-                minValue = numbers[lowIndex];
-                numbers[lowIndex] = numbers[minIndex];
-                numbers[minIndex] = minValue;
-                count();
-            }
+        // Count the occurrences of each element
+        for (IComparable num : numbers) {
+            num.compare(num);
+            countArray[((CompareValue) num).getValue()]++;
+            count();
+        }
+
+        // Calculate the cumulative sum
+        for (int i = 1; i <= max.getValue(); i++) {
+            countArray[i] += countArray[i - 1];
+        }
+
+        int[] arrCopy = new int[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            arrCopy[i] = ((CompareValue) numbers[i]).getValue();
+        }
+
+        // Reconstruct the sorted array
+        for (int i = numbers.length - 1; i >= 0; i--) {
+            CompareValue num = (CompareValue) numbers[countArray[arrCopy[i]] - 1];
+            num.compare(num);
+            num.setValue(arrCopy[i]);
+            countArray[arrCopy[i]]--;
         }
     }
 }

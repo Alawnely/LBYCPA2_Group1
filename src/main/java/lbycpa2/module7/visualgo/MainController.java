@@ -276,7 +276,7 @@ public class MainController implements Initializable {
      * The list of sort algorithms to choose in the combo box
      */
     private static List<String> getAlgorithmsList() {
-        String[] algorithms = {"Bubble", "Selection", "Insertion", "Merge", "Quick"};
+        String[] algorithms = {"Bubble", "Selection", "Insertion", "Merge", "Quick", "Counting", "Gnome"};
         return Arrays.asList(algorithms);
     }
 

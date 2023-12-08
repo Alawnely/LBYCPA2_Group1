@@ -33,6 +33,8 @@ public class SortOperatorList {
         operators.add(CInsertionSort.SINGLETON);
         operators.add(CMergeSort.SINGLETON);
         operators.add(CQuickSort.SINGLETON);
+        operators.add(CCountingSort.SINGLETON);
+        operators.add(CGnomeSort.SINGLETON);
     }
     
     public List<AbstractSort> getList() {

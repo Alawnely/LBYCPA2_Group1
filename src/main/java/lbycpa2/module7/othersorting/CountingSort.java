@@ -24,15 +24,19 @@ public class CountingSort {
             countArray[num]++;
         }
 
-        // Reconstruct the sorted array
-        int index = 0;
-        for (int i = 0; i <= max; i++) {
-            while (countArray[i] > 0) {
-                arr[index] = i;
-                index++;
-                countArray[i]--;
-            }
+        // Calculate the cumulative sum
+        for (int i = 1; i <= max; i++) {
+            countArray[i] += countArray[i - 1];
         }
+
+        int[] arrCopy = arr.clone();
+
+        // Reconstruct the sorted array
+        for (int i = arr.length - 1; i >= 0; i--) {
+            arr[countArray[arrCopy[i]] - 1] = arrCopy[i];
+            countArray[arrCopy[i]]--;
+        }
+        System.arraycopy(arr, 0, arrCopy, 0, arr.length);
     }
 
     public static void main(String[] args) {
