@@ -21,7 +21,7 @@ import javafx.beans.Observable;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
@@ -37,10 +37,9 @@ import java.util.stream.IntStream;
  * FXML Controller class
  * From https://github.com/EricCanull/fxsortinganimation
  */
-public class AnimationController extends AnchorPane implements ISortOperator {
+public class AnimationController extends BorderPane implements ISortOperator {
     
     @FXML private GridPane barsGrid;
-    @FXML private GridPane textFieldsGrid;
 
     /**
      * Initializes the controller class.
@@ -67,7 +66,7 @@ public class AnimationController extends AnchorPane implements ISortOperator {
         RandomValues.setRandomSet(presetChoice, null);
 
         IntStream.range(0, 10).forEachOrdered(index -> {
-            TextField tf = (TextField) textFieldsGrid.getChildren().get(index);
+            TextField tf = (TextField) barsGrid.getChildren().get(index);
             tf.setText(String.valueOf(RandomValues.getArray()[index].getValue()));
         });
     }
@@ -82,7 +81,7 @@ public class AnimationController extends AnchorPane implements ISortOperator {
         }
         
         // Only if the bars grid pane is empty
-        if (barsGrid.getChildren().isEmpty()) {
+        if (barsGrid.getChildren().size() <= RandomValues.MAX_SIZE) {
             // Create new bars and add a style class
             IntStream.range(0, RandomValues.MAX_SIZE).forEachOrdered((int index) -> {
                 CompareValue compareValue = RandomValues.getArray()[index];
@@ -100,7 +99,7 @@ public class AnimationController extends AnchorPane implements ISortOperator {
                 CompareValue compareValue = RandomValues.getArray()[index];
                 double height = calculateHeight(compareValue.getValue());
 
-                Bar bar = (Bar) barsGrid.getChildren().get(index);
+                Bar bar = (Bar) barsGrid.getChildren().get(index + RandomValues.MAX_SIZE);
                 bar.setPrefHeight(height);
                 bar.setMaxHeight(height);
 
@@ -117,7 +116,7 @@ public class AnimationController extends AnchorPane implements ISortOperator {
                 CompareValue compareValue = RandomValues.getArray()[index];
                 double height = calculateHeight(compareValue.getValue());
 
-                Bar bar = (Bar) barsGrid.getChildren().get(index);
+                Bar bar = (Bar) barsGrid.getChildren().get(index + RandomValues.MAX_SIZE);
                 animate(bar, height, CompareValue.NORMAL_COLOR);
             });
         }
@@ -129,7 +128,7 @@ public class AnimationController extends AnchorPane implements ISortOperator {
     private void animate(Bar rect, double height, Color color) {
         final Timeline tl = new Timeline();
         tl.getKeyFrames().addAll(
-                new KeyFrame(Duration.millis(Math.max(MainController.DELAY_PROPERTY.get(), 20)),
+                new KeyFrame(Duration.millis(Math.max(MainController.DELAY_PROPERTY.get() * 0.8, 20)),
                         new KeyValue(rect.colorProperty, color),
                         new KeyValue(rect.prefHeightProperty(), height),
                         new KeyValue(rect.maxHeightProperty(), height)));
@@ -142,7 +141,7 @@ public class AnimationController extends AnchorPane implements ISortOperator {
      */
     private double calculateHeight(double value) {
         double x1 = RandomValues.getMaxValue(), 
-               y2 = barsGrid.getHeight();
+               y2 = barsGrid.getHeight() - 30 - barsGrid.getVgap();
 
         // calculate the new height
         double height = y2 - ((-y2 / x1) * value + ((y2 * x1) / (x1)));
@@ -162,8 +161,8 @@ public class AnimationController extends AnchorPane implements ISortOperator {
             Color color = compareValue.getColor();
             int value = compareValue.getValue();
 
-            Bar rect = (Bar) barsGrid.getChildren().get(indexPos);
-            TextField textfield = (TextField) textFieldsGrid.getChildren().get(indexPos);
+            Bar rect = (Bar) barsGrid.getChildren().get(indexPos + objectArray.length);
+            TextField textfield = (TextField) barsGrid.getChildren().get(indexPos);
             rect.setStyle("-fx-background-color: " + webColor + ";");
             final Timeline tl = new Timeline();
             tl.getKeyFrames().addAll(
