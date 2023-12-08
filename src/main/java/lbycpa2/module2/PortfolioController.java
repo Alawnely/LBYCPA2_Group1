@@ -1,16 +1,13 @@
 package lbycpa2.module2;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.VBox;
 
-import java.io.File;
 import java.io.InputStream;
-import java.net.URL;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -22,8 +19,12 @@ public class PortfolioController {
 
     @FXML
     private void switchToMainScene() {
+        WritableImage snapshot2 = MainApplication.getWindow().getScene().snapshot(null);
+
         MainApplication main = new MainApplication();
-        main.switchScene("intro-test");
+        main.switchScene("main-menu");
+
+        MainApplication.transition(snapshot2);
     }
 
     @FXML

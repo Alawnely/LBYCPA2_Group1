@@ -1,10 +1,19 @@
 package lbycpa2.module2;
 
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,17 +21,7 @@ import java.util.LinkedHashMap;
 
 public class MainApplication extends Application {
     private static Stage window;
-    @Override
-    public void start(Stage stage) {
-        window = stage;
-
-        initializeData();
-
-        switchScene("intro-test");
-        stage.setTitle("Data Structures Portfolio");
-        stage.setResizable(false);
-        stage.show();
-    }
+    private static WritableImage snapshot;
 
     public static void main(String[] args) {
         launch();
@@ -30,6 +29,18 @@ public class MainApplication extends Application {
 
     public static Stage getWindow() {
         return window;
+    }
+
+    @Override
+    public void start(Stage stage) {
+        window = stage;
+
+        initializeData();
+
+        switchScene("main-menu");
+        stage.setTitle("Data Structures Portfolio");
+        stage.setResizable(false);
+        stage.show();
     }
 
     public FXMLLoader switchScene(String fxml) {
@@ -80,37 +91,71 @@ public class MainApplication extends Application {
 
     @FXML
     private void switchToDrapiza() {
-        FXMLLoader loader = switchScene("showcase-test");
-        Object controller = loader.getController();
-        if (controller instanceof PortfolioController) {
-            ((PortfolioController) controller).setCurrentPortfolio(0);
-        }
+        switchToPortfolio(0);
     }
 
     @FXML
     private void switchToGuanzon() {
-        FXMLLoader loader = switchScene("showcase-test");
-        Object controller = loader.getController();
-        if (controller instanceof PortfolioController) {
-            ((PortfolioController) controller).setCurrentPortfolio(1);
-        }
+        switchToPortfolio(1);
     }
 
     @FXML
     private void switchToLat() {
-        FXMLLoader loader = switchScene("showcase-test");
-        Object controller = loader.getController();
-        if (controller instanceof PortfolioController) {
-            ((PortfolioController) controller).setCurrentPortfolio(2);
-        }
+        switchToPortfolio(2);
     }
 
     @FXML
     private void switchToYu() {
-        FXMLLoader loader = switchScene("showcase-test");
+        switchToPortfolio(3);
+    }
+
+    private void switchToPortfolio(int index) {
+        snapshot = window.getScene().snapshot(null);
+
+        FXMLLoader loader = switchScene("portfolio-showcase");
         Object controller = loader.getController();
         if (controller instanceof PortfolioController) {
-            ((PortfolioController) controller).setCurrentPortfolio(3);
+            ((PortfolioController) controller).setCurrentPortfolio(index);
+            transition(null);
         }
+    }
+
+    public static void transition(WritableImage snapshot2) {
+        Scene mainScene = window.getScene();
+        Parent root = mainScene.getRoot();
+
+        if (root instanceof StackPane) {
+            return;
+        }
+
+        StackPane transitionPane = new StackPane();
+        transitionPane.setMinWidth(mainScene.getWidth());
+        transitionPane.setMinHeight(mainScene.getHeight());
+
+        ImageView snapshotImage = new ImageView(snapshot);
+        if (snapshot2 != null) {
+            ImageView snapshot2Image = new ImageView(snapshot2);
+            transitionPane.getChildren().addAll(root, snapshot2Image, snapshotImage);
+        } else {
+            transitionPane.getChildren().addAll(root, snapshotImage);
+        }
+        mainScene.setRoot(transitionPane);
+
+        if (snapshot2 != null) {
+            snapshotImage.scaleXProperty().set(1.15);
+            snapshotImage.scaleYProperty().set(1.15);
+            snapshotImage.opacityProperty().set(0);
+        }
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(400),
+                new KeyValue(snapshotImage.scaleXProperty(), snapshot2 == null ? 1.15 : 1, Interpolator.EASE_IN),
+                new KeyValue(snapshotImage.scaleYProperty(), snapshot2 == null ? 1.15 : 1, Interpolator.EASE_IN),
+                new KeyValue(snapshotImage.opacityProperty(), snapshot2 == null ? 0 : 1, Interpolator.EASE_IN)
+        ));
+        timeline.setOnFinished(e -> {
+            transitionPane.getChildren().remove(root);
+            root.getStyleClass().remove("root");
+            mainScene.setRoot(root);
+        });
+        timeline.play();
     }
 }

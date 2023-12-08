@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER_LEFT" prefHeight="640.0" prefWidth="480.0" stylesheets="@newstyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module2.PortfolioController">
+<VBox alignment="CENTER_LEFT" prefHeight="640.0" prefWidth="480.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module2.PortfolioController">
    <children>
       <Button fx:id="switchProfile" mnemonicParsing="false" onAction="#switchToMainScene" text="Switch Profile" />
       <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">

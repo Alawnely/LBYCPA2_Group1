@@ -1,4 +1,4 @@
-.root {
+.root, .root > VBox {
     -fx-background-color: black;
 }
 
@@ -12,6 +12,10 @@
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-content-display: top;
+}
+.root > VBox > .button, .root > .button {
+    -fx-base: gray;
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
 }
 
 .label {
