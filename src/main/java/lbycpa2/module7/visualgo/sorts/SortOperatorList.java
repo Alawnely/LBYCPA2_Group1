@@ -33,11 +33,6 @@ public class SortOperatorList {
         operators.add(CInsertionSort.SINGLETON);
         operators.add(CMergeSort.SINGLETON);
         operators.add(CQuickSort.SINGLETON);
-        operators.add(CShellSort.SINGLETON);
-        operators.add(CPancakeSort.SINGLETON);
-        operators.add(CCocktailSort.SINGLETON);
-        operators.add(CHeapSort.SINGLETON);
-        operators.add(CExchangeSort.SINGLETON);
     }
     
     public List<AbstractSort> getList() {

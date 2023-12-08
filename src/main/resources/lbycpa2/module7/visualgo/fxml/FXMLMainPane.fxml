@@ -21,18 +21,6 @@
 
 <VBox spacing="3.0" stylesheets="@../styles/graphicspane.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lbycpa2.module7.visualgo.MainController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="10.0" styleClass="title-bar">
-         <children>
-            <Label textFill="#8a8a8a">
-               <font>
-                  <Font name="FiraCode-Regular" size="30.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="12.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
       <SplitPane dividerPositions="0.3" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <items>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="380.0" minWidth="-Infinity" prefWidth="360.0" styleClass="controls-anchor-pane">

@@ -37,6 +37,7 @@ import lbycpa2.module7.visualgo.util.RandomValues;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -96,7 +97,7 @@ public class MainController implements Initializable {
 
         // Add algoritms list and select the first index in the combobox
         algorithmsComboBox.getItems().setAll(getAlgorithmsList());
-        algorithmsComboBox.getSelectionModel().select(1);
+        algorithmsComboBox.getSelectionModel().select(0);
         
         // Add preset values list and listener to combobox
         presetsComboBox.getItems().setAll(getPresetsList());
@@ -254,14 +255,14 @@ public class MainController implements Initializable {
     private void appendMetricText() {
 
         // Calculates the difference between start and end time
-        long delta = Logger.endTime - Logger.startTime;
+        double delta = (double) (Logger.endNanoTime - Logger.startNanoTime) / 1e6;
         
         // Create a new string builder with metric data
         final StringBuilder sb = new StringBuilder();
-        sb.append("Start: ").append(Logger.startTime).append(" ns \n");
-        sb.append("Ended: ").append(Logger.endTime).append(" ns \n");
+        sb.append("Start: ").append(Logger.startTime.format(DateTimeFormatter.ISO_LOCAL_TIME)).append("\n");
+        sb.append("Ended: ").append(Logger.endTime.format(DateTimeFormatter.ISO_LOCAL_TIME)).append("\n");
         sb.append("Delay: ").append(delaySpinner.getValue()).append(" ms\n");
-        sb.append("Speed: ").append(delta).append(" ns").append("\n");
+        sb.append("Speed: ").append(delta).append(" ms").append("\n");
         sb.append("Steps: ").append(Logger.getCount()).append("\n\n");
         
         // Appends the time stamp to the text area on the left-side display
@@ -290,8 +291,7 @@ public class MainController implements Initializable {
      */
     private static List<String> getAlgorithmsList() {
         String[] algorithms
-                = {"Bubble", "Selection", "Insertion", "Merge", "Quick",
-                    "Shell", "Pancake", "Cocktail", "Heap", "Exchange"};
+                = {"Bubble", "Selection", "Insertion", "Merge", "Quick"};
         return Arrays.asList(algorithms);
     }
 

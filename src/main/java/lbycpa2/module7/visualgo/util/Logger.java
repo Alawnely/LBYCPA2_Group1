@@ -14,6 +14,8 @@
  */
 package lbycpa2.module7.visualgo.util;
 
+import java.time.LocalTime;
+
 /**
  * Performs the counting for the algorithms iterations and provides access to
  * the count.
@@ -24,18 +26,21 @@ public final class Logger {
 
     private static String infoText = "";
     private static long count;
-    public static long startTime, endTime;
+    public static long startNanoTime, endNanoTime;
+    public static LocalTime startTime, endTime;
 
     /**
      * Resets the iteration count.
      */
     public static void initiateLog() {
         count = 0;
-        startTime = System.nanoTime();
+        startNanoTime = System.nanoTime();
+        startTime = LocalTime.now();
     }
 
     public static void terminateLog() {
-        endTime = System.nanoTime();
+        endNanoTime = System.nanoTime();
+        endTime = LocalTime.now();
     }
 
     /**
