@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lbycpa2.module7;
+package lbycpa2.module7.visualgo;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,16 +21,14 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
- * JavaFX sorting algorithms demo application
- * 
- * @author Eric Canull
+ * JavaFX sorting algorithms visualizer
+ * From https://github.com/EricCanull/fxsortinganimation
  * @version 1.0
  */
 public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        
         // Load custom fonts used in css stylesheet
         Font.loadFont(MainApp.class.getResource("fonts/OpenSans-Regular.ttf").toExternalForm(), 10);
         Font.loadFont(MainApp.class.getResource("fonts/FiraCode-Regular.ttf").toExternalForm(), 10);

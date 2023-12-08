@@ -12,10 +12,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lbycpa2.module7.util;
+package lbycpa2.module7.visualgo.util;
 
 import javafx.scene.paint.Color;
-import lbycpa2.module7.MainController;
+import lbycpa2.module7.visualgo.MainController;
 
 /**
  * Creates comparable value with changing colors.

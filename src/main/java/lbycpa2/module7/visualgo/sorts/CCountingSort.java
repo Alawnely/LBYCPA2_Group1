@@ -12,21 +12,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lbycpa2.module7.sorts;
+package lbycpa2.module7.visualgo.sorts;
 
-import lbycpa2.module7.util.IComparable;
+import lbycpa2.module7.visualgo.util.IComparable;
 
 /**
- * Implementation of the selection sort algorithm.
+ * Implementation of the counting sort algorithm.
  *
- * @author Eric Canull
  */
-public final class CSelectionSort extends AbstractSort {
+public final class CCountingSort extends AbstractSort {
 
-    public static final CSelectionSort SINGLETON = new CSelectionSort();
+    public static final CCountingSort SINGLETON = new CCountingSort();
 
     /** Implementation of the selection sort algorithm */
-    private CSelectionSort() { }
+    private CCountingSort() { }
 
     /**
      * Starts of the selection sort algorithm.

@@ -27,8 +27,9 @@ module lbycpa2 {
     opens lbycpa2.module6 to javafx.fxml, org.controlsfx.controls;
     exports lbycpa2.module6;
 
-    opens lbycpa2.module7 to javafx.fxml;
-    opens lbycpa2.module7.ui to javafx.fxml;
-    exports lbycpa2.module7;
-    exports lbycpa2.module7.ui;
+    opens lbycpa2.module7.visualgo to javafx.fxml;
+    exports lbycpa2.module7.visualgo;
+
+    opens lbycpa2.module7.visualgo.ui to javafx.fxml;
+    exports lbycpa2.module7.visualgo.ui;
 }

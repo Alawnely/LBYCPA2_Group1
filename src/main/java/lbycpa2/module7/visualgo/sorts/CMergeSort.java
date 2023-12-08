@@ -12,9 +12,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lbycpa2.module7.sorts;
+package lbycpa2.module7.visualgo.sorts;
 
-import lbycpa2.module7.util.IComparable;
+import lbycpa2.module7.visualgo.util.IComparable;
 
 /**
  * Implementation of the merge sort algorithm.

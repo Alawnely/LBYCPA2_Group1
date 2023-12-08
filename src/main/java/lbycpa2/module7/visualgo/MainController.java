@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lbycpa2.module7;
+package lbycpa2.module7.visualgo;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -28,12 +28,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
-import lbycpa2.module7.sorts.AbstractSort;
-import lbycpa2.module7.sorts.SortOperator;
-import lbycpa2.module7.sorts.SortOperatorList;
-import lbycpa2.module7.ui.AnimationController;
-import lbycpa2.module7.util.Logger;
-import lbycpa2.module7.util.RandomValues;
+import lbycpa2.module7.visualgo.sorts.AbstractSort;
+import lbycpa2.module7.visualgo.sorts.SortOperator;
+import lbycpa2.module7.visualgo.sorts.SortOperatorList;
+import lbycpa2.module7.visualgo.ui.AnimationController;
+import lbycpa2.module7.visualgo.util.Logger;
+import lbycpa2.module7.visualgo.util.RandomValues;
 
 import java.io.IOException;
 import java.net.URL;
@@ -80,7 +80,7 @@ public class MainController implements Initializable {
         
         // Add the graphics controller pane 
         animationController = new AnimationController();
-        FXMLLoader loader = new FXMLLoader(AnimationController.class.getResource("/lbycpa2/module7/fxml/FXMLAnimationPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(AnimationController.class.getResource("/lbycpa2/module7/visualgo/fxml/FXMLAnimationPane.fxml"));
         try {
             loader.setController(animationController);
             loader.setRoot(animationController);

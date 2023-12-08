@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lbycpa2.module7.ui;
+package lbycpa2.module7.visualgo.ui;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -26,10 +26,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import lbycpa2.module7.MainController;
-import lbycpa2.module7.util.CompareValue;
-import lbycpa2.module7.util.ISortOperator;
-import lbycpa2.module7.util.RandomValues;
+import lbycpa2.module7.visualgo.MainController;
+import lbycpa2.module7.visualgo.util.CompareValue;
+import lbycpa2.module7.visualgo.util.ISortOperator;
+import lbycpa2.module7.visualgo.util.RandomValues;
 
 import java.util.stream.IntStream;
 
