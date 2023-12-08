@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class PortfolioController {
-    protected static final LinkedList<Map<String, String>> portfolioList = new LinkedList<>();
+    protected static final MyLinkedList<Map<String, String>> portfolioList = new MyLinkedList<>();
 
     @FXML
     private VBox worksVBox;

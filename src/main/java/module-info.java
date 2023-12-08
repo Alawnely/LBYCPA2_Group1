@@ -12,7 +12,7 @@ module lbycpa2 {
     opens lbycpa2.module1 to javafx.fxml;
     exports lbycpa2.module1;
 
-    opens lbycpa2.module2 to javafx.fxml;
+    opens lbycpa2.module2 to javafx.fxml, org.junit.platform.commons;
     exports lbycpa2.module2;
 
     opens lbycpa2.module4 to javafx.fxml;
