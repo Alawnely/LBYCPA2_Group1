@@ -21,7 +21,6 @@ import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -47,11 +46,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * FXML Controller class
- *
- * @author Eric Canull
+ * From https://github.com/EricCanull/fxsortinganimation
  */
 public class MainController implements Initializable {
-
     public static final SimpleIntegerProperty DELAY_PROPERTY = new SimpleIntegerProperty();
 
     private final SimpleBooleanProperty disableUI = new SimpleBooleanProperty(false);
@@ -73,8 +70,6 @@ public class MainController implements Initializable {
     
     /**
      * Initializes the main controller class.
-     * @param url 
-     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -89,17 +84,16 @@ public class MainController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //animationController = loader.getController();
         AnchorPane.setTopAnchor(animationController, 50.0);
         AnchorPane.setBottomAnchor(animationController, 0.0);
         AnchorPane.setLeftAnchor(animationController, 0.0);
         AnchorPane.setRightAnchor(animationController, 0.0);
 
-        // Add algoritms list and select the first index in the combobox
+        // Add algorithms list and select the first index in the combo box
         algorithmsComboBox.getItems().setAll(getAlgorithmsList());
         algorithmsComboBox.getSelectionModel().select(0);
         
-        // Add preset values list and listener to combobox
+        // Add preset values list and listener to combo box
         presetsComboBox.getItems().setAll(getPresetsList());
         presetsComboBox.valueProperty().addListener(this::presetComboBoxAction);
         presetsComboBox.getSelectionModel().select(0);
@@ -141,7 +135,6 @@ public class MainController implements Initializable {
     /**
      * Mouse listener increases or decreases the spinner value with
      * the mouse scroll wheel.
-     * @param event 
      */
     @FXML
     private void spinnerScrollAction(ScrollEvent event) {
@@ -156,7 +149,7 @@ public class MainController implements Initializable {
      * Start button method to startSort the sorting operation
      */
     @FXML
-    private void sortAction(ActionEvent event) {
+    private void sortAction() {
          start();
     }
     
@@ -164,7 +157,6 @@ public class MainController implements Initializable {
      * Starts the sorting operation
      */
     public void start() {
-        
         disableUI.set(true);     // Disable UI
         countLabel.setText("0"); // Reset count label
 
@@ -186,10 +178,9 @@ public class MainController implements Initializable {
         // Create a new thread to startSort the sorting algorithm
         executor = Executors.newSingleThreadExecutor();
         executor.submit(() -> {
-            
              // Perform the sort at the position in the list
-        AbstractSort sorter = sortOperators.getList().get(sortIndex);
-        sorter.sort(RandomValues.getArray(), 0, RandomValues.MAX_SIZE - 1);
+            AbstractSort sorter = sortOperators.getList().get(sortIndex);
+            sorter.sort(RandomValues.getArray(), 0, RandomValues.MAX_SIZE - 1);
          
             // Append text area with metric data
             Platform.runLater(() -> {
@@ -197,7 +188,7 @@ public class MainController implements Initializable {
                 appendMetricText();
             });
 
-           //  Sort completed 
+            // Sort completed
             stop();
         });
     }
@@ -216,7 +207,7 @@ public class MainController implements Initializable {
                 executor.shutdownNow();
             }
             timeline.stop();
-            setDisableUI(false); // enable UI
+            enableUI(); // enable UI
             setStatusText("Status: Ready"); // Set status
         }
     }
@@ -234,16 +225,14 @@ public class MainController implements Initializable {
     }
     
     /**
-     * Sets the disable UI flag in the FX thread
-     * @param status 
+     * Enables the UI flag in the FX thread
      */
-    private void setDisableUI(Boolean isDisable) {
-         Platform.runLater(() -> this.disableUI.set(isDisable));
+    private void enableUI() {
+         Platform.runLater(() -> this.disableUI.set(false));
     }
     
     /**
      * Sets the status label text in the FX thread
-     * @param status 
      */
     private void setStatusText(String status) {
          Platform.runLater(() -> statusLabel.setText(status));
@@ -258,20 +247,18 @@ public class MainController implements Initializable {
         double delta = (double) (Logger.endNanoTime - Logger.startNanoTime) / 1e6;
         
         // Create a new string builder with metric data
-        final StringBuilder sb = new StringBuilder();
-        sb.append("Start: ").append(Logger.startTime.format(DateTimeFormatter.ISO_LOCAL_TIME)).append("\n");
-        sb.append("Ended: ").append(Logger.endTime.format(DateTimeFormatter.ISO_LOCAL_TIME)).append("\n");
-        sb.append("Delay: ").append(delaySpinner.getValue()).append(" ms\n");
-        sb.append("Speed: ").append(delta).append(" ms").append("\n");
-        sb.append("Steps: ").append(Logger.getCount()).append("\n\n");
+        String sb = "Start: " + Logger.startTime.format(DateTimeFormatter.ISO_LOCAL_TIME) + "\n" +
+                "Ended: " + Logger.endTime.format(DateTimeFormatter.ISO_LOCAL_TIME) + "\n" +
+                "Delay: " + delaySpinner.getValue() + " ms\n" +
+                "Speed: " + delta + " ms" + "\n" +
+                "Steps: " + Logger.getCount() + "\n\n";
         
         // Appends the time stamp to the text area on the left-side display
-        logTextArea.appendText(sb.toString());
+        logTextArea.appendText(sb);
     }
     
     /**
      * Gets the current index selected for the algorithm combo box
-     * @return 
      */
     private int getAlgorithmIndex() {
         return algorithmsComboBox.getSelectionModel().getSelectedIndex();
@@ -279,28 +266,25 @@ public class MainController implements Initializable {
 
     /**
      * Clears the text area
-     * @param event 
      */
     @FXML
-    private void clearTextArea(ActionEvent event) {
+    private void clearTextArea() {
         logTextArea.clear();
     }
 
     /**
-     * The list of sort algorithms to choose in the combobox
+     * The list of sort algorithms to choose in the combo box
      */
     private static List<String> getAlgorithmsList() {
-        String[] algorithms
-                = {"Bubble", "Selection", "Insertion", "Merge", "Quick"};
+        String[] algorithms = {"Bubble", "Selection", "Insertion", "Merge", "Quick"};
         return Arrays.asList(algorithms);
     }
 
     /**
-     * The list of preset values to choose in the combobox
+     * The list of preset values to choose in the combo box
      */
     private static List<String> getPresetsList() {
-        String[] presets
-                = {"Random", "Ordered", "Reverse", "Hundreds", "Thousands"};
+        String[] presets = {"Random", "Ordered", "Reverse", "Hundreds", "Thousands"};
         return Arrays.asList(presets);
     }
 }

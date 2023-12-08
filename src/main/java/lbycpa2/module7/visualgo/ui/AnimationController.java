@@ -35,17 +35,12 @@ import java.util.stream.IntStream;
 
 /**
  * FXML Controller class
- *
- * @author Eric Canull
+ * From https://github.com/EricCanull/fxsortinganimation
  */
 public class AnimationController extends AnchorPane implements ISortOperator {
     
     @FXML private GridPane barsGrid;
     @FXML private GridPane textFieldsGrid;
-   
-//    public AnimationController() {
-//        initialize();
-//    }
 
     /**
      * Initializes the controller class.
@@ -67,7 +62,6 @@ public class AnimationController extends AnchorPane implements ISortOperator {
 
     /**
      * Sets the text field values.
-     * @param presetChoice 
      */
     public void setPresetValues(String presetChoice) {
         RandomValues.setRandomSet(presetChoice, null);
@@ -131,9 +125,6 @@ public class AnimationController extends AnchorPane implements ISortOperator {
    
     /**
      * Animates the resized bar height.
-     * @param rect
-     * @param height
-     * @param color 
      */
     private void animate(Bar rect, double height, Color color) {
         final Timeline tl = new Timeline();
@@ -160,7 +151,7 @@ public class AnimationController extends AnchorPane implements ISortOperator {
     }
     
     @Override
-    public Object apply(Object object) {
+    public void apply(Object object) {
         CompareValue[] objectArray = (CompareValue[]) object;
 
         for (int indexPos = 0; indexPos < objectArray.length; indexPos++) {
@@ -190,14 +181,13 @@ public class AnimationController extends AnchorPane implements ISortOperator {
 
         }
 
-        return null;
     }
 
     /**
      * Private inner class creates a region with a color property listener that
      * sets the background during animations.
      */
-    private final class Bar extends Region {
+    private static final class Bar extends Region {
 
         public final SimpleObjectProperty<Color> colorProperty = new SimpleObjectProperty<>(Color.web("#b43073"));
 

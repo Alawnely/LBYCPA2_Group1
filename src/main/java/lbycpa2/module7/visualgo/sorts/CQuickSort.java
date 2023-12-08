@@ -32,42 +32,42 @@ public final class CQuickSort extends AbstractSort {
      * Starts the quick sort algorithm.
      *
      * @param numbers an array of numbers used for the sorting
-     * @param lowIndex a integer representing the lowest index position in the
+     * @param lowIndex integer representing the lowest index position in the
      * array
-     * @param highIndex a integer representing the highest index position in the
+     * @param highIndex integer representing the highest index position in the
      * array
      */
     @Override
     protected void startSort(IComparable[] numbers, int lowIndex, int highIndex) {
-        qsort(numbers, 0, numbers.length - 1);
+        quicksort(numbers, 0, numbers.length - 1);
     }
 
     /**
      * Recursive method to partition the array.
      *
      * @param numbers an array of numbers used for the sorting
-     * @param lowIndex a integer representing the lowest index position in the
+     * @param lowIndex integer representing the lowest index position in the
      * array
-     * @param highIndex a integer representing the highest index position in the
+     * @param highIndex integer representing the highest index position in the
      * array
      */
-    private void qsort(IComparable[] numbers, int lowIndex, int highIndex) {
+    private void quicksort(IComparable[] numbers, int lowIndex, int highIndex) {
         if (highIndex <= lowIndex) {
             return;
         }
         count();
         int index = partition(numbers, lowIndex, highIndex);
-        qsort(numbers, lowIndex, index - 1);
-        qsort(numbers, index + 1, highIndex);
+        quicksort(numbers, lowIndex, index - 1);
+        quicksort(numbers, index + 1, highIndex);
     }
 
     /**
      * Partitions the array.
      *
      * @param numbers an array of numbers used for the sorting
-     * @param lowIndex a integer representing the lowest index position in the
+     * @param lowIndex integer representing the lowest index position in the
      * array
-     * @param highIndex a integer representing the highest index position in the
+     * @param highIndex integer representing the highest index position in the
      * array
      */
     private int partition(IComparable[] numbers, int lowIndex, int highIndex) {
@@ -83,7 +83,7 @@ public final class CQuickSort extends AbstractSort {
                 count();
             }
 
-            // scan down down to find first item less in partion
+            // scan down to find first item less in partition
             // or quit if none
             while (pivot.compare(numbers[--high]) == IComparable.LESS) {
                 count();

@@ -29,8 +29,8 @@ public final class CBubbleSort extends AbstractSort {
     /**
      * Starts the Bubble Sort algorithm.
      * @param numbers an array of numbers used for the sorting
-     * @param lowIndex a integer representing the lowest index position in the array
-     * @param highIndex a integer representing the highest index position in the array
+     * @param lowIndex integer representing the lowest index position in the array
+     * @param highIndex integer representing the highest index position in the array
      */
     @Override
     protected void startSort(IComparable[] numbers, int lowIndex, int highIndex) {

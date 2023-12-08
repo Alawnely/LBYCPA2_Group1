@@ -32,4 +32,6 @@ module lbycpa2 {
 
     opens lbycpa2.module7.visualgo.ui to javafx.fxml;
     exports lbycpa2.module7.visualgo.ui;
+    exports lbycpa2.module7.othersorting;
+    opens lbycpa2.module7.othersorting to javafx.fxml;
 }

@@ -41,7 +41,7 @@ public final class CInsertionSort extends AbstractSort {
         IComparable temp;
 
         // Iterates through numbers array one time, swapping any numbers it finds less than 
-        // it's next index until reaching the last and the array is sorted
+        // it's next index until reaching the last and the array are sorted
         for (int i = 1; i < numbers.length; i++) {
             count();
             for (int j = i; j > 0; j--) {

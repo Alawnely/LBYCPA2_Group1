@@ -21,8 +21,7 @@ import java.util.stream.IntStream;
 /**
  * Creates an array of ten values in random, reversed or ascending
  * order based on the selected number set.
- *
- * @author Eric Canull
+ * From https://github.com/EricCanull/fxsortinganimation
  */
 public class RandomValues {
     
@@ -43,7 +42,7 @@ public class RandomValues {
     
     /**
      * Gets the max value in the array.
-     * @return an array of values to be sorted
+     * @return the max value in the array
      */
     public static int getMaxValue() {
         return maxValue;
@@ -52,7 +51,6 @@ public class RandomValues {
     /**
      * Sets the values in the array
      * @param type a String representing the name of the data type
-     * @param values
      */
     public static void setRandomSet(String type, int[] values) {
         resetArray();
@@ -84,16 +82,14 @@ public class RandomValues {
     /** Resets the array. */
     public static void resetArray() {
         array = new CompareValue[MAX_SIZE];
-        IntStream.range(0, array.length).forEachOrdered(index -> {
-            array[index] = new CompareValue(index + 1);
-        });
+        IntStream.range(0, array.length).forEachOrdered(index -> array[index] = new CompareValue(index + 1));
     }
 
      /** Determines the highest value in the array. */
     public static void setMaxValue() {
         int max = 0;
         for (CompareValue value : array) {
-            max = value.getValue() > max ? value.getValue() : max;
+            max = Math.max(value.getValue(), max);
         }
        RandomValues.maxValue = max;
     }

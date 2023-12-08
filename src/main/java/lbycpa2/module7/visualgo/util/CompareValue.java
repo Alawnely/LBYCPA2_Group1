@@ -41,8 +41,6 @@ public final class CompareValue implements IComparable {
     
       /**
      * Compares two values, changes their colors and returns -1, 0, or 1.
-     *
-     * @param comparable
      * @return An object with a value less than, greater than, or equals
      */
     @Override
@@ -51,35 +49,34 @@ public final class CompareValue implements IComparable {
 
         compareValue.color = SELECTED_COLOR;
         color = SELECTED_COLOR;
-         try {
+        try {
             Thread.sleep(MainController.DELAY_PROPERTY.get()/2);
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
-         if (value < compareValue.value) {
-//            compareValue.color = SELECTED_COLOR;
-//            color = SELECTED_COLOR;
+        if (value < compareValue.value) {
+            compareValue.color = LESS_COLOR;
+            color = LESS_COLOR;
             i = IComparable.LESS;
         } else if (value > compareValue.value) {
-//            compareValue.color = SELECTED_COLOR;
-//            color = SELECTED_COLOR;
+            compareValue.color = GREATER_COLOR;
+            color = GREATER_COLOR;
             i = IComparable.GREATER;
         } else {
             i = IComparable.EQUAL;
         }
-           try {
+        try {
             Thread.sleep(MainController.DELAY_PROPERTY.get()/2);
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
-         compareValue.color = NORMAL_COLOR;
+        compareValue.color = NORMAL_COLOR;
         color = NORMAL_COLOR;
         return i;
     }
     
     /**
      * Gets the value.
-     *
      * @return An integer value specifying the current number stored
      */
     public int getValue() {
@@ -88,7 +85,6 @@ public final class CompareValue implements IComparable {
 
     /**
      * Sets the value.
-     *
      * @param value a reference to the new integer value to be set
      */
     public void setValue(int value) {
@@ -97,7 +93,6 @@ public final class CompareValue implements IComparable {
 
     /**
      * Sets the color
-     * @param color 
      */
     @Override
     public void setColor(Color color) {
@@ -106,7 +101,6 @@ public final class CompareValue implements IComparable {
 
     /**
      * Gets the color
-     * @return 
      */
     @Override
     public Color getColor() {
@@ -115,7 +109,6 @@ public final class CompareValue implements IComparable {
     
     /**
      * Gets the value as a string
-     * @return 
      */
     @Override
     public String toString() {

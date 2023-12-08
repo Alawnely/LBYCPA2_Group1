@@ -55,8 +55,8 @@ public final class CMergeSort extends AbstractSort {
      *
      * @param numbers an array of numbers used for the sorting
      * @param temp an array of numbers used for the sorting
-     * @param left a integer representing the left index position in the array
-     * @param right a integer representing the right index position in the array
+     * @param left integer representing the left index position in the array
+     * @param right integer representing the right index position in the array
      */
     private void mergeSort(IComparable[] numbers, IComparable[] temp, int left, int right) {
         if (left < right) {
@@ -74,9 +74,9 @@ public final class CMergeSort extends AbstractSort {
      *
      * @param numbers an array of numbers used for the sorting
      * @param temp an array of numbers used for the sorting
-     * @param left a integer representing the left index position in the array
-     * @param right a integer representing the right index position in the array
-     * @param rightEnd a integer representing the rightEnd position in the array
+     * @param left integer representing the left index position in the array
+     * @param right integer representing the right index position in the array
+     * @param rightEnd integer representing the rightEnd position in the array
      */
     private void merge(IComparable[] numbers, IComparable[] temp, int left, int right, int rightEnd) {
         int leftEnd = right - 1;

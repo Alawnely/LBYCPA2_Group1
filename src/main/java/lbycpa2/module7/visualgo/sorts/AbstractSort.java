@@ -39,7 +39,7 @@ public abstract class AbstractSort {
     }
 
     /**
-     * The abstract method used by all of the concrete sorting classes
+     * The abstract method used by all the concrete sorting classes
      *
      * @param numbers the array of numbers to be sorted.
      * @param lowIndex the low index of the array.

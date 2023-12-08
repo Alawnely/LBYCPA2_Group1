@@ -19,12 +19,10 @@ import java.time.LocalTime;
 /**
  * Performs the counting for the algorithms iterations and provides access to
  * the count.
- *
- * @author Eric Canull
+ * From https://github.com/EricCanull/fxsortinganimation
  */
 public final class Logger {
 
-    private static String infoText = "";
     private static long count;
     public static long startNanoTime, endNanoTime;
     public static LocalTime startTime, endTime;
@@ -57,23 +55,5 @@ public final class Logger {
      */
     public static void count() {
         count++;
-    }
-
-    /**
-     * Changes the text of this infoText.
-     *
-     * @param text a reference specifying the new text of this infoText
-     */
-    public static void setLogText(String text) {
-        Logger.infoText = text;
-    }
-
-    /**
-     * Returns the text in this infoText.
-     *
-     * @return a String reference specifying the text in this infoText
-     */
-    public static String getLogText() {
-        return Logger.infoText;
     }
 }

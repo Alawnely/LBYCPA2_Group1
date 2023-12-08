@@ -16,8 +16,6 @@ package lbycpa2.module7.visualgo.sorts;
 
 import lbycpa2.module7.visualgo.util.ISortOperator;
 
-import java.util.Arrays;
-
 /**
  * Creates a singleton for retrieving the bars array data as its being sorted
  * after the timer animation is started.
@@ -39,22 +37,19 @@ public class SortOperator implements ISortOperator {
  
     /**
      * Returns the sorted array every time the timer running
-     * @param objects an array being sorted
+     * @param objects      an array being sorted
      * @param sortOperator an object that returns the sorted array
-     * @return an output sorted object or null
      */
-    public Object[] apply(Object objects[], ISortOperator sortOperator) {
-        Object[] result = Arrays.copyOf(objects, objects.length);
+    public void apply(Object[] objects, ISortOperator sortOperator) {
         sortOperator.apply(objects);
-        return result;
     }
     
     /**
      * Null object pattern method
+     *
      * @param arg an object
      */
     @Override
-    public Object apply(Object arg) {
-        return null;
+    public void apply(Object arg) {
     }
 }

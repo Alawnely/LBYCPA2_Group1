@@ -34,19 +34,11 @@ public class MainApp extends Application {
         Font.loadFont(MainApp.class.getResource("fonts/FiraCode-Regular.ttf").toExternalForm(), 10);
         
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("fxml/FXMLMainPane.fxml")));
-        stage.setTitle("Sorting Demo");
+        stage.setTitle("Sorting Visualization");
         stage.setScene(scene);
         stage.show();
     }
 
-    /**
-     * The main() method is ignored in correctly deployed JavaFX application.
-     * main() serves only as fallback in case the application can not be
-     * launched through deployment artifacts, e.g., in IDEs with limited FX
-     * support. NetBeans ignores main().
-     *
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }

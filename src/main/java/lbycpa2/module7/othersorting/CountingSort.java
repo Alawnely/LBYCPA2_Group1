@@ -1,4 +1,4 @@
-package lbycpa2.module7.visualgo;
+package lbycpa2.module7.othersorting;
 
 public class CountingSort {
     //TODO: Convert to CCountingSort

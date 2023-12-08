@@ -22,8 +22,6 @@ public interface ISortOperator {
 
     /**
      * @param arg input object for the lambda expression.
-     * @return an output object resulting from evaluating the lambda expression
-     * on the input arg.
      */
-    public Object apply(Object arg);
+    void apply(Object arg);
 }
