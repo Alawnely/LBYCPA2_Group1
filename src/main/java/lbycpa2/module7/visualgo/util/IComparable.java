@@ -25,8 +25,8 @@ public interface IComparable {
     int EQUAL = 0;
     int GREATER = 1;
 
-    Color NORMAL_COLOR = Color.web("#E47C38");
-    Color SELECTED_COLOR = Color.web("#3073b4");
+    Color NORMAL_COLOR = Color.web("#387CE4");
+    Color SELECTED_COLOR = Color.web("#b43073");
     Color GREATER_COLOR = Color.web("#2da762");
     Color LESS_COLOR = Color.web("#7F5096");
     

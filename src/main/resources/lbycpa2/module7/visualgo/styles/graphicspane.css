@@ -1,9 +1,9 @@
 .root {
-    -fx-base: #E47C38;
-    -fx-accent: #3073b4;
+    -fx-base: #387CE4;
+    -fx-accent: #b43073;
     -fx-background: #31363b;
-    -fx-focus-color: #3073b4;
-    -fx-control-inner-background: #232629;
+    -fx-focus-color: #b43073;
+    -fx-control-inner-background: #192022;
     -fx-inner-border: linear-gradient(to bottom, 
         derive(-fx-color,30%) 0%, 
         derive(-fx-color,-5%) 100%);
@@ -12,9 +12,6 @@
         derive(-fx-color, -2%) 20%,
         derive(-fx-color, -5%) 60%, 
         derive(-fx-color, -8%) 100%);
-}
-#Content {
-
 }
 
 .hyperlink {
@@ -29,10 +26,10 @@
 }
 
 .log-text-area .content {
-    -fx-background-color: #192022;
+    -fx-background-color: -fx-control-inner-background;
 }
 .spinner .text-field:readonly {
-	-fx-background-color: #192022;
+	-fx-background-color: -fx-control-inner-background;
 }
 
 .toggle-button:selected {
@@ -60,7 +57,7 @@
     -fx-border-color: #686971;
 }
 .rect {
-    -fx-background-color: #E47C38;
+    -fx-background-color: -fx-base;
     -fx-border-radius: 3 3 1 1;
     -fx-background-radius: 3 3 1 1;
 }
@@ -72,8 +69,8 @@
 }
 
 .number-field {
-    -fx-border-color: #E47C38;
-    -fx-background-color: #3073b433;
+    -fx-border-color: -fx-base;
+    -fx-background-color: -fx-control-inner-background;
 }
 
 .split-pane {
@@ -84,7 +81,7 @@
     -fx-background-color: transparent;
 }
 
-.choice-box .label { /* Workaround for RT-20015 */
+.choice-box .label {
     -fx-text-fill: -fx-text-base-color;
 }
 
@@ -101,16 +98,14 @@
 }
 
 .button, .toggle-button, .check-box .box, .radio-button .radio, .choice-box, .menu-button, .tab, .combo-box-base {
-    /*    -fx-background-insets: 0 0 0 0, 0, 1, 1;*/
+    -fx-background-insets: 0 0 0 0, 0, 1, 1;
 }
 
 .choice-box .label {
-    /* Workaround for RT-20015 */
     -fx-text-fill: -fx-text-base-color;
 }
 
 .menu-button .label {
-    /* Workaround for RT-20015 */
     -fx-text-fill: -fx-text-base-color;
 }
 

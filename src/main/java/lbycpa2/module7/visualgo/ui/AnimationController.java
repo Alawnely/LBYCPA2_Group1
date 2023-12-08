@@ -199,7 +199,7 @@ public class AnimationController extends AnchorPane implements ISortOperator {
      */
     private final class Bar extends Region {
 
-        public final SimpleObjectProperty<Color> colorProperty = new SimpleObjectProperty<>(Color.web("#3073b4"));
+        public final SimpleObjectProperty<Color> colorProperty = new SimpleObjectProperty<>(Color.web("#b43073"));
 
         public Bar() {
 
