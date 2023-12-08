@@ -8,12 +8,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedHashMap;
 
 public class MainApplication extends Application {
     private static Stage window;
     @Override
     public void start(Stage stage) {
         window = stage;
+
+        initializeData();
 
         switchScene("intro-test");
         stage.setTitle("Data Structures Portfolio");
@@ -37,10 +40,6 @@ public class MainApplication extends Application {
             window.setScene(scene);
             scene.getRoot().requestFocus();
 
-//            Object controller = fxmlLoader.getController();
-//            if (controller instanceof PortfolioController) {
-//                ((PortfolioController) controller).setCurrentPortfolio(location);
-//            }
             return fxmlLoader;
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,14 +47,43 @@ public class MainApplication extends Application {
         }
     }
 
+    private void initializeData() {
+        LinkedHashMap<String, String> drapizaPortfolio = new LinkedHashMap<>();
+        drapizaPortfolio.put("Digital Artistry", "Drapiza_Artistry.png");
+        drapizaPortfolio.put("Pokemon", "Drapiza_Pokemon.jpg");
+        drapizaPortfolio.put("SocialNet", "Drapiza_SocialNet.png");
+        PortfolioController.portfolioList.add(drapizaPortfolio);
+
+        LinkedHashMap<String, String> guanzonPortfolio = new LinkedHashMap<>();
+        guanzonPortfolio.put("Digital Artistry", "Guanzon - digital artistry.png");
+        guanzonPortfolio.put("Hangman", "Guanzon - hangman.png");
+        guanzonPortfolio.put("SocialNet", "Guanzon - socialnet.png");
+        guanzonPortfolio.put("Pokemon Card Collection", "Guanzon - pokemon 1.png");
+        guanzonPortfolio.put("Pokemon Card Collection 2", "Guanzon - pokemon 2.png");
+        PortfolioController.portfolioList.add(guanzonPortfolio);
+
+        LinkedHashMap<String, String> latPortfolio = new LinkedHashMap<>();
+        latPortfolio.put("Chess", "Lat - Chess.png");
+        latPortfolio.put("Hangman", "Lat - Hangman.png");
+        latPortfolio.put("Pokemon Card Collection", "Lat -Pokemon 1.png");
+        latPortfolio.put("3D Modeling", "Lat - Modeling1.png");
+        PortfolioController.portfolioList.add(latPortfolio);
+
+        LinkedHashMap<String, String> yuPortfolio = new LinkedHashMap<>();
+        yuPortfolio.put("Digital Artistry", "yu - digital artistry.png");
+        yuPortfolio.put("Hangman", "yu - hangman.png");
+        yuPortfolio.put("SocialNet", "yu - socialnet.png");
+        yuPortfolio.put("Pokemon Card Collection", "yu - pokemon1.png");
+        yuPortfolio.put("Pokemon Card Collection 2", "yu - pokemon 2.png");
+        PortfolioController.portfolioList.add(yuPortfolio);
+    }
+
     @FXML
     private void switchToDrapiza() {
         FXMLLoader loader = switchScene("showcase-test");
         Object controller = loader.getController();
         if (controller instanceof PortfolioController) {
-            ((PortfolioController) controller).addWorks("Digital Artistry", "Drapiza_Artistry.png");
-            ((PortfolioController) controller).addWorks("Pokemon", "Drapiza_Pokemon.jpg");
-            ((PortfolioController) controller).addWorks("SocialNet", "Drapiza_SocialNet.png");
+            ((PortfolioController) controller).setCurrentPortfolio(0);
         }
     }
 
@@ -64,11 +92,7 @@ public class MainApplication extends Application {
         FXMLLoader loader = switchScene("showcase-test");
         Object controller = loader.getController();
         if (controller instanceof PortfolioController) {
-            ((PortfolioController) controller).addWorks("Digital Artistry", "Guanzon - digital artistry.png");
-            ((PortfolioController) controller).addWorks("Hangman", "Guanzon - hangman.png");
-            ((PortfolioController) controller).addWorks("SocialNet", "Guanzon - socialnet.png");
-            ((PortfolioController) controller).addWorks("Pokemon Card Collection", "Guanzon - pokemon 1.png");
-            ((PortfolioController) controller).addWorks("", "Guanzon - pokemon 2.png", 200);
+            ((PortfolioController) controller).setCurrentPortfolio(1);
         }
     }
 
@@ -77,10 +101,7 @@ public class MainApplication extends Application {
         FXMLLoader loader = switchScene("showcase-test");
         Object controller = loader.getController();
         if (controller instanceof PortfolioController) {
-            ((PortfolioController) controller).addWorks("Chess", "Lat - Chess.png");
-            ((PortfolioController) controller).addWorks("Hangman", "Lat - Hangman.png");
-            ((PortfolioController) controller).addWorks("Pokemon Card Collection", "Lat -Pokemon 1.png");
-            ((PortfolioController) controller).addWorks("3D Modeling", "Lat - Modeling1.png");
+            ((PortfolioController) controller).setCurrentPortfolio(2);
         }
     }
 
@@ -89,36 +110,7 @@ public class MainApplication extends Application {
         FXMLLoader loader = switchScene("showcase-test");
         Object controller = loader.getController();
         if (controller instanceof PortfolioController) {
-            ((PortfolioController) controller).addWorks("Digital Artistry", "yu - digital artistry.png");
-            ((PortfolioController) controller).addWorks("Hangman", "yu - hangman.png");
-            ((PortfolioController) controller).addWorks("SocialNet", "yu - socialnet.png");
-            ((PortfolioController) controller).addWorks("Pokemon Card Collection", "yu - pokemon1.png", 200);
-            ((PortfolioController) controller).addWorks("", "yu - pokemon 2.png", 200);
+            ((PortfolioController) controller).setCurrentPortfolio(3);
         }
-    }
-
-    @FXML
-    private void switchToStudentWorks() {
-        switchScene("drapiza");
-    }
-
-    @FXML
-    private void switchToSocialNet() {
-        switchScene("1-static-array");
-    }
-
-    @FXML
-    private void switchToDigitalArtistry() {
-        switchScene("6-queue");
-    }
-
-    @FXML
-    private void switchToPokemon() {
-        switchScene("7-binary-search-tree");
-    }
-
-    @FXML
-    private void switchToHangman() {
-        switchScene("8-hash-table");
     }
 }

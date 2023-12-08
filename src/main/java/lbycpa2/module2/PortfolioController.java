@@ -12,17 +12,16 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class PortfolioController {
-    private static final LinkedList<String> portfolioList = new LinkedList<>(Arrays.asList("drapiza", "guanzon", "lat", "yu"));
-    @FXML
-    private Button nextButton;
-    @FXML
-    private VBox worksVBox;
-    private int currentPortfolio;
+    protected static final LinkedList<Map<String, String>> portfolioList = new LinkedList<>();
 
     @FXML
-    protected void switchToMainScene() {
+    private VBox worksVBox;
+
+    @FXML
+    private void switchToMainScene() {
         MainApplication main = new MainApplication();
         main.switchScene("intro-test");
     }
@@ -32,11 +31,14 @@ public class PortfolioController {
         worksVBox.getChildren().clear();
     }
 
-    void addWorks(String text, String imagePath) {
-        addWorks(text, imagePath, 0);
+    protected void setCurrentPortfolio(int index) {
+        Map<String, String> portfolioMap = portfolioList.get(index);
+        for (Map.Entry<String, String> entry : portfolioMap.entrySet()) {
+            addWorks(entry.getKey(), entry.getValue(), 0);
+        }
     }
 
-    void addWorks(String text, String imagePath, int width) {
+    private void addWorks(String text, String imagePath, int width) {
         Label label = new Label(text);
 
         InputStream url = getClass().getResourceAsStream("outputs/" + imagePath);
@@ -46,21 +48,5 @@ public class PortfolioController {
 
         VBox vbox = new VBox(label, imageView);
         worksVBox.getChildren().add(vbox);
-    }
-
-    @FXML
-    private void goNext() {
-        MainApplication main = new MainApplication();
-        main.switchScene(portfolioList.get(currentPortfolio+1));
-    }
-
-    protected void setCurrentPortfolio(URL location) {
-        String filename = new File(location.getFile()).getName();
-        filename = filename.substring(0, filename.length()-5);
-        currentPortfolio = portfolioList.indexOf(filename);
-
-        if (currentPortfolio >= portfolioList.size()-1) {
-            nextButton.setVisible(false);
-        }
     }
 }
